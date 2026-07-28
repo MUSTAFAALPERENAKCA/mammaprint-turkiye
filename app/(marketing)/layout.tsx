@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { SkipLink } from "@/components/layout/skip-link";
+import { CookieConsent } from "@/components/consent/cookie-consent";
 import { getSiteUrl, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 
 export default function MarketingLayout({ children }: { children: ReactNode }) {
@@ -27,6 +28,7 @@ export default function MarketingLayout({ children }: { children: ReactNode }) {
         {children}
       </main>
       <Footer />
+      <CookieConsent />
     </>
   );
 }

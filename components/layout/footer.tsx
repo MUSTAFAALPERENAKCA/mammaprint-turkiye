@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { footerLegalLinks } from "@/lib/nav-data";
+import { CookiePreferencesButton } from "@/components/consent/cookie-preferences-button";
 
 export function Footer() {
   return (
@@ -39,9 +40,7 @@ export function Footer() {
                 </li>
               ))}
               <li>
-                <button type="button" className="underline">
-                  Çerez ayarlarını değiştir
-                </button>
+                <CookiePreferencesButton />
               </li>
             </ul>
           </div>
