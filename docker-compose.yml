@@ -1,0 +1,35 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: mammaprint
+      POSTGRES_PASSWORD: mammaprint
+      POSTGRES_DB: mammaprint
+    ports:
+      - "5434:5432" # host 5434: 5432/5433 already used by other local projects on this machine
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mammaprint"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://mammaprint:mammaprint@db:5432/mammaprint?schema=public
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+
+volumes:
+  db_data:

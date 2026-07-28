@@ -1,0 +1,14 @@
+import type { MetadataRoute } from "next";
+import { absoluteUrl } from "@/lib/seo";
+
+/** Gereksinim S-05: yönetim/önizleme/arama parametreleri engellenmeli. */
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: {
+      userAgent: "*",
+      allow: "/",
+      disallow: ["/admin", "/api", "/login"],
+    },
+    sitemap: absoluteUrl("/sitemap.xml"),
+  };
+}

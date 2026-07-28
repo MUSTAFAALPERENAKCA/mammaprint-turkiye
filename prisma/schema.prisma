@@ -1,0 +1,346 @@
+// Bkz. docs/content-model.md — bu şemanın insan tarafından okunabilir açıklaması.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ContentStatus {
+  draft
+  editorial_review
+  medical_review
+  seo_review
+  approved
+  scheduled
+  published
+  archived
+}
+
+enum TargetAudience {
+  patient
+  hcp
+  general
+}
+
+enum UserRole {
+  super_admin
+  content_editor
+  medical_reviewer
+  seo_editor
+  publisher
+  system_admin
+}
+
+enum FormType {
+  general
+  hcp
+  corporate
+}
+
+enum PersonRole {
+  author
+  medical_reviewer
+  both
+}
+
+enum RelatedTest {
+  mammaprint
+  blueprint
+  both
+}
+
+model User {
+  id            String   @id @default(uuid())
+  name          String
+  email         String   @unique
+  passwordHash  String
+  role          UserRole
+  isActive      Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  authoredPages      Page[]        @relation("PageAuthor")
+  reviewedPages       Page[]        @relation("PageMedicalReviewer")
+  authoredBlogPosts  BlogPost[]    @relation("BlogPostAuthor")
+  reviewedBlogPosts  BlogPost[]    @relation("BlogPostMedicalReviewer")
+  revisions          ContentRevision[]
+  auditLogs          AuditLog[]
+
+  @@map("users")
+}
+
+// Ortak alanlar için bkz. docs/content-model.md §1. Prisma composite type desteklemediği
+// için tekrar eden alanlar her modelde açık şekilde tanımlanmıştır.
+
+model Page {
+  id                  String         @id @default(uuid())
+  slug                String         @unique
+  status              ContentStatus  @default(draft)
+  targetAudience      TargetAudience @default(general)
+  seoTitle            String
+  metaDescription     String
+  canonicalUrl        String
+  ogImage             String?
+  h1                  String
+  schemaType          String         @default("WebPage")
+  hero                Json?
+  sections            Json?
+  primaryCta          Json?
+  secondaryCta        Json?
+  references          Json?
+  relatedContentIds   String[]       @default([])
+  noindex             Boolean        @default(false)
+
+  authorId            String?
+  author              User?          @relation("PageAuthor", fields: [authorId], references: [id])
+  medicalReviewerId   String?
+  medicalReviewer     User?          @relation("PageMedicalReviewer", fields: [medicalReviewerId], references: [id])
+
+  publishedAt         DateTime?
+  scheduledPublishAt  DateTime?
+  scheduledReviewAt   DateTime?
+  createdAt           DateTime       @default(now())
+  updatedAt           DateTime       @updatedAt
+
+  @@index([status])
+  @@index([targetAudience])
+  @@map("pages")
+}
+
+model BlogPost {
+  id                  String         @id @default(uuid())
+  slug                String         @unique
+  status              ContentStatus  @default(draft)
+  targetAudience      TargetAudience @default(general)
+  seoTitle            String
+  metaDescription     String
+  canonicalUrl        String
+  ogImage             String?
+  h1                  String
+  excerpt             String
+  featuredImage       String?
+  featuredImageAlt    String?
+  body                Json
+  tableOfContents     Json?
+  readingTimeMinutes  Int?
+  references          Json?
+  relatedContentIds   String[]       @default([])
+  noindex             Boolean        @default(false)
+
+  categoryId          String
+  category            BlogCategory   @relation(fields: [categoryId], references: [id])
+  tagIds              String[]       @default([])
+
+  authorId            String?
+  author              User?          @relation("BlogPostAuthor", fields: [authorId], references: [id])
+  medicalReviewerId   String?
+  medicalReviewer     User?          @relation("BlogPostMedicalReviewer", fields: [medicalReviewerId], references: [id])
+
+  publishedAt         DateTime?
+  scheduledPublishAt  DateTime?
+  scheduledReviewAt   DateTime?
+  createdAt           DateTime       @default(now())
+  updatedAt           DateTime       @updatedAt
+
+  @@index([status])
+  @@index([categoryId])
+  @@map("blog_posts")
+}
+
+model BlogCategory {
+  id          String     @id @default(uuid())
+  slug        String     @unique
+  name        String
+  description String?
+  posts       BlogPost[]
+
+  @@map("blog_categories")
+}
+
+model ClinicalStudy {
+  id                  String         @id @default(uuid())
+  slug                String         @unique
+  status              ContentStatus  @default(draft)
+  seoTitle            String
+  metaDescription     String
+  canonicalUrl        String
+  h1                  String
+  studyName           String
+  studyDesign         String
+  objective           String
+  patientPopulation   String
+  primaryEndpoint     String
+  followUpDuration    String
+  finding             String
+  clinicalImplication String
+  limitations         String
+  sourceCitation      String
+  lastMedicalReviewDate DateTime?
+  relatedContentIds   String[]       @default([])
+  noindex             Boolean        @default(false)
+  publishedAt         DateTime?
+  createdAt           DateTime       @default(now())
+  updatedAt           DateTime       @updatedAt
+
+  @@index([status])
+  @@map("clinical_studies")
+}
+
+model Publication {
+  id              String        @id @default(uuid())
+  slug            String        @unique
+  status          ContentStatus @default(draft)
+  citation        String
+  year            Int
+  topic           String
+  relatedTest     RelatedTest
+  type            String
+  doiOrPubmedUrl  String?
+  summary         String
+  noindex         Boolean       @default(false)
+  publishedAt     DateTime?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  @@index([status])
+  @@index([relatedTest])
+  @@map("publications")
+}
+
+model Resource {
+  id              String         @id @default(uuid())
+  slug            String         @unique
+  status          ContentStatus  @default(draft)
+  title           String
+  documentType    String
+  language        String         @default("tr")
+  fileUrl         String
+  version         String
+  validUntil      DateTime
+  targetAudience  TargetAudience @default(general)
+  fileSizeBytes   Int
+  mimeType        String
+  noindex         Boolean        @default(false)
+  publishedAt     DateTime?
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+
+  @@index([status])
+  @@map("resources")
+}
+
+model FAQ {
+  id                String         @id @default(uuid())
+  status            ContentStatus  @default(draft)
+  question          String
+  shortAnswer       String
+  longAnswer        String?
+  targetAudience    TargetAudience @default(general)
+  relatedPageIds    String[]       @default([])
+  schemaEligible    Boolean        @default(false)
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+
+  @@index([status])
+  @@map("faqs")
+}
+
+model GlossaryTerm {
+  id                    String   @id @default(uuid())
+  slug                  String   @unique
+  term                  String
+  simpleDefinition      String
+  technicalDefinition   String
+  relatedTermIds        String[] @default([])
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+
+  @@map("glossary_terms")
+}
+
+model Person {
+  id          String     @id @default(uuid())
+  slug        String     @unique
+  name        String
+  title       String?
+  expertise   String?
+  bio         String?
+  role        PersonRole
+  photo       String?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  @@map("people")
+}
+
+model Organization {
+  id                     String   @id @default(uuid())
+  slug                    String   @unique
+  name                    String
+  relationshipDescription String
+  logo                    String?
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime @updatedAt
+
+  @@map("organizations")
+}
+
+model Redirect {
+  id             String   @id @default(uuid())
+  sourceUrl      String   @unique
+  destinationUrl String
+  statusCode     Int      @default(301)
+  note           String?
+  createdAt      DateTime @default(now())
+
+  @@map("redirects")
+}
+
+model FormSubmission {
+  id               String    @id @default(uuid())
+  formType         FormType
+  name             String
+  contactValue     String
+  userType         String?
+  subject          String
+  message           String
+  consentGiven      Boolean
+  consentTimestamp  DateTime
+  submittedAt       DateTime @default(now())
+
+  @@index([formType])
+  @@map("form_submissions")
+}
+
+model ContentRevision {
+  id            String   @id @default(uuid())
+  entityType    String
+  entityId      String
+  snapshot      Json
+  changeSummary String?
+  editedById    String?
+  editedBy      User?    @relation(fields: [editedById], references: [id])
+  editedAt      DateTime @default(now())
+
+  @@index([entityType, entityId])
+  @@map("content_revisions")
+}
+
+model AuditLog {
+  id         String   @id @default(uuid())
+  userId     String?
+  user       User?    @relation(fields: [userId], references: [id])
+  action     String
+  entityType String?
+  entityId   String?
+  metadata   Json?
+  createdAt  DateTime @default(now())
+
+  @@index([userId])
+  @@index([createdAt])
+  @@map("audit_logs")
+}

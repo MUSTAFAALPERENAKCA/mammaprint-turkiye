@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+/*
+ * Tasarım tokenları — bkz. docs/design-system.md.
+ * Bu dosya değiştiğinde design-system.md da güncellenmelidir.
+ */
+:root {
+  --color-primary-900: #0b1f3a;
+  --color-primary-700: #173357;
+  --color-mammaprint-accent: #c6357a;
+  --color-blueprint-accent: #1e6fa8;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f4f6f8;
+  --color-surface-tint-rose: #fdf3f7;
+  --color-surface-tint-blue: #eff6fb;
+  --color-text-primary: #111827;
+  --color-text-muted: #4b5563;
+  --color-border: #e5e7eb;
+  --color-success: #15803d;
+  --color-warning: #b45309;
+  --color-danger: #b91c1c;
+  --color-focus-ring: #2563eb;
+
+  --radius-card: 14px;
+  --radius-button: 10px;
+  --radius-input: 8px;
+  --shadow-card: 0 1px 2px rgba(17, 24, 39, 0.06), 0 4px 12px rgba(17, 24, 39, 0.06);
+}
+
+@theme inline {
+  --color-primary-900: var(--color-primary-900);
+  --color-primary-700: var(--color-primary-700);
+  --color-mammaprint-accent: var(--color-mammaprint-accent);
+  --color-blueprint-accent: var(--color-blueprint-accent);
+  --color-surface: var(--color-surface);
+  --color-surface-muted: var(--color-surface-muted);
+  --color-surface-tint-rose: var(--color-surface-tint-rose);
+  --color-surface-tint-blue: var(--color-surface-tint-blue);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-muted: var(--color-text-muted);
+  --color-border: var(--color-border);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-danger: var(--color-danger);
+  --color-focus-ring: var(--color-focus-ring);
+  --font-sans: var(--font-inter);
+
+  --text-display: 44px;
+  --text-h1: 36px;
+  --text-h2: 28px;
+  --text-h3: 22px;
+  --text-body-lg: 18px;
+  --text-small: 14px;
+
+  --radius-card: var(--radius-card);
+  --radius-button: var(--radius-button);
+  --radius-input: var(--radius-input);
+  --shadow-card: var(--shadow-card);
+}
+
+body {
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Erişilebilirlik: prefers-reduced-motion tercihi tüm animasyon/geçişleri kapatır.
+   Bkz. docs/design-system.md §6, gereksinim D-05. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Skip link — WCAG 2.2 AA klavye navigasyonu gereksinimi */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--color-primary-900);
+  color: white;
+  border-radius: 0 0 var(--radius-input) 0;
+}
+
+.skip-link:focus {
+  left: 0;
+}

@@ -1,0 +1,4 @@
+source_url,destination_url,status_code,note
+https://mammaprintturkiye.com/en/,https://mammaprintturkiye.com/,301,"Duplicate Turkish content wrongly served under /en/; consolidate to root per strategy doc S6.3"
+https://mammaprintturkiye.com/en/mammaprint/,https://mammaprintturkiye.com/mammaprint/,301,"Duplicate MammaPrint page under /en/; single-hop redirect to canonical Turkish URL"
+https://mammaprintturkiye.com/en/blueprint/,https://mammaprintturkiye.com/blueprint/,301,"Duplicate BluePrint page under /en/; single-hop redirect to canonical Turkish URL"
