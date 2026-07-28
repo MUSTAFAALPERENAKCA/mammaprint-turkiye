@@ -32,10 +32,7 @@ cp .env.example .env
 # .env içindeki AUTH_SECRET değerini şu komutla üretebilirsiniz:
 openssl rand -base64 32
 
-# 3. Yerel PostgreSQL'i başlat
-# Not: docker-compose.yml, bu makinede 5432/5433'ün başka projeler tarafından
-# kullanıldığı tespit edildiği için veritabanını host portu 5434'e eşler.
-# Kendi makinenizde farklıysa docker-compose.yml + .env DATABASE_URL'i güncelleyin.
+# 3. Yerel PostgreSQL'i başlat (host portu 6530 — proje port kuralı: 6530-6545)
 docker compose up -d db
 
 # 4. Migration'ları uygula ve seed verisini yükle
@@ -46,8 +43,14 @@ npm run db:seed
 npm run dev
 ```
 
-Site [http://localhost:3000](http://localhost:3000) adresinde açılır. Yönetim paneli
-[http://localhost:3000/admin](http://localhost:3000/admin) adresindedir; seed edilen giriş bilgileri:
+Not: `npm run dev` (Docker dışı yerel geliştirme sunucusu) varsayılan olarak 3000 portunda çalışır;
+bu, "tüm servis portları 6530-6545 arasında olmalı" kuralı yalnızca `docker-compose.yml` ile
+çalıştırılan container'lı servisler için geçerlidir. Tam dockerize edilmiş çalıştırma için
+aşağıdaki "Docker ile çalıştırma" bölümüne bakın.
+
+Site [http://localhost:6531](http://localhost:6531) (Docker) veya
+[http://localhost:3000](http://localhost:3000) (yerel `npm run dev`) adresinde açılır. Yönetim
+paneli `/admin` alt yolundadır; seed edilen giriş bilgileri:
 
 - E-posta: `admin@mammaprintturkiye.com`
 - Şifre: `changeme123` (veya `SEED_ADMIN_PASSWORD` ortam değişkeniyle özelleştirilebilir)
@@ -74,9 +77,18 @@ girişten sonra değiştirin (bkz. `docs/security-checklist.md`, Faz 5'te oluşt
 docker compose up -d
 ```
 
-`app` servisi `Dockerfile` üzerinden production build alır; `db` servisi PostgreSQL'i host'un
-5434 portuna (container içinde standart 5432) eşler. `.env` dosyanızın `docker-compose.yml`
-içindeki `app` servisi için `env_file` olarak okunduğunu unutmayın.
+Bu proje tamamen dockerize edilmiştir. Tüm servis portları **6530-6545** aralığındadır ve
+hiçbiri birbiriyle çakışmaz:
+
+| Servis | Host portu | Container portu | Açıklama |
+|---|---|---|---|
+| `db` (PostgreSQL) | `6530` | `5432` | Veritabanı |
+| `app` (Next.js) | `6531` | `3000` | Web uygulaması |
+
+`app` servisi `Dockerfile` üzerinden production build alır (multi-stage, standalone output).
+`.env` dosyanızın `docker-compose.yml` içindeki `app` servisi için `env_file` olarak okunduğunu
+unutmayın. Ayağa kalktıktan sonra site [http://localhost:6531](http://localhost:6531)
+adresindedir.
 
 ## Proje durumu
 

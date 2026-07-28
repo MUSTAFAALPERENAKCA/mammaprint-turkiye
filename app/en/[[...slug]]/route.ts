@@ -13,17 +13,30 @@ function pathnameOf(url: string): string {
   }
 }
 
+/**
+ * `request.nextUrl`/`request.url`, container/standalone ortamlarında iç
+ * hostname'e (ör. Docker container ID) sızabiliyor. İstemcinin gerçekten
+ * eriştiği origin'i her zaman gelen `Host` başlığından (ve varsa
+ * `x-forwarded-proto`'dan) kurmak daha güvenilir.
+ */
+function externalOrigin(request: NextRequest): string {
+  const host = request.headers.get("x-forwarded-host") ?? request.headers.get("host");
+  const proto = request.headers.get("x-forwarded-proto") ?? request.nextUrl.protocol.replace(":", "");
+  return `${proto}://${host}`;
+}
+
 export async function GET(request: NextRequest) {
   const requestedPath = request.nextUrl.pathname.replace(/\/+$/, "") || "/en";
   const redirects = await db.redirect.findMany();
 
   const match = redirects.find((redirect) => pathnameOf(redirect.sourceUrl) === requestedPath);
+  const origin = externalOrigin(request);
 
   if (match) {
-    return NextResponse.redirect(new URL(pathnameOf(match.destinationUrl), request.url), match.statusCode);
+    return NextResponse.redirect(`${origin}${pathnameOf(match.destinationUrl)}`, match.statusCode);
   }
 
   // Bilinmeyen /en/* yolları için en yakın karşılık ana sayfadır (bkz. §16.3 — yalnızca
   // eşleşme bulunamadığında, toplu yönlendirme yerine son çare olarak kullanılır).
-  return NextResponse.redirect(new URL("/", request.url), 301);
+  return NextResponse.redirect(origin, 301);
 }

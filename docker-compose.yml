@@ -7,7 +7,7 @@ services:
       POSTGRES_PASSWORD: mammaprint
       POSTGRES_DB: mammaprint
     ports:
-      - "5434:5432" # host 5434: 5432/5433 already used by other local projects on this machine
+      - "6530:5432" # tüm servis portları 6530-6545 aralığında olmalı
     volumes:
       - db_data:/var/lib/postgresql/data
     healthcheck:
@@ -27,7 +27,7 @@ services:
     environment:
       DATABASE_URL: postgresql://mammaprint:mammaprint@db:5432/mammaprint?schema=public
     ports:
-      - "3000:3000"
+      - "6531:3000"
     env_file:
       - .env
 

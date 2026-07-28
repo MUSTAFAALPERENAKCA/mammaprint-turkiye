@@ -44,7 +44,7 @@ Durum kısaltmaları: **Beklemede** (henüz başlanmadı) · **Devam ediyor** ·
 
 | # | URL | Sayfa | Öncelik | Kaynak bölüm | Teknik karşılık | Test/kabul kriteri | Güncel durum |
 |---|---|---|---|---|---|---|---|
-| P-01 | `/` | Ana Sayfa | P0 | §7 | RSC sayfa, 12 blok | Tüm 12 blok yayında, Lighthouse ≥90 | Beklemede |
+| P-01 | `/` | Ana Sayfa | P0 | §7 | RSC sayfa, 12 blok | Tüm 12 blok yayında, Lighthouse ≥90 | Devam ediyor — hero, iki temel soru, hasta/hekim yolu, test süreci, klinik kanıt, son CTA blokları eklendi; kalan bloklar ve medikal onay Faz 2 |
 | P-02 | `/testler/` | Testlere Genel Bakış | P1 | §6.1-6.2 | Statik sayfa | İçerik yayında | Beklemede |
 | P-03 | `/mammaprint/` | MammaPrint 70 Gen Testi | P0 | §8.1 | Product içerik tipi + MedicalWebPage schema | §8.1 bölümlerinin tamamı mevcut | Beklemede |
 | P-04 | `/blueprint/` | BluePrint 80 Gen Testi | P0 | §8.2 | Product içerik tipi | §8.2 bölümlerinin tamamı mevcut | Beklemede |
@@ -122,7 +122,7 @@ Durum kısaltmaları: **Beklemede** (henüz başlanmadı) · **Devam ediyor** ·
 | S-13 | Pillar-cluster iç link mimarisi | §9.5 | P0 | İçerik modeli + UI | `relatedContent` + otomatik "ilgili içerik" bileşeni | Her pillar sayfa ≥5 cluster'a bağlı, her cluster pillar'a geri bağlı | Beklemede |
 | S-14 | AI arama görünürlüğü: doğrudan/kısa/kaynaklı yanıt blokları | §9.6 | P1 | İçerik şablonu | "Kısa yanıt" bileşeni (ilk 100-150 kelime) | Blog/pillar şablonunda kısa yanıt bloğu var | Beklemede |
 | S-15 | On-page standart: title 50-60 karakter, tek H1, ilk 150 kelimede yanıt | §9.3 | P0 | Editoryal + CMS validasyon | CMS karakter sayacı + uyarı | CMS kaydı title uzunluğu için uyarı veriyor | Beklemede |
-| S-16 | Görsellerde anlamlı dosya adı ve alt metin; dekoratif görsel boş alt | §9.3, kullanıcı promptu §16 | P0 | Medya modülü | Image component + zorunlu `alt` alanı (dekoratif hariç) | Otomatik test: `alt` eksik görsel yok | Beklemede |
+| S-16 | Görsellerde anlamlı dosya adı ve alt metin; dekoratif görsel boş alt | §9.3, kullanıcı promptu §16 | P0 | Medya modülü | Image component + zorunlu `alt` alanı (dekoratif hariç) | Otomatik test: `alt` eksik görsel yok | Tamamlandı — next/image + anlamlı Türkçe dosya adları + açıklayıcı alt metin (bkz. docs/media-credits.md) |
 | S-17 | Anahtar kelime kümelerinin sayfalara eşlenmesi, keyword stuffing yok | Ek B | P0 | Editoryal süreç | Kümeleme haritası (bkz. content-inventory) | Her P0 sayfa bir kümeyle eşleşmiş | Beklemede |
 | S-18 | Redirect zinciri/döngü önleme | §9.4, §16.3 | P0 | Redirect modülü | Tek adım redirect validasyon script'i | CI'da redirect chain testi geçiyor | Beklemede |
 
@@ -137,7 +137,7 @@ Durum kısaltmaları: **Beklemede** (henüz başlanmadı) · **Devam ediyor** ·
 | D-05 | Yavaş/işlevsel mikro animasyon + `prefers-reduced-motion` desteği | §11.1 tablo, kullanıcı promptu §16 | P0 | Global CSS/animasyon katmanı | `prefers-reduced-motion` media query desteği | Otomatik + manuel a11y testi | Beklemede |
 | D-06 | Bileşen kütüphanesi: header/mega menü/mobil menü, hero varyantları, ürün kartı, klinik veri kartı, kanıt özeti kartı, CTA paneli, SSS accordion, kaynak kartı, yazar/inceleyen kartı, uyarı kutuları, filtre/arama, breadcrumb, pagination | §11.2 | P0 | Component library | React bileşen seti | `component-inventory.md` ile birebir eşleşme | Devam ediyor — header/mega menü/mobil menü/footer tamamlandı; kalan bileşenler Faz 2/3 |
 | D-07 | Tüm bileşenler klavye ile kullanılabilir ve ekran okuyucu uyumlu | Kullanıcı promptu §4, strateji §13.2 | P0 | Component library | ARIA + focus yönetimi | axe-core sıfır kritik ihlal | Devam ediyor — header/footer doğrulandı (klavye+ARIA); axe-core otomasyonu Faz 5 |
-| D-08 | Görsellerde lisans/model izni/kaynak kaydı | §11.3 | P0 | Medya yönetim süreci | Medya metadata alanı (`license`, `credit`) | Her yüklenen görselde lisans alanı dolu | Beklemede |
+| D-08 | Görsellerde lisans/model izni/kaynak kaydı | §11.3 | P0 | Medya yönetim süreci | Medya metadata alanı (`license`, `credit`) | Her yüklenen görselde lisans alanı dolu | Tamamlandı — docs/media-credits.md tüm görsellerin kaynak/lisans/fotoğrafçı bilgisini tutuyor |
 | D-09 | Grafiklerde eksen/zaman/hasta grubu/kaynak gösterimi | §11.3 | P0 | Veri görselleştirme bileşeni | Chart component + zorunlu context alanları | Yüzde/istatistik içeren her grafik bağlam gösteriyor | Beklemede |
 
 ## 6. Blog ve CMS gereksinimleri
