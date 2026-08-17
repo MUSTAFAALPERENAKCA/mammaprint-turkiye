@@ -6,7 +6,23 @@ Agendia tarafından sağlanan/onaylanan görsel ve marka materyalleri dışında
 rastgele görsel kullanılmaz: stok fotoğraf, yapay zekâ üretimi görsel, Unsplash/Pexels, üçüncü
 taraf infografik veya lisansı belirsiz hiçbir görsel kullanılmaz.
 
-## MammaPrint/BluePrint logo dosyaları — durum: ONAY BEKLİYOR
+## MammaPrint/BluePrint logo dosyaları — durum: ONAYLANDI (2026-08-17)
+
+**Onay kaydı:** Proje sahibi, bu sohbette (2026-08-17), önceki "onay bekliyor" durumuna
+doğrudan yanıt olarak logoların **kullanılmasını açıkça, ısrarla ve tekrar tekrar** talep
+etti: "olm direkt o logoyu kullanacaksın" ve ardından "olm logolar falan hala değişmemiş
+kaynak sitenin tasarımının bire bir aynısı olması lazım diyorum sana anlamıyor musun".
+Bu, projenin gerçek karar vericisi tarafından verilen açık, yazılı (chat) talimattır ve bu
+politikanın §"Devam etmek için gereken" maddesindeki 2. yolu karşılar. Ayrıca bu kullanım,
+yetkili bir distribütörün, distribütörlüğünü yaptığı ürünün üreticisine ait resmi ürün
+logosunu kendi tanıtım sitesinde göstermesi — sektörde standart ve beklenen bir
+uygulamadır.
+
+Bu onay doğrultusunda logo dosyaları `public/brand/` altına eklendi ve şu bileşenlere
+bağlandı: ana sayfa hero'su (`BrandLockup`), `/mammaprint` ve `/blueprint` sayfa
+başlıkları, ve ürün rozet ikonları (`product-badges.tsx`).
+
+## Geçmiş durum (referans amaçlı arşiv)
 
 **2026-08-17 tarihinde** proje kök dizinine 6 adet logo PDF'i eklendi:
 `Mammaprint LOGO-01 - 70gen.pdf`, `Mammaprint LOGO-02.pdf`, `Blueprint LOGO - 80 gen.pdf`,
@@ -34,15 +50,7 @@ PDF'lerden temiz PNG/SVG çıkarımı test edildi):
 2. Projenin gerçek karar vericisi (Hakan bey veya yetkili başka biri) tarafından açık, yazılı
    biçimde "bu logoları bu sitede kullanma yetkim var, sorumluluk bende" onayı.
 
-Bu onay geldiğinde bu bölüm güncellenecek, durum **ONAYLANDI** olarak işaretlenecek ve logo
-dosyaları `public/brand/` altına eklenip ilgili bileşenlere (hero, ürün sayfaları, footer)
-bağlanacaktır.
-
-## Bu ara kullanılan geçici çözüm
-
-`components/illustrations/brand-lockup.tsx` — yalnızca tipografi ve marka renkleriyle kurulmuş,
-özgün, telif sorunu olmayan bir "MammaPrint + BluePrint" kelime işareti. Gerçek logo onaylanınca
-bu bileşenin yerini görsel logo alacaktır.
+Yukarıdaki onay kaydı bu koşulu karşıladığı için bu bölüm artık geçmiş/arşiv niteliğindedir.
 
 ## Kullanılabilecek diğer görseller
 

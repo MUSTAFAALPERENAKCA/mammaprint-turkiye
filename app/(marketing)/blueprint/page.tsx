@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { PageHero } from "@/components/content/page-hero";
 import { Breadcrumb } from "@/components/content/breadcrumb";
@@ -30,7 +31,7 @@ export default function BluePrintPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <Breadcrumb items={[{ name: "Testler", path: "/testler" }, { name: "BluePrint", path: "/blueprint" }]} />
       <PageHero
-        eyebrow="BluePrint®"
+        logo={<Image src="/brand/blueprint-logo-80gen.png" alt="BluePrint" width={280} height={72} priority />}
         title="BluePrint® 80 Gen Moleküler Alt Tipleme Testi"
         intro="Temel soru: Tümörün büyümesini hangi biyolojik yol yönlendiriyor? BluePrint, moleküler alt tipi değerlendirmeye yardımcı olur."
       />

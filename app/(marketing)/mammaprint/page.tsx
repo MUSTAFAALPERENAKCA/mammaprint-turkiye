@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { PageHero } from "@/components/content/page-hero";
 import { Breadcrumb } from "@/components/content/breadcrumb";
@@ -53,7 +54,7 @@ export default function MammaPrintPage() {
       ) : null}
       <Breadcrumb items={[{ name: "Testler", path: "/testler" }, { name: "MammaPrint", path: "/mammaprint" }]} />
       <PageHero
-        eyebrow="MammaPrint®"
+        logo={<Image src="/brand/mammaprint-logo-70gen.png" alt="MammaPrint" width={280} height={64} priority />}
         title="MammaPrint® 70 Gen Meme Kanseri Nüks Riski Testi"
         intro="MammaPrint, erken evre meme kanserinde tümör dokusundaki 70 genin genomik profilinin değerlendirilmesine ve hastanın kemoterapi gereksiniminin belirlenmesine yönelik klinik karar sürecinin desteklenmesine yardımcı olur. Ayrıca uzak metastaz olmaksızın nüks riskinin değerlendirilmesine katkı sağlar."
       />

@@ -1,11 +1,13 @@
 import type { ReactNode } from "react";
 
 export function PageHero({
+  logo,
   eyebrow,
   title,
   intro,
   children,
 }: {
+  logo?: ReactNode;
   eyebrow?: string;
   title: string;
   intro?: string;
@@ -14,6 +16,7 @@ export function PageHero({
   return (
     <section className="border-b border-border bg-surface-muted">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-8">
+        {logo ? <div className="mb-4">{logo}</div> : null}
         {eyebrow ? (
           <p className="text-sm font-semibold uppercase tracking-wide text-mammaprint-accent">{eyebrow}</p>
         ) : null}
