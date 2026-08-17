@@ -18,27 +18,45 @@ const processSteps = [
 export default function HomePage() {
   return (
     <div>
-      {/* 2. Hero */}
-      <section className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-20 sm:px-8 lg:grid-cols-2 lg:py-28">
-        <div>
-          <h1 className="text-h1 font-semibold text-primary-900 sm:text-display">
-            Meme kanserinin biyolojisini daha iyi anlamaya yardımcı genomik testler
-          </h1>
-          <p className="mt-4 text-body-lg text-text-muted">
-            MammaPrint meme kanseri nüks riskini ve BluePrint tümörün moleküler alt tiplendirmesi
-            hakkında tamamlayıcı bilgiler sağlar. Sonuçlar hekiminiz tarafından diğer klinik
-            faktörlerle birlikte yorumlanır.
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link href="/testler" className="rounded-button bg-primary-900 px-5 py-3 text-center text-sm font-medium text-white hover:bg-primary-700">
-              Testleri Keşfedin
-            </Link>
-            <Link href="/hastalar-icin" className="rounded-button border border-border px-5 py-3 text-center text-sm font-medium hover:bg-surface-muted">
-              Hastalar İçin Bilgi
-            </Link>
+      {/* 2. Hero — Agendia referansından esinlenilmiş, marka renklerinde degrade panel
+          (fotoğraf yerine; "Agendia'nın kendi logoları dışında görsel koyamıyoruz" kısıtına uygun). */}
+      <section className="relative overflow-hidden bg-primary-900 text-white">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-70"
+          style={{
+            background:
+              "radial-gradient(60% 80% at 15% 20%, rgba(198,53,122,0.35), transparent 60%), radial-gradient(55% 70% at 85% 80%, rgba(30,111,168,0.35), transparent 60%)",
+          }}
+        />
+        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-20 sm:px-8 lg:grid-cols-2 lg:py-28">
+          <div>
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
+              <MammaPrintBadge />
+              <span className="text-sm font-semibold tracking-wide">MammaPrint + BluePrint</span>
+              <BluePrintBadge />
+            </div>
+            <h1 className="text-h1 font-semibold sm:text-display">
+              Meme kanserinin biyolojisini daha iyi anlamaya yardımcı genomik testler
+            </h1>
+            <p className="mt-4 text-body-lg text-white/85">
+              MammaPrint meme kanseri nüks riskini ve BluePrint tümörün moleküler alt tiplendirmesi
+              hakkında tamamlayıcı bilgiler sağlar. Sonuçlar hekiminiz tarafından diğer klinik
+              faktörlerle birlikte yorumlanır.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link href="/testler" className="rounded-button bg-mammaprint-accent px-5 py-3 text-center text-sm font-semibold text-white hover:opacity-90">
+                Testleri Keşfedin
+              </Link>
+              <Link href="/hastalar-icin" className="rounded-button border border-white/40 px-5 py-3 text-center text-sm font-medium text-white hover:bg-white/10">
+                Hastalar İçin Bilgi
+              </Link>
+            </div>
+          </div>
+          <div className="relative mx-auto flex h-72 w-72 items-center justify-center rounded-full bg-white/5 backdrop-blur-sm sm:h-96 sm:w-96">
+            <div className="absolute inset-6 rounded-full border border-white/15" />
+            <DnaHelixIllustration className="h-auto w-full max-w-[220px] text-white sm:max-w-xs" />
           </div>
         </div>
-        <DnaHelixIllustration className="mx-auto h-auto w-full max-w-xs text-primary-900 lg:max-w-sm" />
       </section>
 
       {/* 3. İki temel soru */}
@@ -51,7 +69,7 @@ export default function HomePage() {
             <MammaPrintBadge />
             <h2 className="mt-4 text-h3 font-semibold text-primary-900">Meme kanserinin tekrarlama riski nedir?</h2>
             <p className="mt-2 text-sm text-text-muted">
-              MammaPrint, erken evre meme kanseri tümörünün gen ekspresyonunu analiz ederek nüks
+              MammaPrint, erken evre meme kanseri tümörünün genomik profilini analiz ederek nüks
               riskinin değerlendirilmesine yardımcı olur.
             </p>
             <span className="mt-4 inline-block text-sm font-medium text-mammaprint-accent">MammaPrint&apos;i inceleyin →</span>
