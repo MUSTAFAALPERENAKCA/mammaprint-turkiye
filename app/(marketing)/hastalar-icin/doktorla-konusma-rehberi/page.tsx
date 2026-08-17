@@ -29,7 +29,7 @@ export default function DoktorlaKonusmaRehberiPage() {
         { name: "Doktorla Konuşma Rehberi", path: "/hastalar-icin/doktorla-konusma-rehberi" },
       ]} />
       <PageHero
-        title="Doktorunuzla Görüşmeye Hazırlanın"
+        title="Doktor Görüşmesi İçin Soru Listesi"
         intro="Meme kanseri tanısından sonra doktorunuza sorabileceğiniz sorular. Bu listeyi yazdırabilir veya notlarınıza ekleyebilirsiniz."
       />
       <section className="mx-auto max-w-3xl px-4 py-12 sm:px-8">

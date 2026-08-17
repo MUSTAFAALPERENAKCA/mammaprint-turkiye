@@ -43,3 +43,7 @@ next-env.d.ts
 
 # Claude Code harness-internal state (not project source)
 .claude/scheduled_tasks.lock
+
+# Onaylanmamış üçüncü taraf marka/logo dosyaları — bkz. docs/asset-policy.md
+/*.pdf
+!/docs/**/*.pdf

@@ -9,14 +9,6 @@ export const metadata: Metadata = {
   description: "MammaPrint testinin değerlendirilebileceği genel klinik kriterler hekiminiz tarafından belirlenir.",
 };
 
-const criteria = [
-  "Erken evre meme kanseri olmalı (Evre 1 veya Evre 2)",
-  "ER (Östrojen Reseptörü) pozitif olmalı",
-  "HER2 (cerb-B2) negatif olmalı",
-  "Tümör çapı 5 cm ya da daha küçük olmalı",
-  "Lenf nodu tutulumu negatif ya da 1-3 (N1) pozitife kadar olmalı",
-];
-
 export default function KimlerIcinUygunPage() {
   return (
     <div>
@@ -36,20 +28,10 @@ export default function KimlerIcinUygunPage() {
             hormon reseptörü durumu, lenf nodu tutulumu gibi klinik faktörlere bağlıdır ve
             hekiminiz tarafından belirlenir.
           </p>
-        </div>
-        <div className="mt-6 max-w-2xl rounded-card border border-border bg-surface p-6 shadow-card">
-          <p className="font-semibold text-primary-900">Genel klinik uygunluk kriterleri</p>
-          <ul className="mt-3 space-y-2 text-sm text-text-muted">
-            {criteria.map((item) => (
-              <li key={item} className="flex gap-2">
-                <span aria-hidden="true" className="text-mammaprint-accent">•</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-4 text-xs text-text-muted">
-            Bu liste genel bir bilgilendirmedir; kişisel uygunluğunuz yalnızca hekiminiz tarafından,
-            tüm klinik verileriniz birlikte değerlendirilerek belirlenebilir.
+          <p>
+            Kişisel uygunluğunuz yalnızca hekiminiz tarafından, tüm klinik verileriniz birlikte
+            değerlendirilerek belirlenebilir. Kesin uygunluk kriterleri hakkında güncel ve size özel
+            bilgi için hekiminizle görüşün.
           </p>
         </div>
       </section>

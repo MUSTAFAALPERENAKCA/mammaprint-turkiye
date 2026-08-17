@@ -27,14 +27,10 @@ export default function KilavuzlarPage() {
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-8">
         <h2 className="text-h3 font-semibold text-primary-900">Uzman Klinik Uygulama Kılavuzları Tarafından Önerilir</h2>
         <p className="mt-3 max-w-3xl text-text-muted">
-          MammaPrint, dünyaca tanınan kanser bakım kuruluşları tarafından geliştirilen sayısız
-          klinik uygulama kılavuzuna dahil edilmiştir. Klinik rehberler, hastaların yönetiminde yer
-          alan sağlık çalışanları için kanıta dayalı tavsiyelerdir. Kılavuzlar, en güncel hakemli
-          belgelere dayanarak bakım ve hizmetlerin kalitesini iyileştirmeyi amaçlamaktadır. Örneğin,
-          MammaPrint, lenf nodu pozitif hastalar için ASCO (Amerikan Klinik Onkoloji Derneği)
-          tarafından onaylanan türünün tek testidir. ASCO, lenf nodu pozitif hastalar için sadece
-          MammaPrint&apos;i önermektedir. NCCN Kılavuzu da lenf nodu pozitif hastalar için Kategori
-          1 seviyesinde sadece MammaPrint&apos;i göstermektedir.
+          MammaPrint, dünyaca tanınan kanser bakım kuruluşları tarafından geliştirilen çeşitli
+          klinik uygulama kılavuzlarında yer almaktadır. Klinik rehberler, hastaların yönetiminde
+          yer alan sağlık çalışanları için kanıta dayalı tavsiyelerdir. Kılavuzlar, en güncel
+          hakemli belgelere dayanarak bakım ve hizmetlerin kalitesini iyileştirmeyi amaçlamaktadır.
         </p>
         <div className="mt-6 flex flex-wrap gap-2">
           {guidelineOrganizations.map((org) => (

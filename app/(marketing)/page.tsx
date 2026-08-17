@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { DnaHelixIllustration } from "@/components/illustrations/dna-helix";
 import { MammaPrintBadge, BluePrintBadge } from "@/components/illustrations/product-badges";
+import { BrandLockup } from "@/components/illustrations/brand-lockup";
 import {
   DoctorReviewIcon,
   TissueSampleIcon,
@@ -28,13 +29,11 @@ export default function HomePage() {
               "radial-gradient(60% 80% at 15% 20%, rgba(198,53,122,0.35), transparent 60%), radial-gradient(55% 70% at 85% 80%, rgba(30,111,168,0.35), transparent 60%)",
           }}
         />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-20 sm:px-8 lg:grid-cols-2 lg:py-28">
+        <div className="relative mx-auto max-w-7xl px-4 pt-12 sm:px-8">
+          <BrandLockup />
+        </div>
+        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-8 lg:grid-cols-2 lg:py-20">
           <div>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
-              <MammaPrintBadge />
-              <span className="text-sm font-semibold tracking-wide">MammaPrint + BluePrint</span>
-              <BluePrintBadge />
-            </div>
             <h1 className="text-h1 font-semibold sm:text-display">
               Meme kanserinin biyolojisini daha iyi anlamaya yardımcı genomik testler
             </h1>
@@ -44,10 +43,10 @@ export default function HomePage() {
               faktörlerle birlikte yorumlanır.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href="/testler" className="rounded-button bg-mammaprint-accent px-5 py-3 text-center text-sm font-semibold text-white hover:opacity-90">
+              <Link href="/testler" className="rounded-full bg-mammaprint-accent px-6 py-3 text-center text-sm font-bold uppercase tracking-wide text-white shadow-lg hover:opacity-90">
                 Testleri Keşfedin
               </Link>
-              <Link href="/hastalar-icin" className="rounded-button border border-white/40 px-5 py-3 text-center text-sm font-medium text-white hover:bg-white/10">
+              <Link href="/hastalar-icin" className="rounded-full border border-white/40 px-6 py-3 text-center text-sm font-medium text-white hover:bg-white/10">
                 Hastalar İçin Bilgi
               </Link>
             </div>

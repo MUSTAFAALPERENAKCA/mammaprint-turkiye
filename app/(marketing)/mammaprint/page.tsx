@@ -6,13 +6,12 @@ import { Tabs } from "@/components/content/tabs";
 import { FaqAccordion } from "@/components/content/faq-accordion";
 import { CtaBlock } from "@/components/content/cta-block";
 import { MedicalDisclaimer } from "@/components/content/medical-disclaimer";
-import { RiskScale } from "@/components/content/risk-scale";
 import { medicalWebPageJsonLd, faqJsonLd, getSiteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "MammaPrint 70 Gen Meme Kanseri Nüks Riski Testi",
   description:
-    "MammaPrint, erken evre meme kanseri tümörünün gen ekspresyonunu analiz ederek nüks riskinin değerlendirilmesine yardımcı olur.",
+    "MammaPrint, erken evre meme kanseri tümörünün genomik profilini analiz ederek nüks riskinin değerlendirilmesine yardımcı olur.",
 };
 
 const faqs = [
@@ -42,7 +41,7 @@ export default function MammaPrintPage() {
     name: "MammaPrint 70 Gen Meme Kanseri Nüks Riski Testi",
     url: `${getSiteUrl()}/mammaprint`,
     description:
-      "MammaPrint, erken evre meme kanseri tümörünün gen ekspresyonunu analiz ederek nüks riskinin değerlendirilmesine yardımcı olur.",
+      "MammaPrint, erken evre meme kanseri tümörünün genomik profilini analiz ederek nüks riskinin değerlendirilmesine yardımcı olur.",
   });
   const faqSchema = faqJsonLd({ questions: faqs.map((f) => ({ question: f.question, answer: f.answer })) });
 
@@ -56,7 +55,7 @@ export default function MammaPrintPage() {
       <PageHero
         eyebrow="MammaPrint®"
         title="MammaPrint® 70 Gen Meme Kanseri Nüks Riski Testi"
-        intro="Erken evre meme kanserinde, yeni nesil sekanslama (NGS) teknolojisi kullanılarak 70 hedef gen ve 465 referans genin analiz edilmesi, tümörün genomik özelliklerinin değerlendirilmesine ve hastanın kemoterapi gereksiniminin belirlenmesine yönelik klinik karar sürecinin desteklenmesine yardımcı olur. Ayrıca uzak metastaz olmaksızın nüks riskinin değerlendirilmesine katkı sağlar."
+        intro="MammaPrint, erken evre meme kanserinde tümör dokusundaki 70 genin genomik profilinin değerlendirilmesine ve hastanın kemoterapi gereksiniminin belirlenmesine yönelik klinik karar sürecinin desteklenmesine yardımcı olur. Ayrıca uzak metastaz olmaksızın nüks riskinin değerlendirilmesine katkı sağlar."
       />
 
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-8">
@@ -118,13 +117,9 @@ export default function MammaPrintPage() {
         <h2 className="text-h3 font-semibold text-primary-900">Sonuçlar</h2>
         <p className="mt-2 max-w-2xl text-text-muted">
           MammaPrint sonuçları Low Risk (düşük risk) ve High Risk (yüksek risk) kategorilerinde
-          sunulur; güncel rapor kapsamına göre Low kategorisi UltraLow kategorisi olarak da
-          sınıflandırılabilir. Bu kategoriler kesin bir tedavi önerisi değildir — hekiminiz
-          tarafından diğer klinik faktörlerle birlikte yorumlanır.
+          sunulur. Bu kategoriler kesin bir tedavi önerisi değildir — hekiminiz tarafından diğer
+          klinik faktörlerle birlikte yorumlanır.
         </p>
-        <div className="mt-6 max-w-2xl">
-          <RiskScale />
-        </div>
         <Link href="/hastalar-icin/sonuclari-anlamak" className="mt-4 inline-block text-sm underline">
           Sonuçları anlamak hakkında daha fazla bilgi
         </Link>
