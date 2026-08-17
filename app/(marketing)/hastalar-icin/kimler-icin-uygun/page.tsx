@@ -2,12 +2,20 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/content/page-hero";
 import { Breadcrumb } from "@/components/content/breadcrumb";
 import { CtaBlock } from "@/components/content/cta-block";
-import { MedicalDisclaimer, MedicalReviewFlag } from "@/components/content/medical-disclaimer";
+import { MedicalDisclaimer } from "@/components/content/medical-disclaimer";
 
 export const metadata: Metadata = {
   title: "MammaPrint Kimler İçin Değerlendirilebilir?",
   description: "MammaPrint testinin değerlendirilebileceği genel klinik kriterler hekiminiz tarafından belirlenir.",
 };
+
+const criteria = [
+  "Erken evre meme kanseri olmalı (Evre 1 veya Evre 2)",
+  "ER (Östrojen Reseptörü) pozitif olmalı",
+  "HER2 (cerb-B2) negatif olmalı",
+  "Tümör çapı 5 cm ya da daha küçük olmalı",
+  "Lenf nodu tutulumu negatif ya da 1-3 (N1) pozitife kadar olmalı",
+];
 
 export default function KimlerIcinUygunPage() {
   return (
@@ -28,9 +36,22 @@ export default function KimlerIcinUygunPage() {
             hormon reseptörü durumu, lenf nodu tutulumu gibi klinik faktörlere bağlıdır ve
             hekiminiz tarafından belirlenir.
           </p>
-          <p>Bu sayfa genel bir bilgilendirmedir; kişisel uygunluğunuz yalnızca hekiminiz tarafından değerlendirilebilir.</p>
         </div>
-        <MedicalReviewFlag note="Resmi kullanım amacı (endikasyon) metni ve klinik kriter listesi medikal/regülasyon ekibi tarafından sağlanmalı ve onaylanmalıdır." />
+        <div className="mt-6 max-w-2xl rounded-card border border-border bg-surface p-6 shadow-card">
+          <p className="font-semibold text-primary-900">Genel klinik uygunluk kriterleri</p>
+          <ul className="mt-3 space-y-2 text-sm text-text-muted">
+            {criteria.map((item) => (
+              <li key={item} className="flex gap-2">
+                <span aria-hidden="true" className="text-mammaprint-accent">•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-4 text-xs text-text-muted">
+            Bu liste genel bir bilgilendirmedir; kişisel uygunluğunuz yalnızca hekiminiz tarafından,
+            tüm klinik verileriniz birlikte değerlendirilerek belirlenebilir.
+          </p>
+        </div>
       </section>
       <section className="mx-auto max-w-7xl px-4 py-8 sm:px-8">
         <MedicalDisclaimer />

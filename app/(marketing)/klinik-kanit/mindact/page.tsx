@@ -3,7 +3,7 @@ import { PageHero } from "@/components/content/page-hero";
 import { Breadcrumb } from "@/components/content/breadcrumb";
 import { EvidenceCard } from "@/components/content/evidence-card";
 import { CtaBlock } from "@/components/content/cta-block";
-import { MedicalDisclaimer, MedicalReviewFlag } from "@/components/content/medical-disclaimer";
+import { MedicalDisclaimer } from "@/components/content/medical-disclaimer";
 
 export const metadata: Metadata = {
   title: "MINDACT Çalışması",
@@ -17,19 +17,21 @@ export default function MindactPage() {
         { name: "Bilimsel Kanıt", path: "/klinik-kanit" },
         { name: "MINDACT", path: "/klinik-kanit/mindact" },
       ]} />
-      <PageHero title="MINDACT Çalışması" intro="MammaPrint'in klinik doğrulamasında kullanılan landmark prospektif çalışmalardan biri." />
+      <PageHero
+        title="MINDACT Çalışması"
+        intro="MINDACT çalışması, meme kanseri nüks testi (MammaPrint) için prospektif, randomize ve faz III bir klinik çalışmadır."
+      />
       <section className="mx-auto max-w-4xl px-4 py-12 sm:px-8">
         <EvidenceCard
           studyName="MINDACT"
-          studyDesign="Prospektif, randomize klinik çalışma (tam tasarım detayı medikal onay bekliyor)"
-          patientPopulation="Erken evre meme kanseri hastaları (kesin sayı ve kriterler medikal onay bekliyor)"
-          followUpDuration="[MEDİKAL ONAY GEREKLİ]"
-          finding="MammaPrint'in klinik risk değerlendirmesine tamamlayıcı bilgi sağladığı gösterilmiştir (kesin bulgu metni medikal onay bekliyor)"
-          clinicalImplication="MammaPrint sonucu, hekimin diğer klinik faktörlerle birlikte değerlendirdiği bir bilgi kaynağıdır."
-          limitations="Çalışma sonuçları belirli bir hasta popülasyonuna dayanır; her hasta için doğrudan genellenemez."
-          sourceCitation="[MEDİKAL ONAY GEREKLİ — DOI/PubMed bağlantısı eklenecek]"
+          studyDesign="Prospektif, randomize, faz III klinik çalışma"
+          patientPopulation="2007-2011 yılları arasında 9 ülkede erken evre meme kanseri ameliyatı olan 6.693 kadın"
+          followUpDuration="5 yıllık takip verisi; yaklaşık 9 yıllık ortalama takip süresiyle elde edilen uzun vadeli veriler ASCO 2020'de sunuldu"
+          finding="Çalışmanın amacı, MammaPrint testinin erken evre meme kanseri olan yüksek riskli hastalarda kemoterapi tedavisini, sonuçlarını olumsuz etkilemeden güvenli bir şekilde azaltmak için kullanılıp kullanılamayacağını belirlemekti. İlk veriler 2016 yılında New England Journal of Medicine'de yayınlandı ve klinik olarak yüksek riskli, MammaPrint Düşük Riskli hastaların sonuçlarından ödün vermeden kemoterapiden kaçınabileceğini gösterdi."
+          clinicalImplication="MammaPrint sonucu, hekiminizin diğer klinik faktörlerle (klinik risk, evre, yaş vb.) birlikte değerlendirdiği ek bir bilgi kaynağıdır; tek başına tedavi kararı vermez."
+          limitations="Çalışma sonuçları belirli bir hasta popülasyonuna (2007-2011, 9 ülke, erken evre meme kanseri) dayanır; her hasta için doğrudan genellenemez."
+          sourceCitation="New England Journal of Medicine (2016); ASCO 2020 uzun vadeli takip sunumu. Bkz. agendia.com/landmark-trials/#mindact ve omnigen.com.tr/mindact-trial/"
         />
-        <MedicalReviewFlag note="Bu sayfadaki çalışma tasarımı, hasta sayısı, takip süresi ve bulgu detayları strateji dokümanında yer almıyor; medikal inceleyici tarafından yayın künyesi ile doğrulanmalı ve tamamlanmalıdır." />
       </section>
       <section className="mx-auto max-w-7xl px-4 py-8 sm:px-8">
         <MedicalDisclaimer />

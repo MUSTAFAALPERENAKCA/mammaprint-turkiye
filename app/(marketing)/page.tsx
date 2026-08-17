@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { DnaHelixIllustration } from "@/components/illustrations/dna-helix";
 import { MammaPrintBadge, BluePrintBadge } from "@/components/illustrations/product-badges";
@@ -12,7 +11,7 @@ import {
 const processSteps = [
   { icon: DoctorReviewIcon, title: "Hekim değerlendirmesi", description: "Klinik uygunluk hekiminiz tarafından değerlendirilir." },
   { icon: TissueSampleIcon, title: "Mevcut doku örneği", description: "Ek bir invaziv işlem gerekmeden mevcut biyopsi veya ameliyat dokusu kullanılır." },
-  { icon: LabAnalysisIcon, title: "Laboratuvar analizi", description: "Doku örneği gen ekspresyonu açısından analiz edilir." },
+  { icon: LabAnalysisIcon, title: "Laboratuvar analizi", description: "Doku örneği genomik profili açısından analiz edilir." },
   { icon: ResultReviewIcon, title: "Sonuçların değerlendirilmesi", description: "Sonuçlar hekiminiz tarafından diğer klinik faktörlerle birlikte yorumlanır." },
 ];
 
@@ -26,8 +25,9 @@ export default function HomePage() {
             Meme kanserinin biyolojisini daha iyi anlamaya yardımcı genomik testler
           </h1>
           <p className="mt-4 text-body-lg text-text-muted">
-            MammaPrint nüks riski ve BluePrint moleküler alt tip hakkında tamamlayıcı içgörü sağlar.
-            Sonuçlar hekiminiz tarafından diğer klinik faktörlerle birlikte yorumlanır.
+            MammaPrint meme kanseri nüks riskini ve BluePrint tümörün moleküler alt tiplendirmesi
+            hakkında tamamlayıcı bilgiler sağlar. Sonuçlar hekiminiz tarafından diğer klinik
+            faktörlerle birlikte yorumlanır.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link href="/testler" className="rounded-button bg-primary-900 px-5 py-3 text-center text-sm font-medium text-white hover:bg-primary-700">
@@ -49,7 +49,7 @@ export default function HomePage() {
             className="group rounded-card border border-border bg-surface p-6 shadow-card transition-colors hover:border-mammaprint-accent"
           >
             <MammaPrintBadge />
-            <h2 className="mt-4 text-h3 font-semibold text-primary-900">Kanserin tekrarlama riski nedir?</h2>
+            <h2 className="mt-4 text-h3 font-semibold text-primary-900">Meme kanserinin tekrarlama riski nedir?</h2>
             <p className="mt-2 text-sm text-text-muted">
               MammaPrint, erken evre meme kanseri tümörünün gen ekspresyonunu analiz ederek nüks
               riskinin değerlendirilmesine yardımcı olur.
@@ -72,20 +72,16 @@ export default function HomePage() {
       </section>
 
       {/* 5. Hasta / hekim yolu */}
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-8">
-        <div className="grid gap-6 lg:grid-cols-2">
-          <div className="overflow-hidden rounded-card border border-border shadow-card">
-            <div className="relative h-56 w-full">
-              <Image
-                src="/images/hasta-hekim-gorusmesi.jpg"
-                alt="Bir hekimin hastasıyla sakin bir ortamda görüştüğü an"
-                fill
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-            <div className="p-6">
-              <h2 className="text-h3 font-semibold text-primary-900">Tanı aldım, bilgi arıyorum</h2>
+      <section className="border-t border-border bg-surface-muted">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-8">
+          <div className="grid gap-6 lg:grid-cols-2">
+            <div className="rounded-card border border-border bg-surface p-8 shadow-card">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-surface-tint-rose text-mammaprint-accent">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <path d="M12 21c-4-3-8-6.5-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 4.5-4 8-8 11z" />
+                </svg>
+              </div>
+              <h2 className="mt-4 text-h3 font-semibold text-primary-900">Tanı aldım, bilgi arıyorum</h2>
               <p className="mt-2 text-sm text-text-muted">
                 Süreç, uygunluk ve sonuçlar hakkında sade, kaygıyı artırmayan bilgiler; doktorunuzla
                 görüşmenize hazırlanmanıza yardımcı olur.
@@ -94,19 +90,13 @@ export default function HomePage() {
                 Hastalar İçin Rehbere Git
               </Link>
             </div>
-          </div>
-          <div className="overflow-hidden rounded-card border border-border shadow-card">
-            <div className="relative h-56 w-full">
-              <Image
-                src="/images/laboratuvar-genomik-analiz.jpg"
-                alt="Laboratuvar ortamında genomik analiz yapan bir bilim insanı"
-                fill
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-            <div className="p-6">
-              <h2 className="text-h3 font-semibold text-primary-900">Sağlık profesyoneliyim</h2>
+            <div className="rounded-card border border-border bg-surface p-8 shadow-card">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-surface-tint-blue text-blueprint-accent">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <path d="M9 3h6l1 4h4v4l-4 1v6a4 4 0 0 1-4 4h-2a4 4 0 0 1-4-4v-6l-4-1V7h4z" />
+                </svg>
+              </div>
+              <h2 className="mt-4 text-h3 font-semibold text-primary-900">Sağlık profesyoneliyim</h2>
               <p className="mt-2 text-sm text-text-muted">
                 Klinik uygunluk, numune/lojistik, örnek raporlar ve klinik kanıt kütüphanesine
                 erişin.

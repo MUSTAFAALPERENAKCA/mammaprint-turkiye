@@ -5,7 +5,8 @@ import { Breadcrumb } from "@/components/content/breadcrumb";
 import { Tabs } from "@/components/content/tabs";
 import { FaqAccordion } from "@/components/content/faq-accordion";
 import { CtaBlock } from "@/components/content/cta-block";
-import { MedicalDisclaimer, MedicalReviewFlag } from "@/components/content/medical-disclaimer";
+import { MedicalDisclaimer } from "@/components/content/medical-disclaimer";
+import { RiskScale } from "@/components/content/risk-scale";
 import { medicalWebPageJsonLd, faqJsonLd, getSiteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -32,7 +33,7 @@ const faqs = [
   {
     question: "Genomik test ile kalıtsal genetik test aynı mı?",
     answer:
-      "Hayır. MammaPrint, tümör dokusundaki gen ekspresyonunu değerlendiren bir genomik testtir; BRCA gibi kalıtsal genetik testlerden farklıdır.",
+      "Hayır. MammaPrint, tümör dokusundaki genetiği değerlendiren bir genomik testtir; BRCA gibi kalıtsal genetik testlerden farklıdır.",
   },
 ];
 
@@ -55,14 +56,14 @@ export default function MammaPrintPage() {
       <PageHero
         eyebrow="MammaPrint®"
         title="MammaPrint® 70 Gen Meme Kanseri Nüks Riski Testi"
-        intro="Erken evre meme kanseri tümöründeki gen ekspresyonunu analiz ederek uzak nüks riskini değerlendirmeye yardımcı olur. Sonuç, hekiminiz tarafından diğer klinik faktörlerle birlikte yorumlanır."
+        intro="Erken evre meme kanserinde, yeni nesil sekanslama (NGS) teknolojisi kullanılarak 70 hedef gen ve 465 referans genin analiz edilmesi, tümörün genomik özelliklerinin değerlendirilmesine ve hastanın kemoterapi gereksiniminin belirlenmesine yönelik klinik karar sürecinin desteklenmesine yardımcı olur. Ayrıca uzak metastaz olmaksızın nüks riskinin değerlendirilmesine katkı sağlar."
       />
 
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-8">
         <h2 className="text-h3 font-semibold text-primary-900">30 saniyede MammaPrint</h2>
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { q: "Ne ölçer?", a: "Tümör dokusundaki 70 genin ekspresyon profilini." },
+            { q: "Ne ölçer?", a: "Tümör dokusundaki 70 genin genomik profilini." },
             { q: "Kim değerlendirebilir?", a: "Uygunluk hekiminiz tarafından klinik kriterlere göre değerlendirilir." },
             { q: "Hangi dokudan çalışılır?", a: "Mevcut biyopsi veya ameliyat dokusundan; ek işlem gerekmez." },
             { q: "Sonuç ne sağlar?", a: "Nüks riski hakkında hekiminizin yorumlayacağı ek bir içgörü." },
@@ -117,13 +118,16 @@ export default function MammaPrintPage() {
         <h2 className="text-h3 font-semibold text-primary-900">Sonuçlar</h2>
         <p className="mt-2 max-w-2xl text-text-muted">
           MammaPrint sonuçları Low Risk (düşük risk) ve High Risk (yüksek risk) kategorilerinde
-          sunulur; güncel rapor kapsamına göre UltraLow gibi ek alt kategoriler de yer alabilir.
-          Bu kategoriler kesin bir tedavi önerisi değildir — hekiminiz tarafından yorumlanır.
+          sunulur; güncel rapor kapsamına göre Low kategorisi UltraLow kategorisi olarak da
+          sınıflandırılabilir. Bu kategoriler kesin bir tedavi önerisi değildir — hekiminiz
+          tarafından diğer klinik faktörlerle birlikte yorumlanır.
         </p>
-        <Link href="/hastalar-icin/sonuclari-anlamak" className="mt-3 inline-block text-sm underline">
+        <div className="mt-6 max-w-2xl">
+          <RiskScale />
+        </div>
+        <Link href="/hastalar-icin/sonuclari-anlamak" className="mt-4 inline-block text-sm underline">
           Sonuçları anlamak hakkında daha fazla bilgi
         </Link>
-        <MedicalReviewFlag note="Risk kategorilerinin güncel tanımları ve UltraLow/High 1/High 2 gibi alt sınıflandırmalar medikal inceleyici tarafından doğrulanmalıdır (bkz. content-gaps.md)." />
       </section>
 
       <section className="border-t border-border bg-surface-muted">

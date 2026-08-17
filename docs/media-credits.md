@@ -3,28 +3,32 @@
 Gereksinim D-08 (`docs/requirements-matrix.md`): "Görsellerde lisans/kalite/alt metin incelemesi —
 Yeni medya kütüphanesi". Bu dosya her yüklenen görselin kaynağını ve lisansını izler.
 
-## Fotoğraflar (Pexels — Pexels Lisansı)
+## Marka kısıtı (2026-07-29 tarihli müşteri geri bildirimiyle güncellendi)
 
-Pexels Lisansı: ticari/ticari olmayan kullanım için ücretsiz, atıf gerekmez, yeniden satış veya
-model onayı gerektiren kullanımlar (ör. kişiyi olumsuz/hassas bir bağlamda tanıtma) hariç.
-Bkz. https://www.pexels.com/license/
+Müşteri geri bildirim dokümanı (`mammaprint web sitesi.pdf`) açıkça şunu belirtiyor: **"Agendia'nın
+kendi logoları dışında başka görsel koyamıyoruz."** Bu, Agendia'nın marka/lisans sözleşmesinden
+kaynaklanan bir kısıttır.
 
-| Dosya | Kaynak | Fotoğrafçı | Kullanım |
-|---|---|---|---|
-| `public/images/laboratuvar-genomik-analiz.jpg` | [Pexels #3938022](https://www.pexels.com/photo/scientist-using-microscope-3938022/) | Chokniti Khongchum | Laboratuvar/bilimsel kanıt bölümü — genel laboratuvar görseli, hasta betimlemesi yok |
-| `public/images/hasta-hekim-gorusmesi.jpg` | [Pexels #4266939](https://www.pexels.com/photo/a-doctor-talking-to-a-patient-4266939/) | Cedric Fauntleroy | Hasta merkezi / test süreci bölümü — sakin, oturarak görüşme; hastane yatağı veya dramatik sahne değil (bkz. design-system.md §7 görsel ilkeleri) |
-| `public/images/gen-ekspresyonu-soyut.jpg` | [Pexels #25626515](https://www.pexels.com/photo/close-up-of-abstract-shapes-25626515/) | Google DeepMind | Genomik test nedir / gen ekspresyonu anlatımı — soyut bilimsel görsel, DNA'nın tek başına "genomik test" anlatımı sayılmaması için her zaman açıklayıcı metinle birlikte kullanılır |
+Bu nedenle daha önce eklenen 3 adet Pexels lisanslı stok fotoğraf (laboratuvar, hasta-hekim
+görüşmesi, soyut DNA görseli) **kaldırılmıştır**. Görsel zenginlik yalnızca aşağıdaki iki yoldan
+sağlanır:
 
-Model izni notu: Bu fotoğraflardaki kişiler tanımlı/gerçek hastalar değildir; stok fotoğraf
-modelleridir. Gerçek hasta hikâyesi/fotoğrafı kullanılacaksa ayrı açık izin ve gerçeklik kontrolü
-gereklidir (bkz. strateji dokümanı §11.3).
+1. **Özgün SVG illüstrasyonlar** (`components/illustrations/`) — bu proje için özgün olarak
+   oluşturulmuştur, üçüncü taraf telif hakkı taşımaz, Agendia marka varlığı değildir ve bu nedenle
+   marka kısıtına takılmaz.
+2. **Agendia'nın kendi logoları** — yalnızca resmi olarak sağlandığında ve kullanım izniyle
+   birlikte eklenebilir. Şu anda repo'da Agendia'nın resmi logo dosyası bulunmuyor; eklenmesi
+   gerekirse Agendia/Omnigen'den resmi marka varlıkları talep edilmelidir.
 
-## Özgün illüstrasyonlar
+## Kılavuz/dernek isimleri (metin, logo değil)
 
-`components/illustrations/` altındaki tüm SVG'ler bu proje için özgün olarak oluşturulmuştur;
-üçüncü taraf telif hakkı taşımaz.
+`/kilavuzlar/` sayfasında ASCO, NCCN, ESMO, NABON, EGTM, AJCC, AGO gibi klinik kılavuz
+kuruluşlarından bahsedilir. Bu kuruluşların **logo görselleri kullanılmaz** — yalnızca isimleri
+metin olarak, atıf/referans bağlamında geçer. Gerçek logo grafiklerinin kullanılması ayrı izin
+gerektirir.
 
 ## Güncelleme kuralı
 
-Yeni bir görsel eklendiğinde bu tabloya satır eklenmeden yayınlanmamalıdır (bkz. CMS kalite
-kontrolü, `docs/content-model.md`).
+Yeni bir görsel eklenmeden önce bu dosyadaki marka kısıtı gözden geçirilmelidir. Agendia'nın kendi
+logoları dışında hiçbir fotoğraf/illüstrasyon/üçüncü taraf görsel eklenmemelidir; yalnızca özgün
+SVG illüstrasyon üretimi serbesttir.
