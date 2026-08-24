@@ -7,6 +7,7 @@ export interface EvidenceCardProps {
   patientPopulation: string;
   followUpDuration: string;
   finding: string;
+  keyStatistics?: { value: string; description: string }[];
   clinicalImplication: string;
   limitations: string;
   sourceCitation: string;
@@ -18,6 +19,7 @@ export function EvidenceCard({
   patientPopulation,
   followUpDuration,
   finding,
+  keyStatistics,
   clinicalImplication,
   limitations,
   sourceCitation,
@@ -43,6 +45,16 @@ export function EvidenceCard({
           <dd className="mt-1 text-sm">{finding}</dd>
         </div>
       </dl>
+      {keyStatistics && keyStatistics.length > 0 ? (
+        <div className="mt-4 grid gap-3 sm:grid-cols-3">
+          {keyStatistics.map((stat) => (
+            <div key={stat.description} className="rounded-input border border-border bg-surface-muted p-4 text-center">
+              <p className="text-h2 font-bold text-mammaprint-accent">{stat.value}</p>
+              <p className="mt-1 text-xs text-text-muted">{stat.description}</p>
+            </div>
+          ))}
+        </div>
+      ) : null}
       <div className="mt-4 rounded-input bg-surface-tint-blue p-4">
         <p className="text-sm font-semibold text-primary-900">Bu sonuç ne anlama gelir?</p>
         <p className="mt-1 text-sm text-text-muted">{clinicalImplication}</p>

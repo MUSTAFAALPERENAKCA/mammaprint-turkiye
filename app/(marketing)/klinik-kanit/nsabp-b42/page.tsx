@@ -25,9 +25,12 @@ export default function NsabpB42Page() {
           patientPopulation="ER+ (östrojen reseptörü pozitif) erken evre meme kanseri hastaları"
           followUpDuration="Uzatılmış (5 yıl sonrası ek) endokrin tedavi dönemini kapsayan takip"
           finding="NSABP B-42 çalışması, ER+ hastalarında uzun süreli letrozol tedavisi ile hastalıksız sağkalımda (DFS) küçük bir iyileşme olduğunu göstermiştir; ancak çalışma, uzun süreli endokrin tedavisi için en iyi adayları belirleyebilecek herhangi bir hasta veya tümör özelliği sağlamamıştır. Bunun üzerine NSABP, uzun süreli endokrin tedavisinden fayda sağlayıp sağlayamayacağını belirlemek için çeşitli genomik testlerle translasyonel bir çalışma yürütmüştür. Bu translasyonel analiz, MammaPrint'in erken evre meme kanseri olan kadınlarda uzatılmış endokrin tedaviden fayda görme olasılığını doğru bir şekilde tahmin edebildiğini göstermiştir. Düşük riskli hastalar, 5 yıllık ek hormon tedavisiyle önemli ölçüde daha iyi sonuçlar elde ederken, yüksek ve ultra düşük riskli hastalar uzatılmış endokrin tedaviden fayda görmemektedir."
-          clinicalImplication="MammaPrint risk sonucu, hekiminizin uzatılmış endokrin tedavinin faydalı olup olmayacağını değerlendirirken göz önünde bulundurabileceği ek bir bilgi kaynağıdır."
+          keyStatistics={[
+            { value: "%9,5", description: "Yalnızca MammaPrint Düşük Riskli hastalarda, uzatılmış endokrin tedaviyle 10 yıllık hastalıksız sağkalımda (DFS) elde edilen istatistiksel olarak anlamlı iyileşme" },
+          ]}
+          clinicalImplication="MammaPrint risk sonucu, hekiminizin uzatılmış endokrin tedavinin faydalı olup olmayacağını değerlendirirken göz önünde bulundurabileceği ek bir bilgi kaynağıdır. Bu fayda yalnızca Düşük Riskli hasta alt grubunda gösterilmiştir; Yüksek ve Ultra Düşük Riskli hastalarda anlamlı fayda saptanmamıştır."
           limitations="Bulgular ER+ hasta grubuna ve translasyonel alt çalışma tasarımına dayanır; bireysel tedavi kararı yerine geçmez."
-          sourceCitation="Bkz. agendia.com/landmark-trials/#b42"
+          sourceCitation="B-42 JCO 2024 yayını. Yüzde verisi agendia.com/landmark-trials/#b42 sayfasından alınmıştır (2026-08-24 tarihinde doğrulandı)."
         />
       </section>
       <section className="mx-auto max-w-7xl px-4 py-8 sm:px-8">

@@ -25,9 +25,14 @@ export default function NbrstPage() {
           patientPopulation="Neoadjuvan endokrin tedavisi veya neoadjuvan kemoterapi tedavisi gören hastalar"
           followUpDuration="Başlangıç yanıt verileri ve uzun vadeli sonuçlar için 5 yıl takip"
           finding="Çalışma sonuçları, MammaPrint ve BluePrint'in ameliyat öncesi dönemde geniş bir kullanım yelpazesine sahip olduğunu gösterdi. Hem MammaPrint hem de BluePrint, neoadjuvan tedaviye patolojik tam yanıt (pCR) olasılığını doğru bir şekilde tahmin etti. Ayrıca BluePrint, hastaları patolojik alt tiplerinden farklı bir moleküler alt tipe tutarlı bir şekilde yeniden sınıflandırdı. Daha uzun süreli takip ile NBRST, MammaPrint ve BluePrint'in hastaları önemli ölçüde değişken sonuçlara sahip farklı alt gruplara ayırdığını gösterdi."
-          clinicalImplication="BluePrint sonucu, hekiminizin patoloji ve diğer klinik bilgilerle birlikte değerlendirdiği tamamlayıcı bir bilgi kaynağıdır."
+          keyStatistics={[
+            { value: "%23", description: "Tümörlerin BluePrint ile klinik/patolojik alt tipten farklı bir moleküler alt tipe yeniden sınıflandırıldığı oran" },
+            { value: "%34", description: "ER pozitif BluePrint Bazal-Tip tümörlerde neoadjuvan kemoterapiye patolojik tam yanıt (pCR) oranı (Luminal B-Tip'te %6)" },
+            { value: "%52", description: "BluePrint Luminal A-Tip hastalarda neoadjuvan endokrin tedaviye objektif yanıt oranı" },
+          ]}
+          clinicalImplication="BluePrint sonucu, hekiminizin patoloji ve diğer klinik bilgilerle birlikte değerlendirdiği tamamlayıcı bir bilgi kaynağıdır. Yukarıdaki oranlar belirli moleküler alt gruplara (Bazal-Tip, Luminal A/B-Tip) özgüdür."
           limitations="Yeniden sınıflandırma oranları kullanılan veri setine ve rapor sürümüne göre değişebilir; güncel değerler için kaynağa bakılmalıdır."
-          sourceCitation="ClinicalTrials.gov NCT01479101; bkz. agendia.com/landmark-trials/#NBRST"
+          sourceCitation="ClinicalTrials.gov NCT01479101. Yüzde verileri agendia.com/landmark-trials/#NBRST sayfasından alınmıştır (2026-08-24 tarihinde doğrulandı)."
         />
       </section>
       <section className="mx-auto max-w-7xl px-4 py-8 sm:px-8">

@@ -28,9 +28,13 @@ export default function Sto3Page() {
           patientPopulation="Menopoz sonrası kadınlar; 20 yıllık takip verilerine sahip hasta örnekleri"
           followUpDuration="20 yıllık takip verisi"
           finding="Stockholm Tamoksifen Denemesi'nin (STO-3) amacı, menopoz sonrası kadınlarda adjuvan tedavi olarak tamoksifenin etkinliğini değerlendirmekti. JAMA Oncology'de Esserman ve diğerlerinin yayınladığı makalede, bu çalışmadan elde edilen 20 yıllık takip verilerine sahip hasta örneklerinin analizinde MammaPrint kullanılarak, tam kür endokrin tedavisine ihtiyaç duymayan son derece yavaş ilerleyen kanserlerin tespit edilip edilemeyeceği araştırıldı. Bu analiz, MammaPrint'in tanıdan 20 yıl sonra kanser nüksü riski son derece düşük olan bir hasta alt grubunu doğru bir şekilde belirleyebildiğini göstermiştir. Endokrin tedavisi almayan hastalar ile 2 yıllık veya standart 5 yıllık endokrin tedavisi alan hastalar arasında sonuçlar açısından istatistiksel olarak anlamlı bir fark bulunmamıştır."
-          clinicalImplication="UltraLow risk kavramı, hekiminizin diğer klinik faktörlerle birlikte değerlendirdiği ek bir bilgi katmanıdır; bireysel tedavi kararı yerine geçmez."
+          keyStatistics={[
+            { value: "%97", description: "Ultra Düşük Riskli, 2 veya 5 yıl tamoksifen alan hastalarda 20 yıllık meme kanserine özgü sağkalım" },
+            { value: "%94", description: "Ultra Düşük Riskli, tamoksifen almayan hastalarda 20 yıllık meme kanserine özgü sağkalım (istatistiksel olarak anlamlı fark yok)" },
+          ]}
+          clinicalImplication="UltraLow risk kavramı, hekiminizin diğer klinik faktörlerle birlikte değerlendirdiği ek bir bilgi katmanıdır; bireysel tedavi kararı yerine geçmez. İki oran arasındaki fark istatistiksel olarak anlamlı bulunmamıştır."
           limitations="Analiz, menopoz sonrası kadın hasta grubuna ve retrospektif veri setine dayanır; bireysel sonuç garantisi anlamına gelmez."
-          sourceCitation="Esserman ve ark., JAMA Oncology; bkz. agendia.com/landmark-trials/#STO"
+          sourceCitation="Esserman ve ark., JAMA Oncology. Yüzde verileri agendia.com/landmark-trials/#STO sayfasından alınmıştır (2026-08-24 tarihinde doğrulandı)."
         />
       </section>
       <section className="mx-auto max-w-7xl px-4 py-8 sm:px-8">

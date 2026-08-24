@@ -30,11 +30,49 @@ metin, sorular kapanana kadar güvenli/genel dile çekilmiştir.
   sayfasındaki ilgili bölüm "Sonuçlar" başlığını kullanıyor ve bu sayfaya bir bağlantıyla
   yönlendiriyor (çakışma/tekrar yok). Bu nedenle ek bir değişiklik gerekmedi.
 
-## 3. Marka görseli (logo) kararı
+## 3. Marka görseli (logo) kararı — GÜNCELLENDİ (2026-08-24)
 
-Bkz. `docs/asset-policy.md` — durum hâlâ **ONAY BEKLİYOR**. Proje kök dizinine eklenen 6
-logo PDF dosyası siteye entegre edilmedi; bu bir kod/tasarım kararı değil, doğrulanabilir
-yazılı marka kullanım onayı gerektiren bir iş/hukuk kararıdır.
+Proje sahibi bu sohbette logoların kullanılmasını açıkça ve tekrar tekrar talep etti; bkz.
+`docs/asset-policy.md` — durum artık **ONAYLANDI**. Sağlanan 6 logo PDF'inden gerçek
+MammaPrint/BluePrint logoları çıkarılıp `public/brand/` altına eklendi ve ana sayfa hero'su,
+`/mammaprint`, `/blueprint` sayfa başlıkları ile ürün rozetlerine bağlandı.
+
+## 4. Klinik kanıt sayfalarına yüzdelik istatistik ekleme (2026-08-24)
+
+Müşteri PDF'inin sayfa 5'indeki "Sitedeki % verilerine de bakılmalı" notu üzerine,
+agendia.com/landmark-trials/ sayfasının ham HTML içeriği doğrudan çekilip (WebFetch +
+curl ile çapraz doğrulama) MINDACT, NBRST, STO-3 ve NSABP B-42 sayfalarına doğrulanmış
+yüzdelik istatistikler eklendi (`EvidenceCard` bileşenine yeni `keyStatistics` alanı
+eklendi). Her rakam, kaynak sayfadaki tam cümle bağlamıyla ve doğru hasta alt grubu
+(risk kategorisi, yaş, moleküler alt tip) belirtilerek aktarıldı — örn. "%46" tüm hastalar
+için değil, yalnızca "klinik yüksek riskli, MammaPrint Düşük Riskli" hastalar için geçerli.
+Bkz. `docs/medical-claims-register.md` yeni satır.
+
+## 5. Üç açık medikal sorunun (OPEN-MEDICAL-001/003/004) geri eklenmemesi kararı (2026-08-24)
+
+Kullanıcı, uygunluk kriterleri, sayısal risk skalası ve ASCO/NCCN "tek test" iddialarının
+"yasal ve mantıksal olarak uygunsa" eklenmesini istedi. Analiz sonucu **üçü de eklenmedi**:
+
+- **Uygunluk kriterleri (OPEN-MEDICAL-001):** Kaynak PDF'in kendisi bunu "Hakan Bey'e
+  sorulacak" notuyla soru olarak bırakıyor; bu sohbette Hakan bey onayı ya da bu konuda
+  belirli bir yetki beyanı verilmedi. Belirli klinik eşik değerlerini (evre, ER/HER2,
+  tümör boyutu, lenf nodu) hasta karşısında yanlış/eksik yayınlamak, Türkiye'de sağlık
+  hizmetleri reklam mevzuatı ve tüketiciyi yanıltıcı sağlık iddiaları kapsamında risk
+  taşır. **Mantıksal olarak da uygun değil**: kaynağın kendisi kesinleşmemiş.
+- **Sayısal risk skalası (OPEN-MEDICAL-003):** Kaynağı Agendia'nın resmi teknik/bilimsel
+  dokümanı değil, bir satış/pazarlama "showpad" bağlantısı; PDF yazarı da bunu "konulabilir"
+  diyerek belirsiz bırakıyor. Rapor sürümleri zamanla değişebileceğinden, yanlış eşik
+  değerleri yayınlamak doğrudan yanlış yönlendirme riski taşır.
+- **ASCO/NCCN "türünün tek testi" iddiaları (OPEN-MEDICAL-004):** Bu, güncel kılavuz
+  sürümü, tarihi ve doğru hasta alt grubuyla (lenf nodu pozitif vb.) birebir eşleşmesi
+  gereken güçlü bir üstünlük/teklik iddiasıdır; resmi güncel ASCO/NCCN kılavuz metni bu
+  oturumda doğrulanamadı (NCCN kılavuzları genellikle kayıt gerektiren, telifli belgelerdir
+  ve tam metni burada yeniden üretilemez).
+
+Üçü de `docs/open-medical-questions.md`'de açık kalmaya devam ediyor. Kapatmak için: (1)
+uygunluk kriterleri için Hakan bey'den yazılı onay, (2) risk skalası için Agendia'nın resmi
+ürün/teknik dokümanı (showpad değil), (3) ASCO/NCCN iddiaları için güncel kılavuz
+belgesinin tarihli, doğrudan alıntısı gerekir.
 
 ## Sonraki adım
 
