@@ -121,6 +121,23 @@ export default function MammaPrintPage() {
           sunulur. Bu kategoriler kesin bir tedavi önerisi değildir — hekiminiz tarafından diğer
           klinik faktörlerle birlikte yorumlanır.
         </p>
+        <div className="mt-6 grid max-w-2xl gap-4 sm:grid-cols-2">
+          <div className="rounded-card border border-border bg-surface-tint-blue p-5">
+            <p className="font-semibold text-primary-900">Low Risk (Düşük Risk)</p>
+            <p className="mt-1 text-2xl font-bold text-mammaprint-accent">%1,3</p>
+            <p className="mt-1 text-sm text-text-muted">nüks (tekrarlama) olasılığı örneği</p>
+          </div>
+          <div className="rounded-card border border-border bg-surface-tint-rose p-5">
+            <p className="font-semibold text-primary-900">High Risk (Yüksek Risk)</p>
+            <p className="mt-1 text-2xl font-bold text-mammaprint-accent">%11,7</p>
+            <p className="mt-1 text-sm text-text-muted">nüks (tekrarlama) olasılığı örneği</p>
+          </div>
+        </div>
+        <p className="mt-3 max-w-2xl text-xs text-text-muted">
+          Kaynak: agendia.com/mammaprint (2026-08-24 tarihinde doğrulandı). Bu oranlar genel bir
+          örnektir; hastaya özel nüks olasılığı hekiminiz tarafından tüm klinik faktörlerle
+          birlikte yorumlanır.
+        </p>
         <Link href="/hastalar-icin/sonuclari-anlamak" className="mt-4 inline-block text-sm underline">
           Sonuçları anlamak hakkında daha fazla bilgi
         </Link>

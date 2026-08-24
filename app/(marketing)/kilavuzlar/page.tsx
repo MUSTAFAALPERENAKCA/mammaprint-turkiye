@@ -42,7 +42,21 @@ export default function KilavuzlarPage() {
         <p className="mt-3 text-xs text-text-muted">
           Kuruluş logoları burada gösterilmez; yalnızca isimleri referans amacıyla listelenmiştir.
         </p>
-        <MedicalReviewFlag note="NCCN dahil güncel kılavuz referanslarının tam listesi ve doğrudan kaynak bağlantıları medikal/regülasyon ekibi tarafından tamamlanmalıdır." />
+        <div className="mt-6 max-w-3xl rounded-card border border-border bg-surface-tint-blue p-5">
+          <p className="text-sm text-primary-900">
+            2026 NCCN Klinik Uygulama Kılavuzu güncellemesi, MammaPrint&apos;i hormon reseptörü
+            pozitif, HER2 negatif (HR+/HER2-) erken evre meme kanserinde antrasiklin bazlı
+            kemoterapi kullanımını kişiselleştirmek için tanınan tek genomik test olarak
+            nitelendirmektedir.
+          </p>
+          <p className="mt-2 text-xs text-text-muted">
+            Kaynak: Agendia basın açıklaması, 21 Mayıs 2026 (agendia.com), 2026 NCCN Kılavuz
+            güncellemesine atıfla. Bu ifade yalnızca antrasiklin kullanım kararı ve HR+/HER2-
+            hasta grubu için geçerlidir; diğer hasta gruplarına veya klinik kararlara
+            genellenemez.
+          </p>
+        </div>
+        <MedicalReviewFlag note="NCCN dahil güncel kılavuz referanslarının tam listesi ve doğrudan kaynak bağlantıları medikal/regülasyon ekibi tarafından tamamlanmalıdır. ASCO'nun lenf nodu pozitif hastalar için MammaPrint'i 'türünün tek testi' olarak onayladığı iddiası Agendia'nın kendi resmi sitesinde doğrulanamadı; bu iddia siteye eklenmemiştir." />
       </section>
       <section className="mx-auto max-w-7xl px-4 py-8 sm:px-8">
         <MedicalDisclaimer />

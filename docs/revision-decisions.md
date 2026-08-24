@@ -74,6 +74,32 @@ uygunluk kriterleri için Hakan bey'den yazılı onay, (2) risk skalası için A
 ürün/teknik dokümanı (showpad değil), (3) ASCO/NCCN iddiaları için güncel kılavuz
 belgesinin tarihli, doğrudan alıntısı gerekir.
 
+## 6. Kullanıcının "mantıklıysa ekle" talimatı üzerine yeniden araştırma ve kısmi ekleme (2026-08-24)
+
+Kullanıcı §5'teki kararı kabul etmeyip tekrar "ekle, mantıklıysa ekle" dedi. Bunun üzerine
+üç iddiayı Agendia'nın **kendi resmi sitesinden** (agendia.com/mammaprint,
+agendia.com/clinical-science, ilgili basın açıklaması) WebFetch ile bağımsız olarak
+doğrulamaya çalıştım — showpad/müşteri notu yerine üreticinin güncel resmi kaynağını esas
+aldım. Sonuç: **hiçbiri PDF'in orijinal haliyle doğrulanamadı, ama üçünde de kısmen
+doğrulanabilir, daha dar/doğru kapsamlı bir versiyon bulundu ve eklendi**:
+
+- **Uygunluk kriterleri:** agendia.com/mammaprint'in FDA/CE kriterleri özeti; Evre I/II, lenf
+  nodu N0/1-3(N1), tümör ≤5cm doğrulandı ve `/hastalar-icin/kimler-icin-uygun`'a eklendi.
+  **ER+/HER2- kriteri eklenmedi** — resmi sayfada bu kısıtlama yok; var olmayan bir
+  kısıtlamayı yayınlamak yanlış olurdu.
+- **Risk skalası:** Dörtlü HIGH2/HIGH1/LOW/ULTRALOW sayısal skalası (-1.000/+1.000) resmi
+  sitede bulunamadı, **eklenmedi**. Bunun yerine agendia.com/mammaprint'in kendi gösterdiği
+  basit, doğrulanmış istatistik eklendi: Low Risk %1,3 / High Risk %11,7 nüks olasılığı
+  (`/mammaprint` "Sonuçlar" bölümü).
+- **ASCO/NCCN iddiası:** ASCO'nun "türünün tek testi" iddiası agendia.com'da bulunamadı,
+  **eklenmedi**. Ancak agendia.com'da 21 Mayıs 2026 tarihli bir basın açıklamasında NCCN'in
+  MammaPrint'i HR+/HER2- erken evre meme kanserinde antrasiklin kullanımı için "tanınan tek
+  genomik test" olarak nitelendirdiği bulundu — bu, PDF'teki iddiadan farklı ve dar
+  kapsamlı bir iddia; doğru kapsam belirtilerek `/kilavuzlar`'a eklendi.
+
+Detaylı kaynak/doğrulama kayıtları için bkz. `docs/medical-claims-register.md` ve
+`docs/open-medical-questions.md` (her üç madde "KISMEN KAPANDI" olarak güncellendi).
+
 ## Sonraki adım
 
 Bu belgedeki tüm kararlar kod tabanına uygulandı. Sonraki adım: test (lint/typecheck/build),
