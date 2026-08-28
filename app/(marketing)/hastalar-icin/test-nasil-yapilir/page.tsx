@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 const steps = [
   { icon: DoctorReviewIcon, title: "Hekim değerlendirmesi", description: "Hekiminiz klinik uygunluğunuzu değerlendirir." },
   { icon: TissueSampleIcon, title: "Mevcut doku örneği", description: "Ek bir cerrahi işlem gerekmeden mevcut biyopsi veya ameliyat dokusu kullanılır." },
-  { icon: LabAnalysisIcon, title: "Laboratuvar analizi", description: "Doku örneği gen ekspresyonu açısından analiz edilir." },
-  { icon: ResultReviewIcon, title: "Sonuçların değerlendirilmesi", description: "Rapor hekiminize ulaşır ve sizinle birlikte değerlendirilir." },
+  { icon: LabAnalysisIcon, title: "Laboratuvar analizi", description: "Doku örneği genomik profili açısından analiz edilir." },
+  { icon: ResultReviewIcon, title: "Sonuçların değerlendirilmesi", description: "Rapor genellikle 6 iş günü içinde hekiminize ulaşır ve sizinle birlikte değerlendirilir." },
 ];
 
 export default function TestNasilYapilirPage() {

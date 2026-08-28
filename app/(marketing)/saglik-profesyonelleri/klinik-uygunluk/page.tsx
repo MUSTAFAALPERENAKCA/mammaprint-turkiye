@@ -23,6 +23,12 @@ export default function KlinikUygunlukPage() {
             MammaPrint ve BluePrint testlerinin klinik uygunluk kriterleri; tümör evresi, hormon
             reseptörü durumu, lenf nodu tutulumu ve diğer patolojik özelliklere göre değerlendirilir.
           </p>
+          <p>
+            Agendia&apos;nın resmi FDA ve CE kullanım kriterleri özetine göre: erken evre (Evre I
+            veya II), lenf nodu negatif ya da 1-3 pozitif lenf nodu (N1), tümör çapı ≤5cm (kaynak:
+            agendia.com/mammaprint, 2026-08-24 tarihinde doğrulandı). Tam endikasyon metni ve
+            uygunluk matrisi aşağıdaki not doğrultusunda tamamlanmalıdır.
+          </p>
         </div>
         <MedicalReviewFlag note="Resmi kullanım amacı (endikasyon) metni ve tam uygunluk matrisi tablosu medikal/regülasyon ekibi tarafından sağlanmalı ve onaylanmalıdır." />
       </section>

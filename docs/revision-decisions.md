@@ -100,6 +100,36 @@ doğrulanabilir, daha dar/doğru kapsamlı bir versiyon bulundu ve eklendi**:
 Detaylı kaynak/doğrulama kayıtları için bkz. `docs/medical-claims-register.md` ve
 `docs/open-medical-questions.md` (her üç madde "KISMEN KAPANDI" olarak güncellendi).
 
+## 7. Genel doğruluk/tutarlılık turu — resmi agendia.com ile hizalama (2026-08-24)
+
+Kullanıcı "sitedeki bilgiler tamamen doğru ve tutarlı olsun, MammaPrint'in resmi yurt dışı
+sitesine tam olarak uysun" dedi. Bunun üzerine agendia.com'un BluePrint, MammaPrint+BluePrint
+kombine ve MammaPrint sayfalarını WebFetch ile tekrar tarayıp sitedeki tüm test-spesifik
+sayfalarla karşılaştırdım. Bulunan ve düzeltilen tutarsızlıklar:
+
+- **Sonuç süresi:** Önceden belirsiz bırakılan "laboratuvar sürecine göre değişir" ifadesi,
+  agendia.com'da doğrulanan **"genellikle 6 iş günü"** bilgisiyle güncellendi
+  (`/mammaprint` FAQ, `/hastalar-icin/test-nasil-yapilir`, `/mammaprint-blueprint`).
+- **"MammaPrint Index":** Sonuçların aslında sayısal bir skala ("MammaPrint Index") üzerinde
+  hesaplanıp Low/High Risk olarak raporlandığı resmi kaynaktan doğrulandı ve eklendi
+  (`/mammaprint`, `/hastalar-icin/sonuclari-anlamak`) — spesifik sayısal aralıklar hâlâ
+  eklenmedi (bkz. §6, OPEN-MEDICAL-003 hâlâ kısmen açık).
+  Basel-Tip için "ER, PR ve HER2 yolaklarınca yönlendirilmeyen" resmi tanımına
+  güncellendi; niteliksel yeniden sınıflandırma cümlesi ve kaynak eklendi (`/blueprint`).
+- **Terminoloji tutarlılığı:** `/hastalar-icin/test-nasil-yapilir` sayfasındaki unutulmuş "gen
+  ekspresyonu" ifadesi, sitenin geri kalanıyla tutarlı olacak şekilde "genomik profili"ne
+  çevrildi. (Not: `/genomik-test-nedir` ve `/genomik-test-genetik-test-farki` sayfalarındaki
+  "gen ekspresyonu" kullanımı bilinçli olarak korundu — bunlar MammaPrint'e özgü değil,
+  genomik testleri genel olarak tanımlayan eğitim içerikleridir ve terim doğru/nötr.)
+- **HCP sayfası tutarlılığı:** `/saglik-profesyonelleri/klinik-uygunluk` sayfasına da aynı
+  doğrulanmış FDA/CE kriterleri eklendi (önceden yalnızca hasta sayfasında vardı).
+- **Gen sayıları:** MammaPrint=70 gen, BluePrint=80 gen site genelinde tutarlı bulundu,
+  değişiklik gerekmedi.
+
+Kapsam dışı bırakılanlar: site genelindeki iletişim/gizlilik/hakkımızda gibi Agendia'nın
+sitesiyle doğrudan karşılaştırılamayacak (distribütöre özgü) sayfalara dokunulmadı; kapsam
+yalnızca test bilgisi taşıyan sayfalarla sınırlı tutuldu.
+
 ## Sonraki adım
 
 Bu belgedeki tüm kararlar kod tabanına uygulandı. Sonraki adım: test (lint/typecheck/build),

@@ -14,9 +14,9 @@ export const metadata: Metadata = {
 };
 
 const subtypes = [
-  { name: "Luminal", description: "Hormon reseptörü yolakları ile ilişkili moleküler alt tip." },
-  { name: "HER2", description: "HER2 sinyal yolağıyla ilişkili moleküler alt tip." },
-  { name: "Basal", description: "Bazal benzeri gen ekspresyon profiliyle ilişkili moleküler alt tip." },
+  { name: "Luminal-Tip", description: "Öncelikle östrojen ve progesteron hormon yolaklarınca yönlendirilen moleküler alt tip." },
+  { name: "HER2-Tip", description: "Öncelikle HER2 sinyal yolağınca yönlendirilen moleküler alt tip." },
+  { name: "Bazal-Tip", description: "ER, PR ve HER2 yolaklarınca yönlendirilmeyen moleküler alt tip." },
 ];
 
 export default function BluePrintPage() {
@@ -48,7 +48,11 @@ export default function BluePrintPage() {
         </div>
         <p className="mt-6 max-w-2xl text-text-muted">
           BluePrint, IHC/FISH gibi geleneksel patoloji yöntemlerinin yerine geçmez; tamamlayıcı bir
-          moleküler değerlendirme sunar.
+          moleküler değerlendirme sunar. BluePrint, tümörleri IHC/FISH ile belirlenen klinik/patolojik
+          alt tipten farklı bir moleküler alt tipe yeniden sınıflandırabilir.
+        </p>
+        <p className="mt-3 max-w-2xl text-xs text-text-muted">
+          Kaynak: agendia.com/blueprint (2026-08-24 tarihinde doğrulandı).
         </p>
         <MedicalReviewFlag note="NBRST yeniden sınıflandırma verisi (hasta grubu, veri seti sürümü ile birlikte) ve BluePrint'in MammaPrint'ten farklı regülasyon statüsü medikal inceleyici tarafından doğrulanmalıdır." />
       </section>

@@ -24,7 +24,7 @@ const faqs = [
   {
     question: "Sonuç kaç günde çıkar?",
     answer:
-      "Süre laboratuvar sürecine göre değişir; güncel süre bilgisi için hekiminizle veya laboratuvarla iletişime geçin.",
+      "Agendia'nın resmi verilerine göre sonuçlar genellikle 6 iş günü içinde hekiminize ulaşır. Kesin süre, numunenin laboratuvara ulaşma zamanına ve sürece göre değişebilir; güncel bilgi için hekiminizle veya laboratuvarla iletişime geçin.",
   },
   {
     question: "Sonucu kim yorumlar?",
@@ -117,9 +117,10 @@ export default function MammaPrintPage() {
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-8">
         <h2 className="text-h3 font-semibold text-primary-900">Sonuçlar</h2>
         <p className="mt-2 max-w-2xl text-text-muted">
-          MammaPrint sonuçları Low Risk (düşük risk) ve High Risk (yüksek risk) kategorilerinde
-          sunulur. Bu kategoriler kesin bir tedavi önerisi değildir — hekiminiz tarafından diğer
-          klinik faktörlerle birlikte yorumlanır.
+          Sonuç, &quot;MammaPrint Index&quot; adı verilen bir skala üzerinde sayısal olarak
+          hesaplanır ve hekiminize Low Risk (düşük risk) ve High Risk (yüksek risk)
+          kategorilerinden biri olarak raporlanır. Bu kategoriler kesin bir tedavi önerisi
+          değildir — hekiminiz tarafından diğer klinik faktörlerle birlikte yorumlanır.
         </p>
         <div className="mt-6 grid max-w-2xl gap-4 sm:grid-cols-2">
           <div className="rounded-card border border-border bg-surface-tint-blue p-5">

@@ -18,7 +18,11 @@ export default function SonuclariAnlamakPage() {
       ]} />
       <PageHero title="MammaPrint Sonuçlarını Anlamak" intro="Risk terimlerinin genel açıklaması; kişisel yorum için hekiminize danışın." />
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-8">
-        <div className="grid gap-6 sm:grid-cols-2">
+        <p className="max-w-2xl text-text-muted">
+          MammaPrint sonucu, &quot;MammaPrint Index&quot; adı verilen bir skala üzerinde sayısal
+          olarak hesaplanır ve hekiminize aşağıdaki iki kategoriden biri olarak raporlanır.
+        </p>
+        <div className="mt-6 grid gap-6 sm:grid-cols-2">
           <div className="rounded-card border border-border bg-surface p-6 shadow-card">
             <h2 className="font-semibold text-primary-900">Low Risk (Düşük Risk)</h2>
             <p className="mt-2 text-sm text-text-muted">
@@ -39,7 +43,7 @@ export default function SonuclariAnlamakPage() {
             yorumlanır.
           </SafetyNote>
         </div>
-        <MedicalReviewFlag note="UltraLow/High 1/High 2 gibi güncel alt kategori tanımları ve hangi rapor sürümünde geçerli olduğu medikal inceleyici tarafından doğrulanmalıdır." />
+        <MedicalReviewFlag note="UltraLow/High 1/High 2 gibi dörtlü alt kategori tanımları ve sayısal skor aralıkları agendia.com'un genel sayfalarında doğrulanamadı (yalnızca satış materyali/showpad kaynağında görüldü); hangi rapor sürümünde geçerli olduğu medikal inceleyici tarafından doğrulanmalıdır." />
       </section>
       <section className="mx-auto max-w-7xl px-4 py-8 sm:px-8">
         <MedicalDisclaimer />
