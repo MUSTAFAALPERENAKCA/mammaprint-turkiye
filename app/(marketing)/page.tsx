@@ -35,12 +35,13 @@ export default function HomePage() {
         <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-8 lg:grid-cols-2 lg:py-20">
           <div>
             <h1 className="text-h1 font-semibold sm:text-display">
-              Meme kanserinin biyolojisini daha iyi anlamaya yardımcı genomik testler
+              Erken Evre Meme Kanseri Tedavisine Yön Vermek İçin Tümör Biyolojisini Aydınlatıyoruz
             </h1>
             <p className="mt-4 text-body-lg text-white/85">
-              MammaPrint meme kanseri nüks riskini ve BluePrint tümörün moleküler alt tiplendirmesi
-              hakkında tamamlayıcı bilgiler sağlar. Sonuçlar hekiminiz tarafından diğer klinik
-              faktörlerle birlikte yorumlanır.
+              MammaPrint® ve BluePrint®, tek bir doku örneğinden yalnızca 6 iş gününde sonuç sağlar;
+              klinik faktörlerin ötesine geçerek nüks riskini ve tümörün altta yatan biyolojisini
+              ortaya koyar. Sonuçlar her zaman hekiminiz tarafından diğer klinik faktörlerle
+              birlikte yorumlanır.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link href="/testler" className="rounded-full bg-mammaprint-accent px-6 py-3 text-center text-sm font-bold uppercase tracking-wide text-white shadow-lg hover:opacity-90">
@@ -66,7 +67,8 @@ export default function HomePage() {
             className="group rounded-card border border-border bg-surface p-6 shadow-card transition-colors hover:border-mammaprint-accent"
           >
             <MammaPrintBadge />
-            <h2 className="mt-4 text-h3 font-semibold text-primary-900">Meme kanserinin tekrarlama riski nedir?</h2>
+            <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-mammaprint-accent">Nüks Riski Testi</p>
+            <h2 className="mt-1 text-h3 font-semibold text-primary-900">Meme kanserinin tekrarlama riski nedir?</h2>
             <p className="mt-2 text-sm text-text-muted">
               MammaPrint, erken evre meme kanseri tümörünün genomik profilini analiz ederek nüks
               riskinin değerlendirilmesine yardımcı olur.
@@ -78,7 +80,8 @@ export default function HomePage() {
             className="group rounded-card border border-border bg-surface p-6 shadow-card transition-colors hover:border-blueprint-accent"
           >
             <BluePrintBadge />
-            <h2 className="mt-4 text-h3 font-semibold text-primary-900">Tümörün büyümesini ne yönlendiriyor?</h2>
+            <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-blueprint-accent">Moleküler Alt Tipleme Testi</p>
+            <h2 className="mt-1 text-h3 font-semibold text-primary-900">Tümörün büyümesini ne yönlendiriyor?</h2>
             <p className="mt-2 text-sm text-text-muted">
               BluePrint, tümörün büyümesini yönlendiren moleküler alt tipi değerlendirmeye
               yardımcı olur.

@@ -130,6 +130,31 @@ Kapsam dışı bırakılanlar: site genelindeki iletişim/gizlilik/hakkımızda 
 sitesiyle doğrudan karşılaştırılamayacak (distribütöre özgü) sayfalara dokunulmadı; kapsam
 yalnızca test bilgisi taşıyan sayfalarla sınırlı tutuldu.
 
+## 8. Ana sayfa pazarlama dili — agendia.com hero'suyla hizalama (2026-08-24)
+
+Kullanıcı "özellikle logolar, pazarlama dili... bilimsel veriler asla buradan [agendia.com]
+uzaklaşmasın" dedi. agendia.com'un ana sayfası WebFetch ile tarandı; resmi hero başlığı ve alt
+başlığı doğrulandı:
+
+- **Orijinal (İngilizce):** "Illuminating Tumor Biology to Guide Early Breast Cancer
+  Treatment." / "MammaPrint® + BluePrint® provide results in just 6 days from a single
+  sample—going beyond clinical factors to reveal recurrence risk and underlying tumor
+  biology to personalize treatment decisions."
+- **Uygulama:** Ana sayfa H1'i "Erken Evre Meme Kanseri Tedavisine Yön Vermek İçin Tümör
+  Biyolojisini Aydınlatıyoruz" olarak, alt başlık da resmi metnin doğru Türkçe çevirisi +
+  doğrulanmış "6 iş günü" verisiyle güncellendi. Medikal güvenlik için "sonuçlar hekiminiz
+  tarafından yorumlanır" ifadesi korundu (orijinalde yok, ama sitenin genel YMYL/tıbbi
+  ihtiyat politikasıyla tutarlılık için bilinçli olarak eklendi).
+- MammaPrint ve BluePrint kartlarına, agendia.com'daki resmi konumlandırma etiketleri
+  eklendi: "Nüks Riski Testi" (orijinal: "A Risk of Recurrence Test") ve "Moleküler Alt
+  Tipleme Testi" (orijinal: "A Molecular Subtyping Test") — bu etiketler zaten
+  `/mammaprint` ve `/blueprint` sayfa başlıklarında vardı, artık ana sayfada da tutarlı.
+
+Not: CTA buton metinleri ("Order a Test" → "Testleri Keşfedin") kasıtlı olarak birebir
+çevrilmedi; Türkiye distribütör sitesinin dönüşüm akışı (doğrudan online sipariş yerine
+bilgilendirme + iletişim) orijinal siteninkinden farklı bir iş modeli — bu bir pazarlama dili
+sadakati sorunu değil, iş süreci farkı.
+
 ## Sonraki adım
 
 Bu belgedeki tüm kararlar kod tabanına uygulandı. Sonraki adım: test (lint/typecheck/build),
