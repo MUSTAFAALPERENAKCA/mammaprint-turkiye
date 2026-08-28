@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/content/page-hero";
 import { Breadcrumb } from "@/components/content/breadcrumb";
 import { CtaBlock } from "@/components/content/cta-block";
-import { MedicalDisclaimer, MedicalReviewFlag } from "@/components/content/medical-disclaimer";
+import { MedicalDisclaimer } from "@/components/content/medical-disclaimer";
 
 export const metadata: Metadata = {
   title: "MammaPrint Örnek Raporları",
@@ -20,10 +20,9 @@ export default function OrnekRaporlarPage() {
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-8">
         <p className="max-w-2xl text-text-muted">
           MammaPrint ve BluePrint raporları; hasta/numune bilgisi, test sonucu, risk
-          sınıflandırması ve yöntem açıklaması gibi bölümler içerir. Güncel örnek rapor dosyaları
-          yetkiye göre erişilebilir kaynak olarak sunulacaktır.
+          sınıflandırması ve yöntem açıklaması gibi bölümler içerir. Örnek rapor dosyası talep
+          etmek için Medikal Bilgi Talebi formunu kullanabilirsiniz.
         </p>
-        <MedicalReviewFlag note="Gerçek örnek rapor PDF'leri (sürüm/tarih bilgisiyle) medikal ekip tarafından sağlanmalı ve Resource içerik tipi olarak yüklenmelidir (bkz. docs/content-model.md)." />
       </section>
       <section className="mx-auto max-w-7xl px-4 py-8 sm:px-8">
         <MedicalDisclaimer />

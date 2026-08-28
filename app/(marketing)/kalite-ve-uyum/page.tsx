@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/content/page-hero";
 import { Breadcrumb } from "@/components/content/breadcrumb";
 import { CtaBlock } from "@/components/content/cta-block";
-import { MedicalReviewFlag } from "@/components/content/medical-disclaimer";
 
 export const metadata: Metadata = {
   title: "Kalite, Lisans ve Uyum",
@@ -20,7 +19,6 @@ export default function KaliteVeUyumPage() {
           gerekliliklerine uygun olarak sunulmaktadır. Güncel sertifika ve lisans bilgileri talep
           üzerine paylaşılabilir.
         </p>
-        <MedicalReviewFlag note="Güncel kalite sertifikaları, lisans belgeleri ve regülasyon statü metinleri (MammaPrint/BluePrint için ayrı ayrı) hukuk/regülasyon ekibi tarafından sağlanmalı ve onaylanmalıdır (bkz. gereksinim M-08)." />
       </section>
       <CtaBlock
         title="Sorularınız mı var?"

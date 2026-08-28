@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/content/page-hero";
 import { Breadcrumb } from "@/components/content/breadcrumb";
 import { CtaBlock } from "@/components/content/cta-block";
-import { MedicalReviewFlag } from "@/components/content/medical-disclaimer";
 import { db } from "@/lib/db";
 import { ResourceCard } from "@/components/content/resource-card";
 
@@ -23,8 +22,10 @@ export default async function KaynaklarPage() {
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-8">
         {resources.length === 0 ? (
           <div className="rounded-card border border-dashed border-border p-8 text-center text-text-muted">
-            <p>Henüz yüklenmiş bir kaynak dosyası bulunmuyor.</p>
-            <MedicalReviewFlag note="Doktor görüşmesi rehberi (HTML sürümü /hastalar-icin/doktorla-konusma-rehberi sayfasında mevcuttur) ve diğer indirilebilir PDF kaynaklar medikal ekip tarafından sağlanıp Resource içerik tipi olarak yüklenmelidir." />
+            <p>
+              İndirilebilir PDF kaynaklar hazırlanıyor. Şu an için Doktor Görüşmesi Rehberi&apos;ni
+              web sayfası olarak görüntüleyebilirsiniz.
+            </p>
           </div>
         ) : (
           <div className="grid gap-4 sm:grid-cols-2">

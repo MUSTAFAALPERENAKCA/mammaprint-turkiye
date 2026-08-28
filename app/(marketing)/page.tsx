@@ -179,12 +179,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      <p className="mx-auto max-w-7xl px-4 py-6 text-xs text-text-muted sm:px-8">
-        [MEDİKAL ONAY GEREKLİ] Bu sayfadaki bilimsel/klinik ifadeler strateji dokümanının editoryal
-        taslağına dayanır; nihai yayın öncesi medikal inceleyici ve SEO editörü onayı gerekir. Bkz.
-        docs/content-gaps.md.
-      </p>
     </div>
   );
 }

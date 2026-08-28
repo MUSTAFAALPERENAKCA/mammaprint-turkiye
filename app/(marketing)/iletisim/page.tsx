@@ -3,7 +3,6 @@ import { PageHero } from "@/components/content/page-hero";
 import { Breadcrumb } from "@/components/content/breadcrumb";
 import { Tabs } from "@/components/content/tabs";
 import { ContactForm } from "@/components/forms/contact-form";
-import { MedicalReviewFlag } from "@/components/content/medical-disclaimer";
 
 export const metadata: Metadata = {
   title: "MammaPrint Türkiye İletişim",
@@ -23,9 +22,6 @@ export default function IletisimPage() {
             { label: "Kurumsal / Basın", content: <ContactForm formType="corporate" /> },
           ]}
         />
-        <div className="mt-10">
-          <MedicalReviewFlag note="Açık adres, telefon numarası, çalışma saatleri ve yanıt süresi beklentisi kurumsal ekip tarafından sağlanmalıdır (bkz. strateji dokümanı §8.7)." />
-        </div>
       </section>
     </div>
   );

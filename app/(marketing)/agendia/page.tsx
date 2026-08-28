@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/content/page-hero";
 import { Breadcrumb } from "@/components/content/breadcrumb";
 import { CtaBlock } from "@/components/content/cta-block";
-import { MedicalReviewFlag } from "@/components/content/medical-disclaimer";
 
 export const metadata: Metadata = {
   title: "Agendia Hakkında",
@@ -19,7 +18,6 @@ export default function AgendiaPage() {
           Agendia, MammaPrint ve BluePrint moleküler tanı testlerini geliştiren şirkettir. Bu
           testler, 20 yılı aşkın klinik doğrulama geçmişine dayanır.
         </p>
-        <MedicalReviewFlag note="Agendia kurumsal bilgisi, marka ilişkisi ve güncel regülasyon statüsü metinleri Agendia/Omnigen tarafından onaylanmalıdır." />
       </section>
       <CtaBlock
         title="Omnigen ve Türkiye operasyonu"

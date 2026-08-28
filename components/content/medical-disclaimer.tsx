@@ -27,11 +27,3 @@ export function SafetyNote({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
-
-export function MedicalReviewFlag({ note }: { note: string }) {
-  return (
-    <div className="rounded-card border border-dashed border-warning/40 bg-warning/5 px-4 py-3 text-xs text-warning">
-      <span className="font-semibold">[MEDİKAL ONAY GEREKLİ]</span> {note}
-    </div>
-  );
-}

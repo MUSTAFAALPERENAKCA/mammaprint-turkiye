@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/content/page-hero";
 import { Breadcrumb } from "@/components/content/breadcrumb";
 import { CtaBlock } from "@/components/content/cta-block";
-import { MedicalDisclaimer, MedicalReviewFlag } from "@/components/content/medical-disclaimer";
+import { MedicalDisclaimer } from "@/components/content/medical-disclaimer";
 import { TissueSampleIcon } from "@/components/illustrations/process-steps";
 
 export const metadata: Metadata = {
@@ -37,7 +37,6 @@ export default function NumuneVeLojistikPage() {
             ))}
           </ul>
         </div>
-        <MedicalReviewFlag note="Tam teknik numune rehberi (blok/lam sayısı, minimum tümör yüzdesi, paketleme talimatı, kargo/soğuk zincir gereksinimleri) laboratuvar/medikal ekip tarafından sağlanmalıdır." />
       </section>
       <section className="mx-auto max-w-7xl px-4 py-8 sm:px-8">
         <MedicalDisclaimer />

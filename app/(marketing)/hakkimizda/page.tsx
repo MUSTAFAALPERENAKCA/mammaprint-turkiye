@@ -3,7 +3,6 @@ import Link from "next/link";
 import { PageHero } from "@/components/content/page-hero";
 import { Breadcrumb } from "@/components/content/breadcrumb";
 import { CtaBlock } from "@/components/content/cta-block";
-import { MedicalReviewFlag } from "@/components/content/medical-disclaimer";
 
 export const metadata: Metadata = {
   title: "MammaPrint Türkiye Hakkında",
@@ -29,7 +28,6 @@ export default function HakkimizdaPage() {
             <p className="mt-2 text-sm text-text-muted">Türkiye operasyonu ve yetkili destek modeli.</p>
           </Link>
         </div>
-        <MedicalReviewFlag note="Kurumsal misyon metni, tarihçe ve yetkili distribütörlük ifadeleri hukuk/regülasyon ekibi tarafından onaylanmalıdır (bkz. strateji dokümanı §14.4)." />
       </section>
       <CtaBlock
         title="Kalite ve uyum bilgileri"

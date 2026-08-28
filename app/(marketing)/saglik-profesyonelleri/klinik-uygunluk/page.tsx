@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/content/page-hero";
 import { Breadcrumb } from "@/components/content/breadcrumb";
 import { CtaBlock } from "@/components/content/cta-block";
-import { MedicalDisclaimer, MedicalReviewFlag } from "@/components/content/medical-disclaimer";
+import { MedicalDisclaimer } from "@/components/content/medical-disclaimer";
 
 export const metadata: Metadata = {
   title: "MammaPrint Klinik Uygunluk",
@@ -26,11 +26,9 @@ export default function KlinikUygunlukPage() {
           <p>
             Agendia&apos;nın resmi FDA ve CE kullanım kriterleri özetine göre: erken evre (Evre I
             veya II), lenf nodu negatif ya da 1-3 pozitif lenf nodu (N1), tümör çapı ≤5cm (kaynak:
-            agendia.com/mammaprint, 2026-08-24 tarihinde doğrulandı). Tam endikasyon metni ve
-            uygunluk matrisi aşağıdaki not doğrultusunda tamamlanmalıdır.
+            agendia.com/mammaprint, 2026-08-24 tarihinde doğrulandı).
           </p>
         </div>
-        <MedicalReviewFlag note="Resmi kullanım amacı (endikasyon) metni ve tam uygunluk matrisi tablosu medikal/regülasyon ekibi tarafından sağlanmalı ve onaylanmalıdır." />
       </section>
       <section className="mx-auto max-w-7xl px-4 py-8 sm:px-8">
         <MedicalDisclaimer />

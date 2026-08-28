@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/content/page-hero";
 import { Breadcrumb } from "@/components/content/breadcrumb";
 import { CtaBlock } from "@/components/content/cta-block";
-import { MedicalDisclaimer, SafetyNote, MedicalReviewFlag } from "@/components/content/medical-disclaimer";
+import { MedicalDisclaimer, SafetyNote } from "@/components/content/medical-disclaimer";
 
 export const metadata: Metadata = {
   title: "MammaPrint Risk Sonuçlarını Anlamak",
@@ -43,7 +43,6 @@ export default function SonuclariAnlamakPage() {
             yorumlanır.
           </SafetyNote>
         </div>
-        <MedicalReviewFlag note="UltraLow/High 1/High 2 gibi dörtlü alt kategori tanımları ve sayısal skor aralıkları agendia.com'un genel sayfalarında doğrulanamadı (yalnızca satış materyali/showpad kaynağında görüldü); hangi rapor sürümünde geçerli olduğu medikal inceleyici tarafından doğrulanmalıdır." />
       </section>
       <section className="mx-auto max-w-7xl px-4 py-8 sm:px-8">
         <MedicalDisclaimer />

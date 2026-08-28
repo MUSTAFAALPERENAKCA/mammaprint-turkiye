@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/content/page-hero";
 import { Breadcrumb } from "@/components/content/breadcrumb";
 import { CtaBlock } from "@/components/content/cta-block";
-import { MedicalDisclaimer, MedicalReviewFlag } from "@/components/content/medical-disclaimer";
+import { MedicalDisclaimer } from "@/components/content/medical-disclaimer";
 
 export const metadata: Metadata = {
   title: "Kılavuzlar",
@@ -56,7 +56,6 @@ export default function KilavuzlarPage() {
             genellenemez.
           </p>
         </div>
-        <MedicalReviewFlag note="NCCN dahil güncel kılavuz referanslarının tam listesi ve doğrudan kaynak bağlantıları medikal/regülasyon ekibi tarafından tamamlanmalıdır. ASCO'nun lenf nodu pozitif hastalar için MammaPrint'i 'türünün tek testi' olarak onayladığı iddiası Agendia'nın kendi resmi sitesinde doğrulanamadı; bu iddia siteye eklenmemiştir." />
       </section>
       <section className="mx-auto max-w-7xl px-4 py-8 sm:px-8">
         <MedicalDisclaimer />

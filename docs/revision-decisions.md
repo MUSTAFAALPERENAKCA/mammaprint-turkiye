@@ -155,6 +155,34 @@ Not: CTA buton metinleri ("Order a Test" → "Testleri Keşfedin") kasıtlı ola
 bilgilendirme + iletişim) orijinal siteninkinden farklı bir iş modeli — bu bir pazarlama dili
 sadakati sorunu değil, iş süreci farkı.
 
+## 9. "[MEDİKAL ONAY GEREKLİ]" kutularının siteden tamamen kaldırılması (2026-08-24)
+
+**Kritik hata düzeltmesi.** Kullanıcı, canlı sitede 17 sayfada görünür şekilde
+"[MEDİKAL ONAY GEREKLİ]" / "[HUKUKİ ONAY GEREKLİ]" iç editoryal takip notlarının
+gösterildiğini fark etti ve haklı olarak sert tepki verdi — bir ziyaretçinin (hasta, hekim)
+"onay bekliyor" ibaresi görmesi güven kırıcı ve profesyonel olmayan bir izlenim veriyordu.
+Bu, `MedicalReviewFlag` bileşeninin (bkz. `components/content/medical-disclaimer.tsx`)
+yanlışlıkla iç takip aracı yerine canlı sitede kullanılmasından kaynaklanan bir tasarım
+hatasıydı.
+
+**Yapılan düzeltme:**
+
+- `MedicalReviewFlag` bileşeninin tüm kullanımları (17 sayfa) kaldırıldı; bileşenin kendisi
+  de koddan silindi (bir daha yanlışlıkla kullanılamaz).
+- Çıplak `[HUKUKİ ONAY GEREKLİ]` / `[MEDİKAL ONAY GEREKLİ]` köşeli parantez placeholder'ları
+  içeren gerçek sayfa içerikleri (gizlilik/KVKK, çerez politikası, kullanım koşulları)
+  **gerçek, genel ama uydurma olmayan** metinle dolduruldu (spesifik şirket/hukuki detaylar
+  icat edilmedi; yalnızca standart, doğru, genel KVKK/kullanım koşulları dili kullanıldı).
+- `/yayinlar` (Yayın Kütüphanesi) sayfası, önceden boş durumda bir onay notu gösteriyordu.
+  Bunun yerine, bu oturumda zaten doğrulanmış olan 5 gerçek yayın kaydı (MINDACT/NEJM 2016,
+  MINDACT/ASCO 2020, NBRST/NCT01479101, STO-3/JAMA Oncology, NSABP B-42/JCO 2024)
+  `prisma/seed.ts`'e eklenip veritabanına yüklendi — sayfa artık gerçek içerik gösteriyor.
+- Kaldırılan tüm notların içeriği, siteye görünür olmayan `docs/pending-approvals.md`
+  dosyasında iç takip amaçlı arşivlendi — bilgi kaybolmadı, sadece ziyaretçiden gizlendi.
+
+**Ders:** Bundan sonra hiçbir iç editoryal/hukuki takip notu doğrudan sayfa içeriğine
+gömülmeyecek; bu tür notlar yalnızca `docs/` altındaki dosyalarda tutulacak.
+
 ## Sonraki adım
 
 Bu belgedeki tüm kararlar kod tabanına uygulandı. Sonraki adım: test (lint/typecheck/build),

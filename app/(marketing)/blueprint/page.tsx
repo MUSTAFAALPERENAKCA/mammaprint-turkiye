@@ -5,7 +5,7 @@ import { PageHero } from "@/components/content/page-hero";
 import { Breadcrumb } from "@/components/content/breadcrumb";
 import { FaqAccordion } from "@/components/content/faq-accordion";
 import { CtaBlock } from "@/components/content/cta-block";
-import { MedicalDisclaimer, MedicalReviewFlag } from "@/components/content/medical-disclaimer";
+import { MedicalDisclaimer } from "@/components/content/medical-disclaimer";
 import { medicalWebPageJsonLd, getSiteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -54,7 +54,6 @@ export default function BluePrintPage() {
         <p className="mt-3 max-w-2xl text-xs text-text-muted">
           Kaynak: agendia.com/blueprint (2026-08-24 tarihinde doğrulandı).
         </p>
-        <MedicalReviewFlag note="NBRST yeniden sınıflandırma verisi (hasta grubu, veri seti sürümü ile birlikte) ve BluePrint'in MammaPrint'ten farklı regülasyon statüsü medikal inceleyici tarafından doğrulanmalıdır." />
       </section>
 
       <section className="border-t border-border bg-surface-muted">

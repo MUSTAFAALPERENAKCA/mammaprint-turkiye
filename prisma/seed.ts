@@ -88,7 +88,81 @@ const glossaryTerms = [
   },
 ];
 
+// Klinik kanıt sayfalarında (bkz. app/(marketing)/klinik-kanit/) zaten kaynak gösterilen
+// çalışmaların yayın kütüphanesi kayıtları. Yazar listesi/cilt-sayfa numarası gibi teyit
+// edilmemiş bibliyografik ayrıntılar eklenmedi; yalnızca doğrulanmış dergi/yıl/çalışma
+// kimliği kullanıldı (bkz. docs/medical-claims-register.md, docs/revision-decisions.md).
+const publications = [
+  {
+    slug: "mindact-nejm-2016",
+    status: "published" as const,
+    citation: "Cardoso F, ve ark. 70-Gene Signature as an Aid to Treatment Decisions in Early-Stage Breast Cancer. New England Journal of Medicine, 2016.",
+    year: 2016,
+    topic: "MINDACT çalışması — MammaPrint ile kemoterapi kararının desteklenmesi",
+    relatedTest: "mammaprint" as const,
+    type: "Randomize kontrollü çalışma (Faz III)",
+    doiOrPubmedUrl: "https://agendia.com/landmark-trials/#mindact",
+    summary:
+      "6.693 hastalık, 9 ülkeden, prospektif randomize MINDACT çalışmasının ilk verileri; klinik olarak yüksek riskli, MammaPrint Düşük Riskli hastaların sonuçlarından ödün vermeden kemoterapiden kaçınabileceğini gösterdi.",
+  },
+  {
+    slug: "mindact-asco-2020",
+    status: "published" as const,
+    citation: "MINDACT çalışması uzun vadeli takip verileri. ASCO Annual Meeting, 2020.",
+    year: 2020,
+    topic: "MINDACT çalışması — uzun vadeli (yaklaşık 9 yıl) takip sonuçları",
+    relatedTest: "mammaprint" as const,
+    type: "Konferans sunumu",
+    doiOrPubmedUrl: "https://agendia.com/landmark-trials/#mindact",
+    summary: "2016 NEJM bulgularını doğrulayan ve genişleten, yaklaşık 9 yıllık ortalama takip süresiyle elde edilen uzun vadeli MINDACT verileri.",
+  },
+  {
+    slug: "nbrst-nct01479101",
+    status: "published" as const,
+    citation: "NBRST çalışması (NCT01479101). JCO Precision Oncology / Annals of Surgical Oncology, 2022.",
+    year: 2022,
+    topic: "NBRST çalışması — MammaPrint ve BluePrint'in ameliyat öncesi (neoadjuvan) kullanımı",
+    relatedTest: "both" as const,
+    type: "Prospektif kohort çalışması",
+    doiOrPubmedUrl: "https://clinicaltrials.gov/study/NCT01479101",
+    summary:
+      "MammaPrint ve BluePrint'in neoadjuvan tedaviye patolojik tam yanıt (pCR) olasılığını tahmin edebildiğini ve BluePrint'in tümörleri farklı bir moleküler alt tipe yeniden sınıflandırabildiğini gösteren çalışma.",
+  },
+  {
+    slug: "sto3-jama-oncology",
+    status: "published" as const,
+    citation: "Esserman LJ, ve ark. Stockholm Tamoxifen (STO-3) Trial — MammaPrint UltraLow risk analizi. JAMA Oncology.",
+    year: 2017,
+    topic: "STO-3 çalışması — UltraLow risk kavramı ve 20 yıllık takip",
+    relatedTest: "mammaprint" as const,
+    type: "Retrospektif analiz",
+    doiOrPubmedUrl: "https://agendia.com/landmark-trials/#STO",
+    summary:
+      "20 yıllık takip verilerine sahip hasta örneklerinin MammaPrint ile analizinde, kanser nüksü riski son derece düşük olan bir hasta alt grubunun (UltraLow) doğru şekilde belirlenebildiğini gösteren çalışma.",
+  },
+  {
+    slug: "nsabp-b42-jco-2024",
+    status: "published" as const,
+    citation: "NSABP B-42 çalışması, translasyonel genomik analiz. Journal of Clinical Oncology, 2024.",
+    year: 2024,
+    topic: "NSABP B-42 — uzatılmış endokrin tedavi faydası ve MammaPrint risk sonucu",
+    relatedTest: "mammaprint" as const,
+    type: "Translasyonel alt çalışma",
+    doiOrPubmedUrl: "https://agendia.com/landmark-trials/#b42",
+    summary:
+      "MammaPrint Düşük Riskli hastaların 5 yıllık ek hormon tedavisiyle anlamlı ölçüde daha iyi sonuçlar elde ettiğini; Yüksek ve Ultra Düşük Riskli hastaların ise uzatılmış endokrin tedaviden fayda görmediğini gösteren translasyonel analiz.",
+  },
+];
+
 async function main() {
+  for (const publication of publications) {
+    await db.publication.upsert({
+      where: { slug: publication.slug },
+      update: publication,
+      create: publication,
+    });
+  }
+
   for (const redirect of redirects) {
     await db.redirect.upsert({
       where: { sourceUrl: redirect.sourceUrl },
@@ -127,7 +201,7 @@ async function main() {
     },
   });
 
-  console.log(`Seeded ${redirects.length} redirects and ${blogCategories.length} blog categories.`);
+  console.log(`Seeded ${redirects.length} redirects, ${blogCategories.length} blog categories, and ${publications.length} publications.`);
   console.log("Seeded local admin user: admin@mammaprintturkiye.com (see SEED_ADMIN_PASSWORD env var)");
 }
 

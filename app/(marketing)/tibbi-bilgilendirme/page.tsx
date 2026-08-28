@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/content/page-hero";
 import { Breadcrumb } from "@/components/content/breadcrumb";
-import { MedicalReviewFlag } from "@/components/content/medical-disclaimer";
 
 export const metadata: Metadata = {
   title: "Tıbbi Bilgilendirme ve Sorumluluk Reddi",
@@ -29,9 +28,6 @@ export default function TibbiBilgilendirmePage() {
           profesyoneline danışın. Acil bir durumdaysanız derhal en yakın sağlık kuruluşuna
           başvurun.
         </p>
-        <div className="pt-4">
-          <MedicalReviewFlag note="Bu sayfadaki tıbbi bilgilendirme metni genel bir taslaktır; nihai metin medikal ve hukuk ekibi tarafından onaylanmalıdır (bkz. strateji dokümanı §14.4)." />
-        </div>
       </section>
     </div>
   );

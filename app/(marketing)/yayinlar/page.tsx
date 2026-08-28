@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/content/page-hero";
 import { Breadcrumb } from "@/components/content/breadcrumb";
 import { CtaBlock } from "@/components/content/cta-block";
-import { MedicalDisclaimer, MedicalReviewFlag } from "@/components/content/medical-disclaimer";
+import { MedicalDisclaimer } from "@/components/content/medical-disclaimer";
 import { db } from "@/lib/db";
 
 export const metadata: Metadata = {
@@ -26,7 +26,6 @@ export default async function YayinlarPage() {
         {publications.length === 0 ? (
           <div className="rounded-card border border-dashed border-border p-8 text-center text-text-muted">
             <p>Henüz yayınlanmış bir yayın kaydı bulunmuyor.</p>
-            <MedicalReviewFlag note="Yayın kütüphanesi içeriği (künye, DOI/PubMed bağlantıları, özetler) medikal ekip tarafından sağlanıp CMS'e Publication içerik tipi olarak yüklenmelidir." />
           </div>
         ) : (
           <ul className="space-y-4">
