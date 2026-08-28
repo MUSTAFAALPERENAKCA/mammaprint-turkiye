@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { primaryNav } from "@/lib/nav-data";
@@ -32,7 +33,8 @@ export function Header() {
   return (
     <header className="border-b border-border bg-surface">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-8">
-        <Link href="/" className="text-lg font-semibold text-primary-900">
+        <Link href="/" className="flex items-center gap-2 text-lg font-semibold text-primary-900">
+          <Image src="/brand/mammaprint-mark.png" alt="" width={28} height={25} aria-hidden="true" />
           MammaPrint Türkiye
         </Link>
 

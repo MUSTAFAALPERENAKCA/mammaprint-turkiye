@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { footerLegalLinks } from "@/lib/nav-data";
 import { CookiePreferencesButton } from "@/components/consent/cookie-preferences-button";
@@ -8,7 +9,11 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-8">
         <div className="grid gap-8 sm:grid-cols-3">
           <div>
-            <p className="font-semibold text-primary-900">MammaPrint Türkiye</p>
+            <div className="flex items-center gap-2">
+              <Image src="/brand/mammaprint-mark.png" alt="" width={24} height={21} aria-hidden="true" />
+              <Image src="/brand/blueprint-mark.png" alt="" width={24} height={21} aria-hidden="true" />
+              <p className="font-semibold text-primary-900">MammaPrint Türkiye</p>
+            </div>
             <p className="mt-2 text-sm text-text-muted">
               MammaPrint® ve BluePrint® testleri hakkında hasta ve sağlık profesyonelleri için
               bilgilendirme amaçlı içerik sunar.
