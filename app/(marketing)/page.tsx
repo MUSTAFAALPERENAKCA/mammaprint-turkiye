@@ -18,11 +18,11 @@ export default function HomePage() {
         />
         <div className="bg-dot-grid pointer-events-none absolute inset-0 opacity-40" />
         <div
-          className="pointer-events-none absolute -left-20 top-10 h-72 w-72 animate-float-slow rounded-full opacity-30 blur-3xl"
+          className="pointer-events-none absolute -left-20 top-10 h-72 w-72 rounded-full opacity-30 blur-3xl"
           style={{ background: "radial-gradient(circle, rgba(198,53,122,0.6), transparent 70%)" }}
         />
         <div
-          className="pointer-events-none absolute -right-16 bottom-0 h-80 w-80 animate-float rounded-full opacity-30 blur-3xl"
+          className="pointer-events-none absolute -right-16 bottom-0 h-80 w-80 rounded-full opacity-30 blur-3xl"
           style={{ background: "radial-gradient(circle, rgba(30,111,168,0.6), transparent 70%)" }}
         />
 
