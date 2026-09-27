@@ -23,13 +23,10 @@ export function Footer() {
             <p className="font-semibold">Hızlı bağlantılar</p>
             <ul className="mt-2 space-y-1 text-sm text-text-muted">
               <li>
-                <Link href="/hastalar-icin">Hastalar İçin</Link>
+                <Link href="/mammaprint">MammaPrint</Link>
               </li>
               <li>
-                <Link href="/saglik-profesyonelleri">Sağlık Profesyonelleri</Link>
-              </li>
-              <li>
-                <Link href="/blog">Blog</Link>
+                <Link href="/blueprint">BluePrint</Link>
               </li>
               <li>
                 <Link href="/iletisim">İletişim</Link>

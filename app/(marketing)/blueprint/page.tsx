@@ -3,72 +3,109 @@ import Image from "next/image";
 import Link from "next/link";
 import { PageHero } from "@/components/content/page-hero";
 import { Breadcrumb } from "@/components/content/breadcrumb";
-import { FaqAccordion } from "@/components/content/faq-accordion";
-import { CtaBlock } from "@/components/content/cta-block";
+import { Tabs } from "@/components/content/tabs";
 import { MedicalDisclaimer } from "@/components/content/medical-disclaimer";
 import { medicalWebPageJsonLd, getSiteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "BluePrint 80 Gen Moleküler Alt Tipleme Testi",
-  description: "BluePrint, tümörün büyümesini yönlendiren moleküler alt tipi değerlendirmeye yardımcı olur.",
+  description: "BluePrint Moleküler Alt Tipleme Testi, meme kanserinin Luminal Tip, Bazal Tip veya HER2 tiplerinden hangisi olduğunu belirler.",
 };
-
-const subtypes = [
-  { name: "Luminal-Tip", description: "Öncelikle östrojen ve progesteron hormon yolaklarınca yönlendirilen moleküler alt tip." },
-  { name: "HER2-Tip", description: "Öncelikle HER2 sinyal yolağınca yönlendirilen moleküler alt tip." },
-  { name: "Bazal-Tip", description: "ER, PR ve HER2 yolaklarınca yönlendirilmeyen moleküler alt tip." },
-];
 
 export default function BluePrintPage() {
   const schema = medicalWebPageJsonLd({
     name: "BluePrint 80 Gen Moleküler Alt Tipleme Testi",
     url: `${getSiteUrl()}/blueprint`,
-    description: "BluePrint, tümörün büyümesini yönlendiren moleküler alt tipi değerlendirmeye yardımcı olur.",
+    description: "BluePrint Moleküler Alt Tipleme Testi, meme kanserinin Luminal Tip, Bazal Tip veya HER2 tiplerinden hangisi olduğunu belirler.",
   });
 
   return (
     <div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <Breadcrumb items={[{ name: "Testler", path: "/testler" }, { name: "BluePrint", path: "/blueprint" }]} />
+      <Breadcrumb items={[{ name: "BluePrint", path: "/blueprint" }]} />
       <PageHero
         logo={<Image src="/brand/blueprint-logo-80gen.png" alt="BluePrint" width={280} height={72} priority />}
-        title="BluePrint® 80 Gen Moleküler Alt Tipleme Testi"
-        intro="Temel soru: Tümörün büyümesini hangi biyolojik yol yönlendiriyor? BluePrint, moleküler alt tipi değerlendirmeye yardımcı olur."
+        title="BluePrint 80 Gen Moleküler Alt Tipleme Testi"
+        intro="BluePrint Moleküler Alt Tipleme Testi, meme kanserinin Luminal Tip (A veya B), Bazal Tip veya HER2 tiplerinden hangisi olduğunu belirler."
       />
 
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-8">
-        <h2 className="text-h3 font-semibold text-primary-900">Moleküler alt tipler</h2>
-        <div className="mt-6 grid gap-6 sm:grid-cols-3">
-          {subtypes.map((subtype) => (
-            <div key={subtype.name} className="rounded-card border border-border bg-surface-tint-blue p-5 shadow-card">
-              <p className="font-semibold text-primary-900">{subtype.name}</p>
-              <p className="mt-1 text-sm text-text-muted">{subtype.description}</p>
-            </div>
-          ))}
+      <section className="mx-auto max-w-4xl space-y-5 px-4 py-12 text-text-muted sm:px-8">
+        <p>
+          Meme kanseri tedavisinde, meme kanserinin alt tipi uzun vadeli sonuç, agresif tümör
+          derecesi ve kemoterapiye yanıt bakımından farklıdır. BluePrint testi, 80 geni analiz
+          ederek meme kanserinin moleküler alt tipini belirler. Böylece tümörü, uzun vadeli
+          prognoz ve sistemik tedaviye yanıt hakkında en doğru şekilde sınıflandırır.
+        </p>
+        <p>
+          Geleneksel alt tiplemeler (IHC ya da FISH gibi) hücre yüzey reseptörlerinin özelliklerine
+          bakarak bir tümörün davranışı hakkında yeterli bilgi vermezken, moleküler alt tipleme
+          testi BluePrint hangi genlerin gerçekten tümörün davranışını harekete geçirdiğini
+          belirleyerek tümörün nasıl davranacağı hakkında derinlemesine bilgi verir. BluePrint
+          tarafından sağlanan alt tip bilgisi sayesinde, doktorlar bir hastanın özel tedavi
+          seçenekleri hakkında karar vermeleri ve böylece tedavilerini kişiselleştirmeleri
+          konusunda daha iyi bilgi sahibi olurlar.
+        </p>
+        <p>
+          2017 yılında yapılan NBRST çalışmasında<sup>4</sup>, MammaPrint testinin yanında
+          BluePrint moleküler alt tipleme testinin yapılması ile, hastanın prognozunun daha iyi
+          tahmin edildiği ve IHC/FISH gibi geleneksel yöntemlerle karşılaştırıldığında tedavi
+          seçimine daha fazla katkısı olduğu anlaşılmıştır.
+        </p>
+
+        <div className="rounded-card border border-border bg-surface-tint-blue p-6 text-center">
+          <p className="text-5xl font-bold text-blueprint-accent">%22</p>
+          <p className="mt-2 text-sm text-primary-900">
+            NBRST çalışmasında, geleneksel (IHC veya FISH) yöntemler ile sınıflandırılan vakalara
+            BluePrint testi yapıldığında, hastaların %22&apos;si yeniden sınıflandırıldı ve bu da
+            hastanın moleküler profiline göre tedaviyi kişiselleştirme fırsatını ortaya
+            koydu.<sup>4</sup>
+          </p>
         </div>
-        <p className="mt-6 max-w-2xl text-text-muted">
-          BluePrint, IHC/FISH gibi geleneksel patoloji yöntemlerinin yerine geçmez; tamamlayıcı bir
-          moleküler değerlendirme sunar. BluePrint, tümörleri IHC/FISH ile belirlenen klinik/patolojik
-          alt tipten farklı bir moleküler alt tipe yeniden sınıflandırabilir.
-        </p>
-        <p className="mt-3 max-w-2xl text-xs text-text-muted">
-          Kaynak: agendia.com/blueprint (2026-08-24 tarihinde doğrulandı).
-        </p>
       </section>
 
       <section className="border-t border-border bg-surface-muted">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-8">
-          <h2 className="text-h3 font-semibold text-primary-900">Sık Sorulan Sorular</h2>
-          <div className="mt-6 max-w-3xl">
-            <FaqAccordion
-              items={[
+        <div className="mx-auto max-w-4xl px-4 py-12 sm:px-8">
+          <h2 className="text-h2 font-semibold text-primary-900">Moleküler Alt Tipler</h2>
+          <div className="mt-6">
+            <Tabs
+              tabs={[
                 {
-                  question: "BluePrint ile patoloji sonucu (IHC/FISH) aynı şey mi?",
-                  answer: "Hayır. BluePrint, geleneksel patolojinin yerine geçmez; tamamlayıcı bir moleküler değerlendirme sunar.",
+                  label: "Luminal-Tip",
+                  content: (
+                    <p className="text-text-muted">
+                      Luminal-Tip kanserler öncelikle östrojen ve progesteron hormon yollarıyla
+                      yönlendirilir. Bu alt tip, MammaPrint kullanılarak Luminal A-Tipi kanserler
+                      (Düşük Risk) ve Luminal B-Tipi kanserler (Yüksek Risk) olarak daha da
+                      sınıflandırılır. Bu luminal alt tiplerin belirgin şekilde farklı sonuçları
+                      vardır ve bu nedenle bu bilgi, hastanızı iyileştirme olasılığını en üst
+                      düzeye çıkarmak için tedavi planlamasına dahil edilmelidir.
+                    </p>
+                  ),
                 },
                 {
-                  question: "BluePrint ile MammaPrint birlikte mi kullanılır?",
-                  answer: "Evet, birlikte kullanıldıklarında risk ve tümör biyolojisi hakkında tamamlayıcı bilgi sağlayabilirler.",
+                  label: "HER2-Tipi",
+                  content: (
+                    <p className="text-text-muted">
+                      HER2-Tip kanserler öncelikle HER2 yoluyla yönlendirilir. Bu moleküler alt tip
+                      her zaman IHC veya FISH HER2 sonuçlarıyla uyuşmaz; ancak HER2-Tip hastalar
+                      neoadjuvan ortamda HER2 hedefli tedavilere mükemmel yanıt verir. Terapötiklerdeki
+                      ilerlemelerle, HER2-Tip hastalar HER2 hedefli ajanlarla tedavi edildiğinde iyi
+                      uzun vadeli sonuçlara sahiptir.
+                    </p>
+                  ),
+                },
+                {
+                  label: "Bazal-Tip",
+                  content: (
+                    <p className="text-text-muted">
+                      Bazal Tip tümörler ER, PR veya HER2 yollarıyla yönlendirilmez ve klinik olarak
+                      üçlü negatif tümörlere daha çok benzerdir. Bu moleküler alt tip daha
+                      agresiftir ve hastalar üçlü negatif meme kanserleri için standart veya yeni
+                      tedavilerden faydalanabilir. Bu tümörlerin agresif doğası göz önüne
+                      alındığında, uygun hastalar adjuvan tedaviden ziyade neoadjuvan tedaviden
+                      faydalanabilir.
+                    </p>
+                  ),
                 },
               ]}
             />
@@ -76,19 +113,33 @@ export default function BluePrintPage() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-4xl px-4 py-12 sm:px-8">
+        <h2 className="text-h3 font-semibold text-primary-900">Detaylı Analiz, Daha Etkili Tedavi</h2>
+        <p className="mt-3 text-text-muted">
+          MammaPrint ve BluePrint&apos;in klinik faktörlerle birleştirilmiş sonuçları sayesinde,
+          hekimler prognozu ve belirli tedavilerin faydasını tahmin etmek için daha kapsamlı bir
+          bilgi sahibi olmaktadır.
+        </p>
+        <Link href="/mammaprint" className="mt-4 inline-block text-sm font-medium text-mammaprint-accent underline">
+          MammaPrint&apos;i inceleyin →
+        </Link>
+      </section>
+
+      <section className="border-t border-border bg-surface-muted">
+        <div className="mx-auto max-w-4xl px-4 py-8 text-xs text-text-muted sm:px-8">
+          <p className="font-semibold text-primary-900">Referanslar</p>
+          <ol className="mt-2 list-inside list-decimal space-y-1">
+            <li>Krijgsman O, Roepman P, Zwart W, et al. A diagnostic gene profile for molecular subtyping of breast cancer associated with treatment response. Breast Cancer Res Treat. 2012; 133:37-47.</li>
+            <li>Groenendijk FH, et al. NPJ Breast Cancer. 2019;5:15.</li>
+            <li>Rong P et al. Cancer Res 2018;78(13 Suppl):Abstract nr 2612.</li>
+            <li>Whitworth, et al. Ann Surg Oncol (2017) 24:669–675.</li>
+          </ol>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-7xl px-4 py-8 sm:px-8">
         <MedicalDisclaimer />
       </section>
-
-      <CtaBlock
-        title="MammaPrint ile birlikte kullanım"
-        description="BluePrint ve MammaPrint birlikte, risk ve tümör biyolojisi hakkında tamamlayıcı içgörü sağlayabilir."
-        primary={{ label: "MammaPrint + BluePrint", href: "/mammaprint-blueprint" }}
-        secondary={{ label: "Hekim Kaynakları", href: "/saglik-profesyonelleri" }}
-      />
-      <p className="sr-only">
-        <Link href="/mammaprint">MammaPrint sayfasına dön</Link>
-      </p>
     </div>
   );
 }
