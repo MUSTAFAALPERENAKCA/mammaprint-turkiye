@@ -8,7 +8,7 @@ export function MedicalDisclaimer({ compact = false }: { compact?: boolean }) {
   }
 
   return (
-    <div className="rounded-card border border-border bg-surface-muted p-4 text-sm text-text-muted">
+    <div className="rounded-2xl border border-border bg-surface-muted p-6 text-sm text-text-muted">
       <p>
         Bu sayfadaki bilgiler yalnızca genel bilgilendirme amaçlıdır ve tanı veya tedavi yerine
         geçmez. Kişisel sağlık durumunuzla ilgili kararlar için lütfen hekiminize danışın. Test

@@ -5,6 +5,7 @@ import { PageHero } from "@/components/content/page-hero";
 import { Breadcrumb } from "@/components/content/breadcrumb";
 import { Tabs } from "@/components/content/tabs";
 import { MedicalDisclaimer } from "@/components/content/medical-disclaimer";
+import { Reveal } from "@/components/content/reveal";
 import { medicalWebPageJsonLd, getSiteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -29,44 +30,55 @@ export default function BluePrintPage() {
         intro="BluePrint Moleküler Alt Tipleme Testi, meme kanserinin Luminal Tip (A veya B), Bazal Tip veya HER2 tiplerinden hangisi olduğunu belirler."
       />
 
-      <section className="mx-auto max-w-4xl space-y-5 px-4 py-12 text-text-muted sm:px-8">
-        <p>
-          Meme kanseri tedavisinde, meme kanserinin alt tipi uzun vadeli sonuç, agresif tümör
-          derecesi ve kemoterapiye yanıt bakımından farklıdır. BluePrint testi, 80 geni analiz
-          ederek meme kanserinin moleküler alt tipini belirler. Böylece tümörü, uzun vadeli
-          prognoz ve sistemik tedaviye yanıt hakkında en doğru şekilde sınıflandırır.
-        </p>
-        <p>
-          Geleneksel alt tiplemeler (IHC ya da FISH gibi) hücre yüzey reseptörlerinin özelliklerine
-          bakarak bir tümörün davranışı hakkında yeterli bilgi vermezken, moleküler alt tipleme
-          testi BluePrint hangi genlerin gerçekten tümörün davranışını harekete geçirdiğini
-          belirleyerek tümörün nasıl davranacağı hakkında derinlemesine bilgi verir. BluePrint
-          tarafından sağlanan alt tip bilgisi sayesinde, doktorlar bir hastanın özel tedavi
-          seçenekleri hakkında karar vermeleri ve böylece tedavilerini kişiselleştirmeleri
-          konusunda daha iyi bilgi sahibi olurlar.
-        </p>
-        <p>
-          2017 yılında yapılan NBRST çalışmasında<sup>4</sup>, MammaPrint testinin yanında
-          BluePrint moleküler alt tipleme testinin yapılması ile, hastanın prognozunun daha iyi
-          tahmin edildiği ve IHC/FISH gibi geleneksel yöntemlerle karşılaştırıldığında tedavi
-          seçimine daha fazla katkısı olduğu anlaşılmıştır.
-        </p>
-
-        <div className="rounded-card border border-border bg-surface-tint-blue p-6 text-center">
-          <p className="text-5xl font-bold text-blueprint-accent">%22</p>
-          <p className="mt-2 text-sm text-primary-900">
-            NBRST çalışmasında, geleneksel (IHC veya FISH) yöntemler ile sınıflandırılan vakalara
-            BluePrint testi yapıldığında, hastaların %22&apos;si yeniden sınıflandırıldı ve bu da
-            hastanın moleküler profiline göre tedaviyi kişiselleştirme fırsatını ortaya
-            koydu.<sup>4</sup>
+      <section className="mx-auto max-w-4xl space-y-6 px-4 py-16 text-lg leading-relaxed text-text-muted sm:px-8">
+        <Reveal>
+          <p>
+            Meme kanseri tedavisinde, meme kanserinin alt tipi uzun vadeli sonuç, agresif tümör
+            derecesi ve kemoterapiye yanıt bakımından farklıdır. BluePrint testi, 80 geni analiz
+            ederek meme kanserinin moleküler alt tipini belirler. Böylece tümörü, uzun vadeli
+            prognoz ve sistemik tedaviye yanıt hakkında en doğru şekilde sınıflandırır.
           </p>
-        </div>
+        </Reveal>
+        <Reveal>
+          <p>
+            Geleneksel alt tiplemeler (IHC ya da FISH gibi) hücre yüzey reseptörlerinin özelliklerine
+            bakarak bir tümörün davranışı hakkında yeterli bilgi vermezken, moleküler alt tipleme
+            testi BluePrint hangi genlerin gerçekten tümörün davranışını harekete geçirdiğini
+            belirleyerek tümörün nasıl davranacağı hakkında derinlemesine bilgi verir. BluePrint
+            tarafından sağlanan alt tip bilgisi sayesinde, doktorlar bir hastanın özel tedavi
+            seçenekleri hakkında karar vermeleri ve böylece tedavilerini kişiselleştirmeleri
+            konusunda daha iyi bilgi sahibi olurlar.
+          </p>
+        </Reveal>
+        <Reveal>
+          <p>
+            2017 yılında yapılan NBRST çalışmasında<sup>4</sup>, MammaPrint testinin yanında
+            BluePrint moleküler alt tipleme testinin yapılması ile, hastanın prognozunun daha iyi
+            tahmin edildiği ve IHC/FISH gibi geleneksel yöntemlerle karşılaştırıldığında tedavi
+            seçimine daha fazla katkısı olduğu anlaşılmıştır.
+          </p>
+        </Reveal>
+
+        <Reveal>
+          <div className="relative overflow-hidden rounded-3xl border border-border bg-surface-tint-blue p-8 text-center shadow-card">
+            <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-blueprint-accent opacity-20 blur-2xl" />
+            <p className="relative text-6xl font-extrabold tracking-tight text-blueprint-accent">%22</p>
+            <p className="relative mt-3 text-sm leading-relaxed text-primary-900">
+              NBRST çalışmasında, geleneksel (IHC veya FISH) yöntemler ile sınıflandırılan vakalara
+              BluePrint testi yapıldığında, hastaların %22&apos;si yeniden sınıflandırıldı ve bu da
+              hastanın moleküler profiline göre tedaviyi kişiselleştirme fırsatını ortaya
+              koydu.<sup>4</sup>
+            </p>
+          </div>
+        </Reveal>
       </section>
 
       <section className="border-t border-border bg-surface-muted">
-        <div className="mx-auto max-w-4xl px-4 py-12 sm:px-8">
-          <h2 className="text-h2 font-semibold text-primary-900">Moleküler Alt Tipler</h2>
-          <div className="mt-6">
+        <div className="mx-auto max-w-4xl px-4 py-16 sm:px-8">
+          <Reveal>
+            <h2 className="text-h2 font-bold tracking-tight text-primary-900">Moleküler Alt Tipler</h2>
+          </Reveal>
+          <Reveal delay={100} className="mt-8">
             <Tabs
               tabs={[
                 {
@@ -109,20 +121,22 @@ export default function BluePrintPage() {
                 },
               ]}
             />
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl px-4 py-12 sm:px-8">
-        <h2 className="text-h3 font-semibold text-primary-900">Detaylı Analiz, Daha Etkili Tedavi</h2>
-        <p className="mt-3 text-text-muted">
-          MammaPrint ve BluePrint&apos;in klinik faktörlerle birleştirilmiş sonuçları sayesinde,
-          hekimler prognozu ve belirli tedavilerin faydasını tahmin etmek için daha kapsamlı bir
-          bilgi sahibi olmaktadır.
-        </p>
-        <Link href="/mammaprint" className="mt-4 inline-block text-sm font-medium text-mammaprint-accent underline">
-          MammaPrint&apos;i inceleyin →
-        </Link>
+      <section className="mx-auto max-w-4xl px-4 py-16 sm:px-8">
+        <Reveal>
+          <h2 className="text-h3 font-bold tracking-tight text-primary-900">Detaylı Analiz, Daha Etkili Tedavi</h2>
+          <p className="mt-3 text-text-muted">
+            MammaPrint ve BluePrint&apos;in klinik faktörlerle birleştirilmiş sonuçları sayesinde,
+            hekimler prognozu ve belirli tedavilerin faydasını tahmin etmek için daha kapsamlı bir
+            bilgi sahibi olmaktadır.
+          </p>
+          <Link href="/mammaprint" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-mammaprint-accent">
+            MammaPrint&apos;i inceleyin <span aria-hidden="true">→</span>
+          </Link>
+        </Reveal>
       </section>
 
       <section className="border-t border-border bg-surface-muted">

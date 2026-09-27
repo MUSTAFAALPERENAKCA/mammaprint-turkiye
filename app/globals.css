@@ -25,6 +25,13 @@
   --radius-button: 10px;
   --radius-input: 8px;
   --shadow-card: 0 1px 2px rgba(17, 24, 39, 0.06), 0 4px 12px rgba(17, 24, 39, 0.06);
+
+  /* Modern görsel dil: cam yüzeyler, yumuşak parıltılar, büyük yarıçaplar */
+  --radius-2xl: 28px;
+  --radius-3xl: 36px;
+  --shadow-glow-rose: 0 8px 30px rgba(198, 53, 122, 0.25);
+  --shadow-glow-blue: 0 8px 30px rgba(30, 111, 168, 0.25);
+  --shadow-soft-lg: 0 20px 60px rgba(11, 31, 58, 0.12);
 }
 
 @theme inline {
@@ -56,6 +63,46 @@
   --radius-button: var(--radius-button);
   --radius-input: var(--radius-input);
   --shadow-card: var(--shadow-card);
+  --radius-2xl: var(--radius-2xl);
+  --radius-3xl: var(--radius-3xl);
+  --shadow-glow-rose: var(--shadow-glow-rose);
+  --shadow-glow-blue: var(--shadow-glow-blue);
+  --shadow-soft-lg: var(--shadow-soft-lg);
+
+  --text-mega: 64px;
+
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-float-slow: float 11s ease-in-out infinite;
+  --animate-drift: drift 22s linear infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) translateX(0);
+    }
+    50% {
+      transform: translateY(-18px) translateX(8px);
+    }
+  }
+  @keyframes drift {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 }
 
 body {
@@ -74,6 +121,40 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Cam yüzey (glassmorphism) yardımcı sınıfları */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.glass-panel-dark {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+/* İnce nokta ızgara deseni — hero/derinlik katmanları için */
+.bg-dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Scroll'da belirme animasyonu — bkz. components/content/reveal.tsx */
+.reveal {
+  opacity: 0;
+}
+.reveal.is-visible {
+  animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
   }
 }
 

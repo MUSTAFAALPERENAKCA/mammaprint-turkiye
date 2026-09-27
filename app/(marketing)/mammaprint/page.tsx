@@ -4,6 +4,7 @@ import Link from "next/link";
 import { PageHero } from "@/components/content/page-hero";
 import { Breadcrumb } from "@/components/content/breadcrumb";
 import { MedicalDisclaimer } from "@/components/content/medical-disclaimer";
+import { Reveal } from "@/components/content/reveal";
 import { medicalWebPageJsonLd, getSiteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -27,6 +28,27 @@ const sampleReports = [
   { label: "Low Luminal Örnek Sonuç", href: "https://mammaprintturkiye.com/docs/MA_Low_Risk_Luminal_SAMPLE.pdf" },
 ];
 
+function StatTile({ value, children, tone = "rose" }: { value: string; children: React.ReactNode; tone?: "rose" | "blue" }) {
+  const isRose = tone === "rose";
+  return (
+    <div
+      className={`relative overflow-hidden rounded-3xl border border-border p-8 text-center shadow-card ${
+        isRose ? "bg-surface-tint-rose" : "bg-surface-tint-blue"
+      }`}
+    >
+      <div
+        className={`pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-20 blur-2xl ${
+          isRose ? "bg-mammaprint-accent" : "bg-blueprint-accent"
+        }`}
+      />
+      <p className={`relative text-6xl font-extrabold tracking-tight ${isRose ? "text-mammaprint-accent" : "text-blueprint-accent"}`}>
+        {value}
+      </p>
+      <p className="relative mt-3 text-sm leading-relaxed text-primary-900">{children}</p>
+    </div>
+  );
+}
+
 export default function MammaPrintPage() {
   const schema = medicalWebPageJsonLd({
     name: "MammaPrint 70 Gen Meme Kanseri Nüks Testi",
@@ -44,170 +66,206 @@ export default function MammaPrintPage() {
         intro="Erken Teşhis Edilen Her Meme Kanseri Hastasına Kemoterapi Gerekmiyor"
       />
 
-      <section className="mx-auto max-w-4xl space-y-5 px-4 py-12 text-text-muted sm:px-8">
-        <p>
-          MammaPrint ve BluePrint genomik testleri, meme kanseri tedavi kararınızda gereksiz
-          kemoterapi almamanız için hekimlere net sonuç veren testlerdir. MammaPrint testi erken
-          teşhis edilen her meme kanseri hastasının, ciddi yan etkileri olan kemoterapiye ihtiyacı
-          olmadığını ortaya koyar.
-        </p>
-        <p>
-          Meme kanserinin erken aşamasında tespit edilen ve meme tümörü 5 cm&apos;den küçük olan
-          kadınlar, standart uygulama olarak ameliyattan sonra hastanın klinik tablosuna göre
-          kemoterapi ve/veya beraberinde diğer tedavileri de görebilmektedir. Bunun nedeni ise
-          kanserin tekrarlama ve metastaz riskini ortadan kaldırmaktır.
-        </p>
-        <p>
-          MammaPrint testi, tümörün genetiğini mercek altına alır. 70 gen ve 465 referans gen
-          analiz edilerek, hangi meme kanseri hastasının gereksiz kemoterapi almasına gerek
-          olmadığı tespit edilir.
-        </p>
+      <section className="mx-auto max-w-4xl space-y-6 px-4 py-16 text-lg leading-relaxed text-text-muted sm:px-8">
+        <Reveal>
+          <p>
+            MammaPrint ve BluePrint genomik testleri, meme kanseri tedavi kararınızda gereksiz
+            kemoterapi almamanız için hekimlere net sonuç veren testlerdir. MammaPrint testi erken
+            teşhis edilen her meme kanseri hastasının, ciddi yan etkileri olan kemoterapiye ihtiyacı
+            olmadığını ortaya koyar.
+          </p>
+        </Reveal>
+        <Reveal>
+          <p>
+            Meme kanserinin erken aşamasında tespit edilen ve meme tümörü 5 cm&apos;den küçük olan
+            kadınlar, standart uygulama olarak ameliyattan sonra hastanın klinik tablosuna göre
+            kemoterapi ve/veya beraberinde diğer tedavileri de görebilmektedir. Bunun nedeni ise
+            kanserin tekrarlama ve metastaz riskini ortadan kaldırmaktır.
+          </p>
+        </Reveal>
+        <Reveal>
+          <p>
+            MammaPrint testi, tümörün genetiğini mercek altına alır. 70 gen ve 465 referans gen
+            analiz edilerek, hangi meme kanseri hastasının gereksiz kemoterapi almasına gerek
+            olmadığı tespit edilir.
+          </p>
+        </Reveal>
 
-        <div className="rounded-card border border-border bg-surface-tint-rose p-6 text-center">
-          <p className="text-5xl font-bold text-mammaprint-accent">%46</p>
-          <p className="mt-2 text-sm text-primary-900">
+        <Reveal>
+          <StatTile value="%46" tone="rose">
             Avrupa&apos;da MammaPrint testi kullanılarak yapılan araştırmada, erken teşhis edilen
             yüksek riskli meme kanseri vakalarının %46&apos;sında kemoterapiye ihtiyaç olmadığı
             sonucuna varılmıştır.<sup>1</sup>
+          </StatTile>
+        </Reveal>
+
+        <Reveal>
+          <p>
+            Yapılan klinik değerlendirmelerde tümörün tekrarlama riskinin yüksek olduğu sonucu
+            çıkması ancak MammaPrint testi düşük riske işaret etmesi durumunda hastaya kemoterapi
+            önerilmemektedir.
           </p>
-        </div>
+        </Reveal>
+        <Reveal>
+          <p>
+            BluePrint moleküler alt tipleme testi ile 80 gen analiz edilerek meme kanserinin Luminal
+            tip (A veya B), Bazal tip veya HER2 tiplerinden hangisi olduğu belirlenir. Bu sayede
+            meme kanseri hastasının en uygun tedavileri alması sağlanır.
+          </p>
+        </Reveal>
 
-        <p>
-          Yapılan klinik değerlendirmelerde tümörün tekrarlama riskinin yüksek olduğu sonucu
-          çıkması ancak MammaPrint testi düşük riske işaret etmesi durumunda hastaya kemoterapi
-          önerilmemektedir.
-        </p>
-        <p>
-          BluePrint moleküler alt tipleme testi ile 80 gen analiz edilerek meme kanserinin Luminal
-          tip (A veya B), Bazal tip veya HER2 tiplerinden hangisi olduğu belirlenir. Bu sayede
-          meme kanseri hastasının en uygun tedavileri alması sağlanır.
-        </p>
-
-        <div className="rounded-card border border-border bg-surface-tint-blue p-6 text-center">
-          <p className="text-5xl font-bold text-blueprint-accent">%64</p>
-          <p className="mt-2 text-sm text-primary-900">
+        <Reveal>
+          <StatTile value="%64" tone="blue">
             MINDACT çalışmasında tüm erken evre meme kanseri hastalarının %64&apos;ü MammaPrint
             testi ile düşük riskli saptanmıştır.
-          </p>
-        </div>
+          </StatTile>
+        </Reveal>
       </section>
 
       <section className="border-t border-border bg-surface-muted">
-        <div className="mx-auto max-w-4xl px-4 py-12 sm:px-8">
-          <h2 className="text-h2 font-semibold text-primary-900">MammaPrint ve BluePrint Testleri Benim için Uygun mu?</h2>
-          <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-            {eligibility.map((item) => (
-              <li key={item} className="flex gap-3 rounded-card border border-border bg-surface p-4 shadow-card">
-                <span aria-hidden="true" className="mt-0.5 text-mammaprint-accent">✓</span>
-                <span className="text-sm text-text-muted">{item}</span>
-              </li>
+        <div className="mx-auto max-w-4xl px-4 py-16 sm:px-8">
+          <Reveal>
+            <h2 className="text-h2 font-bold tracking-tight text-primary-900">MammaPrint ve BluePrint Testleri Benim için Uygun mu?</h2>
+          </Reveal>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            {eligibility.map((item, index) => (
+              <Reveal key={item} delay={index * 60}>
+                <div className="flex items-start gap-4 rounded-2xl border border-border bg-surface p-5 shadow-card transition-transform duration-300 hover:-translate-y-1">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-mammaprint-accent to-blueprint-accent text-sm font-bold text-white">
+                    ✓
+                  </span>
+                  <span className="text-sm text-text-muted">{item}</span>
+                </div>
+              </Reveal>
             ))}
-          </ul>
+          </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl px-4 py-12 sm:px-8">
-        <h2 className="text-h2 font-semibold text-primary-900">Meme Kanseri Tedavi Planlaması</h2>
-        <p className="mt-2 text-text-muted">
-          Sonuçlar; Düşük Risk veya Yüksek Risk olarak raporlanmaktadır (Gri Alan &amp; Orta Risk
-          sonucu yoktur).
-        </p>
-        <div className="mt-6 grid gap-6 sm:grid-cols-2">
-          <div className="rounded-card border border-border bg-surface p-6 shadow-card">
-            <p className="text-lg font-bold text-mammaprint-accent">LOW RISK — Düşük Risk</p>
-            <p className="mt-3 text-sm text-text-muted">
-              MammaPrint testinin sonucuna göre düşük riskliyseniz; kanser nüksü açısından düşük
-              risk altındasınız ve kemoterapiden önemli bir fayda sağlamayacaksınız.
-            </p>
-            <p className="mt-3 text-sm text-text-muted">
-              MammaPrint Düşük Risk (LOW) sonuçları olan hastalarda, sadece endokrin ve radyoterapi
-              ile 5 yılda kanserin nüks etmeme oranı %94,4 iken tedaviye kemoterapi eklendiğinde bu
-              oran %95,9 olmuştur. Aradaki %1,5&apos;lik fark istatistiksel olarak anlamlı değildir.
-            </p>
-            <p className="mt-3 text-sm text-text-muted">
-              ASCO 2020 toplantısında MINDACT çalışmasının uzun dönem takip verileri sunulmuştur.
-              Yaklaşık 9 yıllık takip verileriyle aradaki %1,5&apos;lik fark %0,9&apos;a düşmüştür.
-              Bu veriler ışığında MammaPrint Düşük Risk sonucuna sahip hastaların gereksiz
-              kemoterapi almasının ve yan etki görmesinin önüne geçilmiştir.<sup>2</sup>
-            </p>
-          </div>
-          <div className="rounded-card border border-border bg-surface p-6 shadow-card">
-            <p className="text-lg font-bold text-primary-900">HIGH RISK — Yüksek Risk</p>
-            <p className="mt-3 text-sm text-text-muted">
-              MammaPrint testinin sonucuna göre yüksek riskliyseniz, tedavinize kemoterapi
-              eklenebileceği ve kemoterapiden muhtemel fayda görebileceğiniz anlamına gelir.
-            </p>
-            <p className="mt-3 text-sm text-text-muted">
-              MammaPrint testinin (Düşük Risk–Yüksek Risk) sonuçları, diğer genomik testlerde
-              görülen ve %39&apos;a kadar karşılaşılabilen Orta Risk (Gri Alan) belirsizliğini
-              ortadan kaldırır.
-            </p>
-            <p className="mt-3 text-sm text-text-muted">
-              ASCO 2016&apos;da sunulan prospektif PROMIS çalışması sonuçlarına göre; diğer genomik
-              test yapılan ve Intermediate (Gri Zon) sonucu çıkan 840 erken evre meme kanseri
-              hastasına MammaPrint testi yapılmış ve bu hastaların %45&apos;i düşük, %55&apos;i
-              yüksek riskli çıkmıştır. MammaPrint testi hastalara kesin sonuçlar
-              vermektedir.<sup>3</sup>
-            </p>
-          </div>
+      <section className="mx-auto max-w-4xl px-4 py-16 sm:px-8">
+        <Reveal>
+          <h2 className="text-h2 font-bold tracking-tight text-primary-900">Meme Kanseri Tedavi Planlaması</h2>
+          <p className="mt-3 text-text-muted">
+            Sonuçlar; Düşük Risk veya Yüksek Risk olarak raporlanmaktadır (Gri Alan &amp; Orta Risk
+            sonucu yoktur).
+          </p>
+        </Reveal>
+        <div className="mt-8 grid gap-6 sm:grid-cols-2">
+          <Reveal>
+            <div className="h-full rounded-3xl border border-border bg-surface p-7 shadow-card">
+              <span className="inline-block rounded-full bg-mammaprint-accent/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-mammaprint-accent">
+                Low Risk — Düşük Risk
+              </span>
+              <p className="mt-4 text-sm leading-relaxed text-text-muted">
+                MammaPrint testinin sonucuna göre düşük riskliyseniz; kanser nüksü açısından düşük
+                risk altındasınız ve kemoterapiden önemli bir fayda sağlamayacaksınız.
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-text-muted">
+                MammaPrint Düşük Risk (LOW) sonuçları olan hastalarda, sadece endokrin ve
+                radyoterapi ile 5 yılda kanserin nüks etmeme oranı %94,4 iken tedaviye kemoterapi
+                eklendiğinde bu oran %95,9 olmuştur. Aradaki %1,5&apos;lik fark istatistiksel olarak
+                anlamlı değildir.
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-text-muted">
+                ASCO 2020 toplantısında MINDACT çalışmasının uzun dönem takip verileri sunulmuştur.
+                Yaklaşık 9 yıllık takip verileriyle aradaki %1,5&apos;lik fark %0,9&apos;a düşmüştür.
+                Bu veriler ışığında MammaPrint Düşük Risk sonucuna sahip hastaların gereksiz
+                kemoterapi almasının ve yan etki görmesinin önüne geçilmiştir.<sup>2</sup>
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={120}>
+            <div className="h-full rounded-3xl border border-border bg-surface p-7 shadow-card">
+              <span className="inline-block rounded-full bg-primary-900/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-primary-900">
+                High Risk — Yüksek Risk
+              </span>
+              <p className="mt-4 text-sm leading-relaxed text-text-muted">
+                MammaPrint testinin sonucuna göre yüksek riskliyseniz, tedavinize kemoterapi
+                eklenebileceği ve kemoterapiden muhtemel fayda görebileceğiniz anlamına gelir.
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-text-muted">
+                MammaPrint testinin (Düşük Risk–Yüksek Risk) sonuçları, diğer genomik testlerde
+                görülen ve %39&apos;a kadar karşılaşılabilen Orta Risk (Gri Alan) belirsizliğini
+                ortadan kaldırır.
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-text-muted">
+                ASCO 2016&apos;da sunulan prospektif PROMIS çalışması sonuçlarına göre; diğer
+                genomik test yapılan ve Intermediate (Gri Zon) sonucu çıkan 840 erken evre meme
+                kanseri hastasına MammaPrint testi yapılmış ve bu hastaların %45&apos;i düşük,
+                %55&apos;i yüksek riskli çıkmıştır. MammaPrint testi hastalara kesin sonuçlar
+                vermektedir.<sup>3</sup>
+              </p>
+            </div>
+          </Reveal>
         </div>
       </section>
 
       <section className="border-t border-border bg-surface-muted">
-        <div className="mx-auto max-w-4xl space-y-6 px-4 py-12 sm:px-8">
-          <div>
-            <h2 className="text-h3 font-semibold text-primary-900">MammaPrint testi FDA onaylıdır</h2>
-            <p className="mt-2 text-text-muted">
-              Parafin tümör bloğundan çalışılan MammaPrint testi, FDA (Amerikan Gıda ve İlaç
-              Dairesi) onaylı bir testtir.
-            </p>
-          </div>
-          <div>
-            <h2 className="text-h3 font-semibold text-primary-900">
-              NCCN Kılavuzu Kategori 1 seviyesinde (en üst seviye) MammaPrint testini önermektedir
-            </h2>
-            <p className="mt-2 text-text-muted">
-              NCCN; ER pozitif, lenf nodu negatif veya lenf nodu pozitif (LN +1/+3) hastalar dahil
-              olmak üzere, erken evre meme kanseri hastaları için Kategori 1 seviyesinde MammaPrint
-              Meme Kanseri Nüks Testini önermektedir.
-            </p>
-          </div>
-          <div>
-            <h2 className="text-h3 font-semibold text-primary-900">Uzman Klinik Uygulama Kılavuzları Tarafından Önerilir</h2>
-            <p className="mt-2 text-text-muted">
-              MammaPrint, dünyaca tanınan kanser kuruluşları tarafından geliştirilen sayısız klinik
-              uygulama kılavuzuna dahil edilmiştir. Klinik kılavuzlar, hastaların yönetiminde yer
-              alan sağlık çalışanları için kanıta dayalı tedavi yönergeleridir. Kılavuzlar, en
-              güncel hakemli belgelere dayanarak bakım ve hizmetlerin kalitesini iyileştirmeyi
-              amaçlamaktadır.
-            </p>
-          </div>
+        <div className="mx-auto max-w-4xl space-y-8 px-4 py-16 sm:px-8">
+          <Reveal>
+            <div>
+              <h2 className="text-h3 font-bold tracking-tight text-primary-900">MammaPrint testi FDA onaylıdır</h2>
+              <p className="mt-2 text-text-muted">
+                Parafin tümör bloğundan çalışılan MammaPrint testi, FDA (Amerikan Gıda ve İlaç
+                Dairesi) onaylı bir testtir.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={80}>
+            <div>
+              <h2 className="text-h3 font-bold tracking-tight text-primary-900">
+                NCCN Kılavuzu Kategori 1 seviyesinde (en üst seviye) MammaPrint testini önermektedir
+              </h2>
+              <p className="mt-2 text-text-muted">
+                NCCN; ER pozitif, lenf nodu negatif veya lenf nodu pozitif (LN +1/+3) hastalar dahil
+                olmak üzere, erken evre meme kanseri hastaları için Kategori 1 seviyesinde MammaPrint
+                Meme Kanseri Nüks Testini önermektedir.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={160}>
+            <div>
+              <h2 className="text-h3 font-bold tracking-tight text-primary-900">Uzman Klinik Uygulama Kılavuzları Tarafından Önerilir</h2>
+              <p className="mt-2 text-text-muted">
+                MammaPrint, dünyaca tanınan kanser kuruluşları tarafından geliştirilen sayısız klinik
+                uygulama kılavuzuna dahil edilmiştir. Klinik kılavuzlar, hastaların yönetiminde yer
+                alan sağlık çalışanları için kanıta dayalı tedavi yönergeleridir. Kılavuzlar, en
+                güncel hakemli belgelere dayanarak bakım ve hizmetlerin kalitesini iyileştirmeyi
+                amaçlamaktadır.
+              </p>
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl px-4 py-12 sm:px-8">
-        <h2 className="text-h3 font-semibold text-primary-900">Örnek Test Sonuçlarımız</h2>
+      <section className="mx-auto max-w-4xl px-4 py-16 sm:px-8">
+        <Reveal>
+          <h2 className="text-h3 font-bold tracking-tight text-primary-900">Örnek Test Sonuçlarımız</h2>
+        </Reveal>
         <div className="mt-6 grid gap-3 sm:grid-cols-2">
-          {sampleReports.map((report) => (
-            <a
-              key={report.href}
-              href={report.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-between rounded-card border border-border bg-surface p-4 text-sm font-medium text-primary-900 shadow-card hover:border-mammaprint-accent"
-            >
-              {report.label}
-              <span aria-hidden="true">↓</span>
-            </a>
+          {sampleReports.map((report, index) => (
+            <Reveal key={report.href} delay={index * 60}>
+              <a
+                href={report.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between rounded-2xl border border-border bg-surface p-5 text-sm font-medium text-primary-900 shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:border-mammaprint-accent hover:shadow-glow-rose"
+              >
+                {report.label}
+                <span aria-hidden="true">↓</span>
+              </a>
+            </Reveal>
           ))}
         </div>
-        <p className="mt-8 max-w-2xl text-text-muted">
-          BluePrint Moleküler Alt Tipleme Testi, meme kanserinin Luminal Tip (A veya B), Bazal Tip
-          veya HER2 tiplerinden hangisi olduğunu belirler.
-        </p>
-        <Link href="/blueprint" className="mt-3 inline-block text-sm font-medium text-blueprint-accent underline">
-          BluePrint&apos;i inceleyin →
-        </Link>
+        <Reveal>
+          <p className="mt-10 max-w-2xl text-text-muted">
+            BluePrint Moleküler Alt Tipleme Testi, meme kanserinin Luminal Tip (A veya B), Bazal Tip
+            veya HER2 tiplerinden hangisi olduğunu belirler.
+          </p>
+          <Link href="/blueprint" className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-blueprint-accent">
+            BluePrint&apos;i inceleyin <span aria-hidden="true">→</span>
+          </Link>
+        </Reveal>
       </section>
 
       <section className="border-t border-border bg-surface-muted">

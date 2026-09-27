@@ -22,7 +22,11 @@ export function Tabs({ tabs }: { tabs: TabItem[] }) {
 
   return (
     <div>
-      <div role="tablist" aria-label="İçerik görünümü" className="flex gap-2 border-b border-border">
+      <div
+        role="tablist"
+        aria-label="İçerik görünümü"
+        className="inline-flex flex-wrap gap-1 rounded-full border border-border bg-surface-muted p-1"
+      >
         {tabs.map((tab, index) => {
           const isActive = activeIndex === index;
           return (
@@ -35,8 +39,10 @@ export function Tabs({ tabs }: { tabs: TabItem[] }) {
               tabIndex={isActive ? 0 : -1}
               onClick={() => setActiveIndex(index)}
               onKeyDown={(event) => handleKeyDown(event, index)}
-              className={`rounded-t-input px-4 py-2 text-sm font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring ${
-                isActive ? "border-b-2 border-primary-900 text-primary-900" : "text-text-muted hover:text-primary-900"
+              className={`rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring ${
+                isActive
+                  ? "bg-primary-900 text-white shadow-soft-lg"
+                  : "text-text-muted hover:text-primary-900"
               }`}
             >
               {tab.label}
@@ -51,7 +57,7 @@ export function Tabs({ tabs }: { tabs: TabItem[] }) {
           id={`${baseId}-panel-${index}`}
           aria-labelledby={`${baseId}-tab-${index}`}
           hidden={activeIndex !== index}
-          className="py-6"
+          className="animate-fade-up py-8"
         >
           {tab.content}
         </div>
