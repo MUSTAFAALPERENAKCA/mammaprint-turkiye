@@ -5,6 +5,7 @@ import { PageHero } from "@/components/content/page-hero";
 import { Breadcrumb } from "@/components/content/breadcrumb";
 import { MedicalDisclaimer } from "@/components/content/medical-disclaimer";
 import { Reveal } from "@/components/content/reveal";
+import { CountUp } from "@/components/content/count-up";
 import { medicalWebPageJsonLd, getSiteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -28,22 +29,24 @@ const sampleReports = [
   { label: "Low Luminal Örnek Sonuç", href: "https://mammaprintturkiye.com/docs/MA_Low_Risk_Luminal_SAMPLE.pdf" },
 ];
 
-function StatTile({ value, children, tone = "rose" }: { value: string; children: React.ReactNode; tone?: "rose" | "blue" }) {
+function StatTile({ value, children, tone = "rose" }: { value: number; children: React.ReactNode; tone?: "rose" | "blue" }) {
   const isRose = tone === "rose";
   return (
     <div
-      className={`relative overflow-hidden rounded-3xl border border-border p-8 text-center shadow-card ${
+      className={`group relative overflow-hidden rounded-3xl border border-border p-8 text-center shadow-card transition-transform duration-300 hover:-translate-y-1 ${
         isRose ? "bg-surface-tint-rose" : "bg-surface-tint-blue"
       }`}
     >
       <div
-        className={`pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-20 blur-2xl ${
+        className={`pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-20 blur-2xl transition-opacity duration-300 group-hover:opacity-30 ${
           isRose ? "bg-mammaprint-accent" : "bg-blueprint-accent"
         }`}
       />
-      <p className={`relative text-6xl font-extrabold tracking-tight ${isRose ? "text-mammaprint-accent" : "text-blueprint-accent"}`}>
-        {value}
-      </p>
+      <CountUp
+        target={value}
+        prefix="%"
+        className={`relative block text-6xl font-extrabold tracking-tight tabular-nums ${isRose ? "text-mammaprint-accent" : "text-blueprint-accent"}`}
+      />
       <p className="relative mt-3 text-sm leading-relaxed text-primary-900">{children}</p>
     </div>
   );
@@ -92,7 +95,7 @@ export default function MammaPrintPage() {
         </Reveal>
 
         <Reveal>
-          <StatTile value="%46" tone="rose">
+          <StatTile value={46} tone="rose">
             Avrupa&apos;da MammaPrint testi kullanılarak yapılan araştırmada, erken teşhis edilen
             yüksek riskli meme kanseri vakalarının %46&apos;sında kemoterapiye ihtiyaç olmadığı
             sonucuna varılmıştır.<sup>1</sup>
@@ -115,7 +118,7 @@ export default function MammaPrintPage() {
         </Reveal>
 
         <Reveal>
-          <StatTile value="%64" tone="blue">
+          <StatTile value={64} tone="blue">
             MINDACT çalışmasında tüm erken evre meme kanseri hastalarının %64&apos;ü MammaPrint
             testi ile düşük riskli saptanmıştır.
           </StatTile>

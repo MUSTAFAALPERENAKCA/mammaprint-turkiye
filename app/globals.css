@@ -9,13 +9,14 @@
   --color-primary-700: #173357;
   --color-mammaprint-accent: #c6357a;
   --color-blueprint-accent: #1e6fa8;
-  --color-surface: #ffffff;
-  --color-surface-muted: #f4f6f8;
-  --color-surface-tint-rose: #fdf3f7;
-  --color-surface-tint-blue: #eff6fb;
-  --color-text-primary: #111827;
-  --color-text-muted: #4b5563;
-  --color-border: #e5e7eb;
+  /* Krem/ivory zemin ailesi — düz beyaz yerine sıcak, kağıt benzeri tonlar */
+  --color-surface: #fffcf6;
+  --color-surface-muted: #f6efe1;
+  --color-surface-tint-rose: #fdf1ea;
+  --color-surface-tint-blue: #eef3f1;
+  --color-text-primary: #211d14;
+  --color-text-muted: #5c5546;
+  --color-border: #e8dfcc;
   --color-success: #15803d;
   --color-warning: #b45309;
   --color-danger: #b91c1c;
@@ -106,10 +107,10 @@ body {
 
 /* Cam yüzey (glassmorphism) yardımcı sınıfları */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 252, 246, 0.7);
   backdrop-filter: blur(20px) saturate(160%);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 .glass-panel-dark {
@@ -135,6 +136,45 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
+  }
+}
+
+/* Kaydırma ilerleme çubuğu — bkz. components/layout/scroll-progress.tsx */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--color-mammaprint-accent), var(--color-blueprint-accent));
+  z-index: 50;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress-bar {
+    display: none;
+  }
+}
+
+/* Başlıklarda yumuşak degrade parıltısı — ucuz, blur içermeyen animasyon */
+.text-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 6s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0%,
+  100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .text-shimmer {
+    animation: none;
   }
 }
 

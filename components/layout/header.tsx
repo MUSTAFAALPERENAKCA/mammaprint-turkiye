@@ -21,14 +21,15 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-button px-4 py-2 text-sm font-medium text-text-primary hover:bg-surface-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring"
+              className="group relative px-4 py-2 text-sm font-medium text-text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring"
             >
               {link.label}
+              <span className="absolute inset-x-4 bottom-1 h-0.5 scale-x-0 bg-gradient-to-r from-mammaprint-accent to-blueprint-accent transition-transform duration-300 group-hover:scale-x-100" />
             </Link>
           ))}
           <Link
             href="/iletisim"
-            className="ml-2 rounded-button bg-primary-900 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700"
+            className="ml-2 rounded-full bg-primary-900 px-5 py-2 text-sm font-medium text-white transition-transform duration-300 hover:scale-105 hover:bg-primary-700"
           >
             İletişim
           </Link>

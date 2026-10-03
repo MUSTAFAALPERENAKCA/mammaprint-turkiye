@@ -6,6 +6,7 @@ import { Breadcrumb } from "@/components/content/breadcrumb";
 import { Tabs } from "@/components/content/tabs";
 import { MedicalDisclaimer } from "@/components/content/medical-disclaimer";
 import { Reveal } from "@/components/content/reveal";
+import { CountUp } from "@/components/content/count-up";
 import { medicalWebPageJsonLd, getSiteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -60,9 +61,9 @@ export default function BluePrintPage() {
         </Reveal>
 
         <Reveal>
-          <div className="relative overflow-hidden rounded-3xl border border-border bg-surface-tint-blue p-8 text-center shadow-card">
-            <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-blueprint-accent opacity-20 blur-2xl" />
-            <p className="relative text-6xl font-extrabold tracking-tight text-blueprint-accent">%22</p>
+          <div className="group relative overflow-hidden rounded-3xl border border-border bg-surface-tint-blue p-8 text-center shadow-card transition-transform duration-300 hover:-translate-y-1">
+            <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-blueprint-accent opacity-20 blur-2xl transition-opacity duration-300 group-hover:opacity-30" />
+            <CountUp target={22} prefix="%" className="relative block text-6xl font-extrabold tracking-tight tabular-nums text-blueprint-accent" />
             <p className="relative mt-3 text-sm leading-relaxed text-primary-900">
               NBRST çalışmasında, geleneksel (IHC veya FISH) yöntemler ile sınıflandırılan vakalara
               BluePrint testi yapıldığında, hastaların %22&apos;si yeniden sınıflandırıldı ve bu da

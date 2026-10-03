@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { SkipLink } from "@/components/layout/skip-link";
+import { ScrollProgress } from "@/components/layout/scroll-progress";
 import { CookieConsent } from "@/components/consent/cookie-consent";
 import { getSiteUrl, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 
@@ -23,6 +24,7 @@ export default function MarketingLayout({ children }: { children: ReactNode }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
       <SkipLink />
+      <ScrollProgress />
       <Header />
       <main id="main-content" className="flex-1">
         {children}

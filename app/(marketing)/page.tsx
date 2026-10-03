@@ -33,7 +33,7 @@ export default function HomePage() {
           <Reveal>
             <h1 className="text-h1 font-bold leading-[1.05] tracking-tight sm:text-mega">
               Meme Kanseri Tedavisinde{" "}
-              <span className="bg-gradient-to-r from-mammaprint-accent to-blueprint-accent bg-clip-text text-transparent">
+              <span className="text-shimmer bg-gradient-to-r from-mammaprint-accent via-blueprint-accent to-mammaprint-accent bg-clip-text text-transparent">
                 Gereksiz Kemoterapiye Son
               </span>
             </h1>
@@ -74,7 +74,13 @@ export default function HomePage() {
               href="/mammaprint"
               className="group block h-full rounded-3xl border border-border bg-surface p-10 text-center shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-glow-rose"
             >
-              <Image src="/brand/mammaprint-logo.png" alt="MammaPrint" width={220} height={50} className="mx-auto h-auto w-48" />
+              <Image
+                src="/brand/mammaprint-logo.png"
+                alt="MammaPrint"
+                width={220}
+                height={50}
+                className="mx-auto h-auto w-48 transition-transform duration-300 group-hover:scale-105"
+              />
               <p className="mt-6 text-lg font-bold tracking-tight text-primary-900">70 GEN MEME KANSERİ NÜKS TESTİ</p>
               <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-mammaprint-accent">
                 MammaPrint&apos;i inceleyin
@@ -87,7 +93,13 @@ export default function HomePage() {
               href="/blueprint"
               className="group block h-full rounded-3xl border border-border bg-surface p-10 text-center shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-glow-blue"
             >
-              <Image src="/brand/blueprint-logo.png" alt="BluePrint" width={200} height={52} className="mx-auto h-auto w-44" />
+              <Image
+                src="/brand/blueprint-logo.png"
+                alt="BluePrint"
+                width={200}
+                height={52}
+                className="mx-auto h-auto w-44 transition-transform duration-300 group-hover:scale-105"
+              />
               <p className="mt-6 text-lg font-bold tracking-tight text-primary-900">80 GEN MOLEKÜLER ALT TİPLEME TESTİ</p>
               <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-blueprint-accent">
                 BluePrint&apos;i inceleyin
