@@ -127,8 +127,10 @@ body {
 }
 
 /* Scroll'da belirme animasyonu — bkz. components/content/reveal.tsx */
-.reveal {
-  opacity: 0;
+@media (scripting: enabled) {
+  .reveal {
+    opacity: 0;
+  }
 }
 .reveal.is-visible {
   animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
