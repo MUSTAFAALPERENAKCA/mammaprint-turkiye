@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { PageHero } from "@/components/content/page-hero";
-import { Breadcrumb } from "@/components/content/breadcrumb";
 import { MedicalDisclaimer } from "@/components/content/medical-disclaimer";
 import { Reveal } from "@/components/content/reveal";
 import { CountUp } from "@/components/content/count-up";
@@ -62,8 +61,7 @@ export default function MammaPrintPage() {
   return (
     <div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <Breadcrumb items={[{ name: "MammaPrint", path: "/mammaprint" }]} />
-      <PageHero
+      <PageHero breadcrumb={[{ name: "MammaPrint", path: "/mammaprint" }]}
         logo={<Image src="/brand/mammaprint-logo-70gen.png" alt="MammaPrint" width={280} height={64} priority />}
         title="MammaPrint 70 Gen Meme Kanseri Nüks Testi"
         intro="Erken Teşhis Edilen Her Meme Kanseri Hastasına Kemoterapi Gerekmiyor"

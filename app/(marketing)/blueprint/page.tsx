@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { PageHero } from "@/components/content/page-hero";
-import { Breadcrumb } from "@/components/content/breadcrumb";
 import { Tabs } from "@/components/content/tabs";
 import { MedicalDisclaimer } from "@/components/content/medical-disclaimer";
 import { Reveal } from "@/components/content/reveal";
@@ -24,8 +23,7 @@ export default function BluePrintPage() {
   return (
     <div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <Breadcrumb items={[{ name: "BluePrint", path: "/blueprint" }]} />
-      <PageHero
+      <PageHero breadcrumb={[{ name: "BluePrint", path: "/blueprint" }]}
         logo={<Image src="/brand/blueprint-logo-80gen.png" alt="BluePrint" width={280} height={72} priority />}
         title="BluePrint 80 Gen Moleküler Alt Tipleme Testi"
         intro="BluePrint Moleküler Alt Tipleme Testi, meme kanserinin Luminal Tip (A veya B), Bazal Tip veya HER2 tiplerinden hangisi olduğunu belirler."

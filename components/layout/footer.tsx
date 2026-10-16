@@ -21,24 +21,24 @@ export function Footer() {
           </div>
           <div>
             <p className="font-semibold">Hızlı bağlantılar</p>
-            <ul className="mt-2 space-y-1 text-sm text-text-muted">
+            <ul className="mt-2 text-sm text-text-muted">
               <li>
-                <Link href="/mammaprint">MammaPrint</Link>
+                <Link className="inline-block py-1.5 hover:text-primary-900" href="/mammaprint">MammaPrint</Link>
               </li>
               <li>
-                <Link href="/blueprint">BluePrint</Link>
+                <Link className="inline-block py-1.5 hover:text-primary-900" href="/blueprint">BluePrint</Link>
               </li>
               <li>
-                <Link href="/iletisim">İletişim</Link>
+                <Link className="inline-block py-1.5 hover:text-primary-900" href="/iletisim">İletişim</Link>
               </li>
             </ul>
           </div>
           <div>
             <p className="font-semibold">Yasal</p>
-            <ul className="mt-2 space-y-1 text-sm text-text-muted">
+            <ul className="mt-2 text-sm text-text-muted">
               {footerLegalLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href}>{link.label}</Link>
+                  <Link href={link.href} className="inline-block py-1.5 hover:text-primary-900">{link.label}</Link>
                 </li>
               ))}
               <li>

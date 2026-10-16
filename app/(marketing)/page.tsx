@@ -26,10 +26,10 @@ export default function HomePage() {
           style={{ background: "radial-gradient(circle, rgba(30,111,168,0.6), transparent 70%)" }}
         />
 
-        <div className="relative mx-auto max-w-7xl px-4 pt-14 sm:px-8">
+        <div className="relative mx-auto max-w-7xl px-4 pt-10 sm:px-8 sm:pt-14">
           <BrandLockup />
         </div>
-        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-8 lg:grid-cols-2 lg:py-24">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-10 sm:px-8 sm:py-16 lg:grid-cols-2 lg:py-24">
           <Reveal>
             <h1 className="text-h1 font-bold leading-[1.05] tracking-tight sm:text-mega">
               Meme Kanseri Tedavisinde{" "}
@@ -57,7 +57,7 @@ export default function HomePage() {
             </div>
           </Reveal>
           <Reveal delay={150} className="relative">
-            <div className="relative mx-auto flex h-80 w-80 items-center justify-center rounded-full glass-panel-dark sm:h-[26rem] sm:w-[26rem]">
+            <div className="relative mx-auto flex h-64 w-64 items-center justify-center rounded-full glass-panel-dark sm:h-[26rem] sm:w-[26rem]">
               <div className="absolute inset-8 rounded-full border border-white/10" />
               <div className="absolute inset-16 rounded-full border border-white/10" />
               <DnaHelixIllustration className="h-auto w-full max-w-[240px] text-white sm:max-w-xs" />
@@ -68,11 +68,11 @@ export default function HomePage() {
 
       {/* Test kartları */}
       <section className="border-t border-border bg-surface-muted">
-        <div className="mx-auto grid max-w-7xl gap-6 px-4 py-20 sm:px-8 md:grid-cols-2">
+        <div className="mx-auto grid max-w-7xl gap-6 px-4 py-14 sm:px-8 sm:py-20 md:grid-cols-2">
           <Reveal>
             <Link
               href="/mammaprint"
-              className="group block h-full rounded-3xl border border-border bg-surface p-10 text-center shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-glow-rose"
+              className="group block h-full rounded-3xl border border-border bg-surface p-7 text-center sm:p-10 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-glow-rose"
             >
               <Image
                 src="/brand/mammaprint-logo.png"
@@ -91,7 +91,7 @@ export default function HomePage() {
           <Reveal delay={120}>
             <Link
               href="/blueprint"
-              className="group block h-full rounded-3xl border border-border bg-surface p-10 text-center shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-glow-blue"
+              className="group block h-full rounded-3xl border border-border bg-surface p-7 text-center sm:p-10 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-glow-blue"
             >
               <Image
                 src="/brand/blueprint-logo.png"
@@ -111,7 +111,7 @@ export default function HomePage() {
       </section>
 
       {/* Video */}
-      <section className="mx-auto max-w-4xl px-4 py-20 sm:px-8">
+      <section className="mx-auto max-w-4xl px-4 py-14 sm:px-8 sm:py-20">
         <Reveal>
           <h2 className="text-center text-h2 font-bold tracking-tight text-primary-900">MammaPrint Testi ile Tanışın</h2>
           <div className="relative mt-10">

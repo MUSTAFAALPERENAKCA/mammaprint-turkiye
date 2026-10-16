@@ -7,12 +7,12 @@ import Image from "next/image";
 export function BrandLockup({ tagline = "Tümör Biyolojisini Aydınlatan Genomik Testler" }: { tagline?: string }) {
   return (
     <div className="text-center">
-      <div className="flex flex-wrap items-center justify-center gap-4">
-        <Image src="/brand/mammaprint-logo.png" alt="MammaPrint" width={220} height={50} priority />
-        <span className="text-2xl font-light text-white/50">+</span>
-        <Image src="/brand/blueprint-logo.png" alt="BluePrint" width={200} height={52} priority />
+      <div className="flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-4">
+        <Image src="/brand/mammaprint-logo.png" alt="MammaPrint" width={220} height={50} priority className="h-auto w-44 sm:w-[220px]" />
+        <span className="text-xl font-light leading-none text-white/50 sm:text-2xl">+</span>
+        <Image src="/brand/blueprint-logo.png" alt="BluePrint" width={200} height={52} priority className="h-auto w-40 sm:w-[200px]" />
       </div>
-      <p className="mt-3 text-sm font-medium uppercase tracking-[0.2em] text-white/70">{tagline}</p>
+      <p className="mt-4 text-xs font-medium uppercase tracking-[0.18em] text-white/70 sm:text-sm sm:tracking-[0.2em]">{tagline}</p>
     </div>
   );
 }

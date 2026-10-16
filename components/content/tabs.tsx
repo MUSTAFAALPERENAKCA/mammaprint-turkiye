@@ -25,7 +25,7 @@ export function Tabs({ tabs }: { tabs: TabItem[] }) {
       <div
         role="tablist"
         aria-label="İçerik görünümü"
-        className="inline-flex flex-wrap gap-1 rounded-full border border-border bg-surface-muted p-1"
+        className="inline-flex max-w-full gap-1 overflow-x-auto rounded-full border border-border bg-surface-muted p-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {tabs.map((tab, index) => {
           const isActive = activeIndex === index;
@@ -39,7 +39,7 @@ export function Tabs({ tabs }: { tabs: TabItem[] }) {
               tabIndex={isActive ? 0 : -1}
               onClick={() => setActiveIndex(index)}
               onKeyDown={(event) => handleKeyDown(event, index)}
-              className={`rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring ${
+              className={`shrink-0 whitespace-nowrap rounded-full px-3 py-2 text-[13px] font-semibold transition-all sm:px-5 sm:text-sm duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring ${
                 isActive
                   ? "bg-primary-900 text-white shadow-soft-lg"
                   : "text-text-muted hover:text-primary-900"

@@ -1,12 +1,16 @@
 import type { ReactNode } from "react";
+import { Breadcrumb } from "@/components/content/breadcrumb";
+import type { BreadcrumbItem } from "@/lib/seo";
 
 export function PageHero({
+  breadcrumb,
   logo,
   eyebrow,
   title,
   intro,
   children,
 }: {
+  breadcrumb?: BreadcrumbItem[];
   logo?: ReactNode;
   eyebrow?: string;
   title: string;
@@ -22,7 +26,8 @@ export function PageHero({
             "radial-gradient(50% 70% at 10% 0%, rgba(198,53,122,0.35), transparent 60%), radial-gradient(45% 60% at 90% 100%, rgba(30,111,168,0.35), transparent 60%)",
         }}
       />
-      <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-8 sm:py-20">
+      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-8 sm:py-20">
+        {breadcrumb ? <div className="mb-8"><Breadcrumb items={breadcrumb} onDark /></div> : null}
         {logo ? <div className="mb-5">{logo}</div> : null}
         {eyebrow ? (
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/70">{eyebrow}</p>

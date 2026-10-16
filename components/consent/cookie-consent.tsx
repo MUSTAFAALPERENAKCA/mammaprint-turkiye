@@ -41,10 +41,10 @@ export function CookieConsent() {
     <div
       role="dialog"
       aria-label="Çerez tercihleri"
-      className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-surface p-4 shadow-card sm:p-6"
+      className="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-4xl rounded-2xl border border-border bg-surface/95 p-4 shadow-soft-lg backdrop-blur-md sm:inset-x-6 sm:bottom-6 sm:p-5"
     >
-      <div className="mx-auto flex max-w-5xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm text-text-muted">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+        <p className="text-xs leading-relaxed text-text-muted sm:text-sm">
           Zorunlu çerezler siteyi çalıştırmak için kullanılır. Analitik çerezler yalnızca izniniz
           ile çalışır.{" "}
           <a href="/cerez-politikasi" className="underline">
@@ -70,31 +70,31 @@ export function CookieConsent() {
             <button
               type="button"
               onClick={() => accept({ necessary: true, analytics: analyticsEnabled })}
-              className="rounded-button bg-primary-900 px-4 py-2 text-sm font-medium text-white"
+              className="rounded-full bg-primary-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-primary-700"
             >
               Tercihleri Kaydet
             </button>
           </div>
         ) : (
-          <div className="flex shrink-0 gap-2">
+          <div className="flex w-full shrink-0 gap-2 sm:w-auto">
             <button
               type="button"
               onClick={() => accept({ necessary: true, analytics: false })}
-              className="rounded-button border border-border px-4 py-2 text-sm font-medium hover:bg-surface-muted"
+              className="flex-1 rounded-full border border-border px-4 py-2.5 text-xs font-medium transition-colors hover:bg-surface-muted sm:flex-none sm:text-sm"
             >
               Reddet
             </button>
             <button
               type="button"
               onClick={() => setShowPreferences(true)}
-              className="rounded-button border border-border px-4 py-2 text-sm font-medium hover:bg-surface-muted"
+              className="flex-1 rounded-full border border-border px-4 py-2.5 text-xs font-medium transition-colors hover:bg-surface-muted sm:flex-none sm:text-sm"
             >
               Tercihler
             </button>
             <button
               type="button"
               onClick={() => accept({ necessary: true, analytics: true })}
-              className="rounded-button bg-primary-900 px-4 py-2 text-sm font-medium text-white"
+              className="flex-1 rounded-full bg-primary-900 px-4 py-2.5 text-xs font-medium text-white transition-colors hover:bg-primary-700 sm:flex-none sm:text-sm"
             >
               Kabul Et
             </button>

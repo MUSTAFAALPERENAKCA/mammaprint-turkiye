@@ -11,7 +11,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-30 border-b border-border bg-surface/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-8">
-        <Link href="/" className="flex items-center gap-2 text-lg font-semibold text-primary-900">
+        <Link href="/" className="flex items-center gap-2 py-1 text-lg font-semibold text-primary-900">
           <Image src="/brand/mammaprint-mark.png" alt="" width={28} height={25} aria-hidden="true" />
           MammaPrint Türkiye
         </Link>
@@ -37,7 +37,7 @@ export function Header() {
 
         <button
           type="button"
-          className="sm:hidden"
+          className="-mr-2 flex h-11 w-11 items-center justify-center rounded-full transition-colors hover:bg-surface-muted sm:hidden"
           aria-expanded={mobileOpen}
           aria-controls="mobile-nav"
           onClick={() => setMobileOpen((open) => !open)}
@@ -61,7 +61,7 @@ export function Header() {
                 <Link
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block px-4 py-3 text-sm font-medium text-text-primary"
+                  className="block px-5 py-4 text-base font-medium text-text-primary active:bg-surface-muted"
                 >
                   {link.label}
                 </Link>
@@ -71,7 +71,7 @@ export function Header() {
               <Link
                 href="/iletisim"
                 onClick={() => setMobileOpen(false)}
-                className="block px-4 py-3 text-sm font-medium text-primary-900"
+                className="block px-5 py-4 text-base font-semibold text-primary-900 active:bg-surface-muted"
               >
                 İletişim
               </Link>

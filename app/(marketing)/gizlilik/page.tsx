@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/content/page-hero";
-import { Breadcrumb } from "@/components/content/breadcrumb";
 
 export const metadata: Metadata = {
   title: "Gizlilik ve KVKK Aydınlatma Metni",
@@ -31,8 +30,7 @@ const sections = [
 export default function GizlilikPage() {
   return (
     <div>
-      <Breadcrumb items={[{ name: "Gizlilik ve KVKK", path: "/gizlilik" }]} />
-      <PageHero title="Gizlilik ve KVKK Aydınlatma Metni" />
+      <PageHero breadcrumb={[{ name: "Gizlilik ve KVKK", path: "/gizlilik" }]} title="Gizlilik ve KVKK Aydınlatma Metni" />
       <section className="mx-auto max-w-3xl px-4 py-12 sm:px-8">
         <div className="space-y-6">
           {sections.map((section) => (
