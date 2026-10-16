@@ -6,6 +6,8 @@ import { Tabs } from "@/components/content/tabs";
 import { MedicalDisclaimer } from "@/components/content/medical-disclaimer";
 import { Reveal } from "@/components/content/reveal";
 import { CountUp } from "@/components/content/count-up";
+import { SectionNav } from "@/components/content/section-nav";
+import { Spotlight } from "@/components/content/spotlight";
 import { medicalWebPageJsonLd, getSiteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -25,8 +27,17 @@ export default function BluePrintPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <PageHero breadcrumb={[{ name: "BluePrint", path: "/blueprint" }]}
         logo={<Image src="/brand/blueprint-logo-80gen.png" alt="BluePrint" width={280} height={72} priority />}
+        accent="blue"
         title="BluePrint 80 Gen Moleküler Alt Tipleme Testi"
         intro="BluePrint Moleküler Alt Tipleme Testi, meme kanserinin Luminal Tip (A veya B), Bazal Tip veya HER2 tiplerinden hangisi olduğunu belirler."
+      />
+
+      <SectionNav
+        items={[
+          { id: "alt-tipler", label: "Moleküler Alt Tipler" },
+          { id: "tedavi", label: "Daha Etkili Tedavi" },
+          { id: "referanslar", label: "Referanslar" },
+        ]}
       />
 
       <section className="mx-auto max-w-4xl space-y-6 px-4 py-16 text-lg leading-relaxed text-text-muted sm:px-8">
@@ -59,9 +70,10 @@ export default function BluePrintPage() {
         </Reveal>
 
         <Reveal>
+          <Spotlight className="rounded-3xl" color="rgba(30,111,168,0.2)">
           <div className="group relative overflow-hidden rounded-3xl border border-border bg-surface-tint-blue p-8 text-center shadow-card transition-transform duration-300 hover:-translate-y-1">
             <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-blueprint-accent opacity-20 blur-2xl transition-opacity duration-300 group-hover:opacity-30" />
-            <CountUp target={22} prefix="%" className="relative block text-6xl font-extrabold tracking-tight tabular-nums text-blueprint-accent" />
+            <CountUp target={22} prefix="%" className="relative block font-[family-name:var(--font-display)] text-7xl font-semibold tabular-nums text-blueprint-accent" />
             <p className="relative mt-3 text-sm leading-relaxed text-primary-900">
               NBRST çalışmasında, geleneksel (IHC veya FISH) yöntemler ile sınıflandırılan vakalara
               BluePrint testi yapıldığında, hastaların %22&apos;si yeniden sınıflandırıldı ve bu da
@@ -69,10 +81,11 @@ export default function BluePrintPage() {
               koydu.<sup>4</sup>
             </p>
           </div>
+          </Spotlight>
         </Reveal>
       </section>
 
-      <section className="border-t border-border bg-surface-muted">
+      <section id="alt-tipler" className="scroll-mt-28 border-t border-border bg-surface-muted">
         <div className="mx-auto max-w-4xl px-4 py-16 sm:px-8">
           <Reveal>
             <h2 className="text-h2 font-bold tracking-tight text-primary-900">Moleküler Alt Tipler</h2>
@@ -124,7 +137,7 @@ export default function BluePrintPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl px-4 py-16 sm:px-8">
+      <section id="tedavi" className="mx-auto max-w-4xl scroll-mt-28 px-4 py-16 sm:px-8">
         <Reveal>
           <h2 className="text-h3 font-bold tracking-tight text-primary-900">Detaylı Analiz, Daha Etkili Tedavi</h2>
           <p className="mt-3 text-text-muted">
@@ -138,7 +151,7 @@ export default function BluePrintPage() {
         </Reveal>
       </section>
 
-      <section className="border-t border-border bg-surface-muted">
+      <section id="referanslar" className="scroll-mt-28 border-t border-border bg-surface-muted">
         <div className="mx-auto max-w-4xl px-4 py-8 text-xs text-text-muted sm:px-8">
           <p className="font-semibold text-primary-900">Referanslar</p>
           <ol className="mt-2 list-inside list-decimal space-y-1">

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/content/page-hero";
+import { Reveal } from "@/components/content/reveal";
 
 export const metadata: Metadata = {
   title: "Gizlilik ve KVKK Aydınlatma Metni",
@@ -33,11 +34,13 @@ export default function GizlilikPage() {
       <PageHero breadcrumb={[{ name: "Gizlilik ve KVKK", path: "/gizlilik" }]} title="Gizlilik ve KVKK Aydınlatma Metni" />
       <section className="mx-auto max-w-3xl px-4 py-12 sm:px-8">
         <div className="space-y-6">
-          {sections.map((section) => (
-            <div key={section.title}>
-              <h2 className="font-semibold text-primary-900">{section.title}</h2>
+          {sections.map((section, index) => (
+            <Reveal key={section.title} delay={index * 50}>
+            <div className="rounded-2xl border border-border bg-surface p-6 shadow-card transition-transform duration-300 hover:-translate-y-0.5">
+              <h2 className="text-lg font-semibold text-primary-900">{section.title}</h2>
               <p className="mt-1 text-sm text-text-muted">{section.body}</p>
             </div>
+            </Reveal>
           ))}
         </div>
       </section>

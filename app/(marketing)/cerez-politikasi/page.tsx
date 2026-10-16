@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/content/page-hero";
+import { Reveal } from "@/components/content/reveal";
 import { CookiePreferencesButton } from "@/components/consent/cookie-preferences-button";
 
 export const metadata: Metadata = {
@@ -17,6 +18,7 @@ export default function CerezPolitikasiPage() {
     <div>
       <PageHero breadcrumb={[{ name: "Çerez Politikası", path: "/cerez-politikasi" }]} title="Çerez Politikası" intro="Zorunlu olmayan çerezler yalnızca tercihiniz doğrultusunda çalışır." />
       <section className="mx-auto max-w-4xl px-4 py-12 sm:px-8">
+        <Reveal>
         <table className="w-full overflow-hidden rounded-card border border-border text-left text-sm">
           <thead className="bg-surface-muted">
             <tr>
@@ -35,6 +37,7 @@ export default function CerezPolitikasiPage() {
             ))}
           </tbody>
         </table>
+        </Reveal>
         <div className="mt-6">
           <CookiePreferencesButton />
         </div>

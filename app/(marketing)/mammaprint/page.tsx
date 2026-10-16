@@ -5,6 +5,8 @@ import { PageHero } from "@/components/content/page-hero";
 import { MedicalDisclaimer } from "@/components/content/medical-disclaimer";
 import { Reveal } from "@/components/content/reveal";
 import { CountUp } from "@/components/content/count-up";
+import { SectionNav } from "@/components/content/section-nav";
+import { Spotlight } from "@/components/content/spotlight";
 import { medicalWebPageJsonLd, getSiteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -31,6 +33,7 @@ const sampleReports = [
 function StatTile({ value, children, tone = "rose" }: { value: number; children: React.ReactNode; tone?: "rose" | "blue" }) {
   const isRose = tone === "rose";
   return (
+    <Spotlight className="rounded-3xl" color={isRose ? "rgba(198,53,122,0.2)" : "rgba(30,111,168,0.2)"}>
     <div
       className={`group relative overflow-hidden rounded-3xl border border-border p-8 text-center shadow-card transition-transform duration-300 hover:-translate-y-1 ${
         isRose ? "bg-surface-tint-rose" : "bg-surface-tint-blue"
@@ -44,10 +47,11 @@ function StatTile({ value, children, tone = "rose" }: { value: number; children:
       <CountUp
         target={value}
         prefix="%"
-        className={`relative block text-6xl font-extrabold tracking-tight tabular-nums ${isRose ? "text-mammaprint-accent" : "text-blueprint-accent"}`}
+        className={`relative block font-[family-name:var(--font-display)] text-7xl font-semibold tabular-nums ${isRose ? "text-mammaprint-accent" : "text-blueprint-accent"}`}
       />
       <p className="relative mt-3 text-sm leading-relaxed text-primary-900">{children}</p>
     </div>
+    </Spotlight>
   );
 }
 
@@ -65,6 +69,15 @@ export default function MammaPrintPage() {
         logo={<Image src="/brand/mammaprint-logo-70gen.png" alt="MammaPrint" width={280} height={64} priority />}
         title="MammaPrint 70 Gen Meme Kanseri Nüks Testi"
         intro="Erken Teşhis Edilen Her Meme Kanseri Hastasına Kemoterapi Gerekmiyor"
+      />
+      <SectionNav
+        items={[
+          { id: "uygunluk", label: "Uygunluk" },
+          { id: "tedavi-planlamasi", label: "Tedavi Planlaması" },
+          { id: "onaylar", label: "Onaylar" },
+          { id: "ornek-sonuclar", label: "Örnek Sonuçlar" },
+          { id: "referanslar", label: "Referanslar" },
+        ]}
       />
 
       <section className="mx-auto max-w-4xl space-y-6 px-4 py-16 text-lg leading-relaxed text-text-muted sm:px-8">
@@ -123,7 +136,7 @@ export default function MammaPrintPage() {
         </Reveal>
       </section>
 
-      <section className="border-t border-border bg-surface-muted">
+      <section id="uygunluk" className="scroll-mt-28 border-t border-border bg-surface-muted">
         <div className="mx-auto max-w-4xl px-4 py-16 sm:px-8">
           <Reveal>
             <h2 className="text-h2 font-bold tracking-tight text-primary-900">MammaPrint ve BluePrint Testleri Benim için Uygun mu?</h2>
@@ -131,19 +144,21 @@ export default function MammaPrintPage() {
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {eligibility.map((item, index) => (
               <Reveal key={item} delay={index * 60}>
-                <div className="flex items-start gap-4 rounded-2xl border border-border bg-surface p-5 shadow-card transition-transform duration-300 hover:-translate-y-1">
+                <Spotlight className="h-full rounded-2xl">
+                <div className="flex h-full items-start gap-4 rounded-2xl border border-border bg-surface p-5 shadow-card transition-transform duration-300 hover:-translate-y-1">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-mammaprint-accent to-blueprint-accent text-sm font-bold text-white">
                     ✓
                   </span>
                   <span className="text-sm text-text-muted">{item}</span>
                 </div>
+                </Spotlight>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl px-4 py-16 sm:px-8">
+      <section id="tedavi-planlamasi" className="mx-auto max-w-4xl scroll-mt-28 px-4 py-16 sm:px-8">
         <Reveal>
           <h2 className="text-h2 font-bold tracking-tight text-primary-900">Meme Kanseri Tedavi Planlaması</h2>
           <p className="mt-3 text-text-muted">
@@ -153,7 +168,7 @@ export default function MammaPrintPage() {
         </Reveal>
         <div className="mt-8 grid gap-6 sm:grid-cols-2">
           <Reveal>
-            <div className="h-full rounded-3xl border border-border bg-surface p-7 shadow-card">
+            <Spotlight className="h-full rounded-3xl"><div className="h-full rounded-3xl border border-border bg-surface p-7 shadow-card">
               <span className="inline-block rounded-full bg-mammaprint-accent/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-mammaprint-accent">
                 Low Risk — Düşük Risk
               </span>
@@ -173,10 +188,10 @@ export default function MammaPrintPage() {
                 Bu veriler ışığında MammaPrint Düşük Risk sonucuna sahip hastaların gereksiz
                 kemoterapi almasının ve yan etki görmesinin önüne geçilmiştir.<sup>2</sup>
               </p>
-            </div>
+            </div></Spotlight>
           </Reveal>
           <Reveal delay={120}>
-            <div className="h-full rounded-3xl border border-border bg-surface p-7 shadow-card">
+            <Spotlight className="h-full rounded-3xl"><div className="h-full rounded-3xl border border-border bg-surface p-7 shadow-card">
               <span className="inline-block rounded-full bg-primary-900/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-primary-900">
                 High Risk — Yüksek Risk
               </span>
@@ -196,12 +211,12 @@ export default function MammaPrintPage() {
                 %55&apos;i yüksek riskli çıkmıştır. MammaPrint testi hastalara kesin sonuçlar
                 vermektedir.<sup>3</sup>
               </p>
-            </div>
+            </div></Spotlight>
           </Reveal>
         </div>
       </section>
 
-      <section className="border-t border-border bg-surface-muted">
+      <section id="onaylar" className="scroll-mt-28 border-t border-border bg-surface-muted">
         <div className="mx-auto max-w-4xl space-y-8 px-4 py-16 sm:px-8">
           <Reveal>
             <div>
@@ -239,13 +254,14 @@ export default function MammaPrintPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl px-4 py-16 sm:px-8">
+      <section id="ornek-sonuclar" className="mx-auto max-w-4xl scroll-mt-28 px-4 py-16 sm:px-8">
         <Reveal>
           <h2 className="text-h3 font-bold tracking-tight text-primary-900">Örnek Test Sonuçlarımız</h2>
         </Reveal>
         <div className="mt-6 grid gap-3 sm:grid-cols-2">
           {sampleReports.map((report, index) => (
             <Reveal key={report.href} delay={index * 60}>
+              <Spotlight className="rounded-2xl">
               <a
                 href={report.href}
                 target="_blank"
@@ -255,6 +271,7 @@ export default function MammaPrintPage() {
                 {report.label}
                 <span aria-hidden="true">↓</span>
               </a>
+              </Spotlight>
             </Reveal>
           ))}
         </div>
@@ -269,7 +286,7 @@ export default function MammaPrintPage() {
         </Reveal>
       </section>
 
-      <section className="border-t border-border bg-surface-muted">
+      <section id="referanslar" className="scroll-mt-28 border-t border-border bg-surface-muted">
         <div className="mx-auto max-w-4xl px-4 py-8 text-xs text-text-muted sm:px-8">
           <p className="font-semibold text-primary-900">Referanslar</p>
           <ol className="mt-2 list-inside list-decimal space-y-1">

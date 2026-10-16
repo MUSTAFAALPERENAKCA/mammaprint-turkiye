@@ -2,15 +2,29 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { primaryNav } from "@/lib/nav-data";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 12);
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-30 border-b border-border bg-surface/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-8">
+    <header
+      className={`sticky top-0 z-30 border-b bg-surface/80 backdrop-blur-md transition-all duration-300 ${
+        scrolled ? "border-border shadow-soft-lg" : "border-transparent"
+      }`}
+    >
+      <div className={`mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-8 transition-all duration-300 ${scrolled ? "py-2" : "py-3"}`}>
         <Link href="/" className="flex items-center gap-2 py-1 text-lg font-semibold text-primary-900">
           <Image src="/brand/mammaprint-mark.png" alt="" width={28} height={25} aria-hidden="true" />
           MammaPrint Türkiye

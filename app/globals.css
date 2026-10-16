@@ -52,6 +52,7 @@
   --color-danger: var(--color-danger);
   --color-focus-ring: var(--color-focus-ring);
   --font-sans: var(--font-inter);
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
 
   --text-display: 44px;
   --text-h1: 36px;
@@ -84,6 +85,18 @@
       transform: translateY(0);
     }
   }
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  letter-spacing: -0.015em;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -177,6 +190,112 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .text-shimmer {
     animation: none;
+  }
+}
+
+/* Başlıklarda kelime kelime giriş — bkz. components/content/animated-words.tsx */
+.word-in {
+  display: inline-block;
+  opacity: 0;
+  animation: word-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes word-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.55em) rotate(2deg);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+    filter: blur(0);
+  }
+}
+
+/* Yüzen öğeler: yalnızca transform animasyonu (blur yok) — ucuz */
+.float-y {
+  animation: float-y 6s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+.spin-slow {
+  animation: spin-slow 60s linear infinite;
+}
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.pulse-soft {
+  animation: pulse-soft 4s ease-in-out infinite;
+}
+@keyframes pulse-soft {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 0.85;
+  }
+}
+
+/* Kayan güven şeridi */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Fare takipli ışık (spotlight) — bkz. components/content/spotlight.tsx */
+.spotlight-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), var(--spot, rgba(198, 53, 122, 0.16)), transparent 60%);
+}
+.spotlight:hover .spotlight-glow {
+  opacity: 1;
+}
+@media (hover: none) {
+  .spotlight-glow {
+    display: none;
+  }
+}
+
+/* Akan kenarlık degradesi (CTA vurgusu) */
+.border-flow {
+  background: linear-gradient(120deg, #c6357a, #1e6fa8, #c6357a);
+  background-size: 200% 200%;
+  animation: border-flow 6s ease-in-out infinite;
+}
+@keyframes border-flow {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }
 

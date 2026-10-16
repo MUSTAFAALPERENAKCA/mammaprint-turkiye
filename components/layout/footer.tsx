@@ -3,55 +3,76 @@ import Link from "next/link";
 import { footerLegalLinks } from "@/lib/nav-data";
 import { CookiePreferencesButton } from "@/components/consent/cookie-preferences-button";
 
+const linkClass =
+  "group relative inline-block py-1.5 text-white/70 transition-colors duration-300 hover:text-white";
+
+function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <Link href={href} className={linkClass}>
+      {children}
+      <span className="absolute inset-x-0 bottom-1 h-px origin-left scale-x-0 bg-gradient-to-r from-mammaprint-accent to-blueprint-accent transition-transform duration-300 group-hover:scale-x-100" />
+    </Link>
+  );
+}
+
 export function Footer() {
   return (
-    <footer className="mt-auto border-t border-border bg-surface-muted">
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-8">
-        <div className="grid gap-8 sm:grid-cols-3">
+    <footer className="relative isolate mt-auto overflow-hidden bg-primary-900 text-white">
+      <div
+        className="pointer-events-none absolute inset-0 -z-10"
+        style={{
+          background:
+            "radial-gradient(45% 80% at 0% 0%, rgba(198,53,122,0.28), transparent 60%), radial-gradient(40% 70% at 100% 100%, rgba(30,111,168,0.3), transparent 60%)",
+        }}
+      />
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-8">
+        <div className="grid gap-10 sm:grid-cols-3">
           <div>
-            <div className="flex items-center gap-2">
-              <Image src="/brand/mammaprint-mark.png" alt="" width={24} height={21} aria-hidden="true" />
-              <Image src="/brand/blueprint-mark.png" alt="" width={24} height={21} aria-hidden="true" />
-              <p className="font-semibold text-primary-900">MammaPrint Türkiye</p>
+            <div className="flex items-center gap-3">
+              <Image src="/brand/mammaprint-mark.png" alt="" width={36} height={32} aria-hidden="true" />
+              <Image src="/brand/blueprint-mark.png" alt="" width={36} height={32} aria-hidden="true" />
             </div>
-            <p className="mt-2 text-sm text-text-muted">
+            <p className="mt-4 font-[family-name:var(--font-display)] text-xl font-semibold">MammaPrint Türkiye</p>
+            <p className="mt-2 max-w-xs text-sm text-white/65">
               MammaPrint® ve BluePrint® testleri hakkında hasta ve sağlık profesyonelleri için
               bilgilendirme amaçlı içerik sunar.
             </p>
           </div>
           <div>
-            <p className="font-semibold">Hızlı bağlantılar</p>
-            <ul className="mt-2 text-sm text-text-muted">
+            <p className="text-sm font-semibold uppercase tracking-wider text-white/90">Hızlı bağlantılar</p>
+            <ul className="mt-3 text-sm">
               <li>
-                <Link className="inline-block py-1.5 hover:text-primary-900" href="/mammaprint">MammaPrint</Link>
+                <FooterLink href="/mammaprint">MammaPrint</FooterLink>
               </li>
               <li>
-                <Link className="inline-block py-1.5 hover:text-primary-900" href="/blueprint">BluePrint</Link>
+                <FooterLink href="/blueprint">BluePrint</FooterLink>
               </li>
               <li>
-                <Link className="inline-block py-1.5 hover:text-primary-900" href="/iletisim">İletişim</Link>
+                <FooterLink href="/iletisim">İletişim</FooterLink>
               </li>
             </ul>
           </div>
           <div>
-            <p className="font-semibold">Yasal</p>
-            <ul className="mt-2 text-sm text-text-muted">
+            <p className="text-sm font-semibold uppercase tracking-wider text-white/90">Yasal</p>
+            <ul className="mt-3 text-sm">
               {footerLegalLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="inline-block py-1.5 hover:text-primary-900">{link.label}</Link>
+                  <FooterLink href={link.href}>{link.label}</FooterLink>
                 </li>
               ))}
-              <li>
+              <li className="text-white/70">
                 <CookiePreferencesButton />
               </li>
             </ul>
           </div>
         </div>
-        <p className="mt-8 text-xs text-text-muted">
-          Bu sitedeki içerikler yalnızca genel bilgilendirme amaçlıdır; tanı veya tedavi yerine
-          geçmez. Kişisel sağlık kararları için lütfen hekiminize danışın. MammaPrint® ve
-          BluePrint® Agendia&apos;nın tescilli markalarıdır.
-        </p>
+        <div className="mt-10 border-t border-white/10 pt-6">
+          <p className="text-xs leading-relaxed text-white/55">
+            Bu sitedeki içerikler yalnızca genel bilgilendirme amaçlıdır; tanı veya tedavi yerine
+            geçmez. Kişisel sağlık kararları için lütfen hekiminize danışın. MammaPrint® ve
+            BluePrint® Agendia&apos;nın tescilli markalarıdır.
+          </p>
+        </div>
       </div>
     </footer>
   );
