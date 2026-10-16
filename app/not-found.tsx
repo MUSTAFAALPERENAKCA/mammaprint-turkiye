@@ -13,8 +13,11 @@ export default function NotFound() {
         <Link href="/" className="rounded-button bg-primary-900 px-5 py-3 text-sm font-medium text-white">
           Ana Sayfaya Dön
         </Link>
-        <Link href="/testler" className="rounded-button border border-border px-5 py-3 text-sm font-medium hover:bg-surface-muted">
-          Testleri İnceleyin
+        <Link href="/mammaprint" className="rounded-button border border-border px-5 py-3 text-sm font-medium hover:bg-surface-muted">
+          MammaPrint
+        </Link>
+        <Link href="/blueprint" className="rounded-button border border-border px-5 py-3 text-sm font-medium hover:bg-surface-muted">
+          BluePrint
         </Link>
         <Link href="/iletisim" className="rounded-button border border-border px-5 py-3 text-sm font-medium hover:bg-surface-muted">
           İletişime Geçin
